@@ -267,30 +267,47 @@ class SegawaWriter(tk.Tk):
         self.log("完了しました。")
 
     def update_seminars_html(self):
-        # seminars.html 更新ロジック (前回のコードと同じ)
+        # 現在のファイル一覧を取得してリンクを生成
+        self.log("seminars.html を更新中...")
+        
         with open(SEMINARS_HTML, 'r', encoding='utf-8') as f:
             html_content = f.read()
+            
+        # クリーニング: <!DOCTYPE html> より前のゴミを削除
+        if "<!DOCTYPE html>" in html_content:
+            idx = html_content.find("<!DOCTYPE html>")
+            if idx > 0:
+                html_content = html_content[idx:]
+                self.log("HTMLファイルの破損(ヘッダー混入)を修復しました。")
             
         for cat, cat_name in CATEGORIES.items():
             dir_path = os.path.join(POSTS_DIR, cat)
             if not os.path.exists(dir_path): continue
             
+            # JSONファイルを走査して日付順または名前順にソート
             files = [f for f in os.listdir(dir_path) if f.endswith('.json')]
-            files.sort(reverse=True)
+            files.sort(reverse=True) # 新しい順（簡易的にファイル名で）
             
             new_list_items = []
             for json_file in files:
                 fid = os.path.splitext(json_file)[0]
                 json_path = os.path.join(dir_path, json_file)
+                
+                # タイトルと日付を取得
                 try:
                     with open(json_path, 'r', encoding='utf-8') as f:
                         import json
                         data = json.load(f)
                         title = data.get('title', '無題')
                         date = data.get('date', '----/--/--')
+                        published = data.get('published', True)
+                        
+                        if not published:
+                            continue
                 except:
                     continue
                 
+                # リンクHTML生成
                 item_html = f'''                <li class="article-item">
                     <a href="article_view.html?p={cat}/{fid}">
                         <span class="article-date">{date}</span>
@@ -299,36 +316,50 @@ class SegawaWriter(tk.Tk):
                 </li>'''
                 new_list_items.append(item_html)
             
+            # 挿入
             marker = f'<!-- AUTO-INSERT: {cat} -->'
             if marker in html_content:
+                # マーカーから次の </ul> までを置換... ではなく、
+                # マーカーの直後にリストを再生成して挿入する方式にする（既存の手動リンクが消えるリスクがあるが、管理を一元化するため）
+                # 今回は「マーカーの直後」に追記するのではなく、「マーカー ～ </ul> の間」を書き換える
+                
                 pattern = re.compile(f'({marker})(.*?)(</ul>)', re.DOTALL)
+                
                 def replace_func(match):
                     return match.group(1) + "\n" + "\n".join(new_list_items) + "\n            " + match.group(3)
+                
                 html_content = pattern.sub(replace_func, html_content)
         
         with open(SEMINARS_HTML, 'w', encoding='utf-8') as f:
             f.write(html_content)
+            
+        self.log("seminars.html を更新しました。")
 
     def git_push(self):
-        self.log("Git同期開始...")
+        self.log("Gitへのアップロードを開始...")
         try:
-            subprocess.run(["git", "add", "."], check=True, shell=True)
+            # 1. Add & Commit
+            subprocess.run(["git", "add", "."], check=True, shell=True, cwd=BASE_DIR)
+            
             try:
-                subprocess.run(["git", "commit", "-m", "Update via Segawa Writer"], check=True, shell=True)
-            except:
-                pass
+                subprocess.run(["git", "commit", "-m", "Auto update via Segawa Writer"], check=True, shell=True, cwd=BASE_DIR)
+            except subprocess.CalledProcessError:
+                self.log("変更がないためコミットはスキップされました。")
+
+            # 2. Pull (競合解消のため)
+            self.log("リモートリポジトリと同期中(pull)...")
+            subprocess.run(["git", "pull", "origin", "main"], check=True, shell=True, cwd=BASE_DIR)
+
+            # 3. Push
+            self.log("GitHubへ送信中(push)...")
+            subprocess.run(["git", "push", "origin", "main"], check=True, shell=True, cwd=BASE_DIR)
             
-            self.log("Pulling...")
-            subprocess.run(["git", "pull", "origin", "main"], check=True, shell=True)
+            self.log("アップロード完了！")
+            messagebox.showinfo("成功", "サイトの公開が完了しました！")
             
-            self.log("Pushing...")
-            subprocess.run(["git", "push", "origin", "main"], check=True, shell=True)
-            
-            self.log("完了！")
-            messagebox.showinfo("成功", "公開完了！")
         except subprocess.CalledProcessError as e:
-            self.log(f"Error: {e}")
-            messagebox.showerror("エラー", str(e))
+            self.log(f"エラーが発生しました: {e}")
+            messagebox.showerror("エラー", f"Git操作に失敗しました。\n\n詳細:\n{e}")
 
 if __name__ == "__main__":
     app = SegawaWriter()

@@ -13,6 +13,7 @@ def parse_segawa_script(filepath):
     article = {
         "title": "無題",
         "date": "----/--/--",
+        "published": True, # デフォルト公開
         "data": []
     }
 
@@ -29,9 +30,24 @@ def parse_segawa_script(filepath):
             article["title"] = line[6:].strip()
         elif line.lower().startswith("date:"):
             article["date"] = line[5:].strip()
+        elif line.lower().startswith("status:"):
+            status = line[7:].strip().lower()
+            if status in ["draft", "private", "非公開"]:
+                article["published"] = False
         else:
             break
         line_idx += 1
+
+    # Markdown風記法の変換
+    def format_line(text):
+        # コード (`...`)
+        text = re.sub(r'`(.*?)`', r'<code>\1</code>', text)
+        # 太字 (**...**)
+        text = re.sub(r'\*\*(.*?)\*\*', r'<b>\1</b>', text)
+        # リスト (* ...) -> 中黒
+        if text.startswith("* "):
+            text = "・" + text[2:]
+        return text
 
     # --- 本文解析 ---
     while line_idx < len(lines):
@@ -45,6 +61,8 @@ def parse_segawa_script(filepath):
         # 1. 見出し (#)
         if stripped.startswith("#"):
             content = stripped.lstrip("#").strip()
+            # 見出しにも適用
+            content = format_line(content)
             article["data"].append({
                 "type": "heading",
                 "content": content
@@ -54,8 +72,7 @@ def parse_segawa_script(filepath):
 
         # 2. 画像 (!img:)
         if stripped.startswith("!img:"):
-            # 形式: !img: path/to/image.png [Caption]
-            # キャプションは省略可能
+            # ... (変更なし) ...
             content = stripped[5:].strip()
             match = re.match(r'^(.*?)(\s*\[(.*?)\])?$', content)
             src = match.group(1).strip() if match else content
@@ -72,15 +89,16 @@ def parse_segawa_script(filepath):
         # 3. 折りたたみ (!fold:)
         if stripped.startswith("!fold:"):
             summary = stripped[6:].strip()
+            summary = format_line(summary)
             
-            # コンテンツを読み込む
             content_lines = []
             line_idx += 1
             while line_idx < len(lines):
                 next_raw = lines[line_idx]
-                if not next_raw.strip(): # 空行でブロック終了
+                # インデントされていない、かつ空行でない場合はブロック終了
+                if next_raw.strip() and not (next_raw.startswith(" ") or next_raw.startswith("\t")):
                     break
-                content_lines.append(next_raw.strip())
+                content_lines.append(format_line(next_raw.strip()))
                 line_idx += 1
             
             article["data"].append({
@@ -96,7 +114,7 @@ def parse_segawa_script(filepath):
             line_idx += 1
             while line_idx < len(lines):
                 next_raw = lines[line_idx]
-                if not next_raw.strip():
+                if next_raw.strip() and not (next_raw.startswith(" ") or next_raw.startswith("\t")):
                     break
                 content_lines.append(next_raw.strip())
                 line_idx += 1
@@ -107,14 +125,14 @@ def parse_segawa_script(filepath):
             })
             continue
 
-        # 6. コードブロック (!code:)
+        # 5. コードブロック (!code:)
         if stripped.startswith("!code:"):
-            lang = stripped[6:].strip() # 言語名を取得
+            lang = stripped[6:].strip()
             content_lines = []
             line_idx += 1
             while line_idx < len(lines):
                 next_raw = lines[line_idx]
-                if not next_raw.strip():
+                if next_raw.strip() and not (next_raw.startswith(" ") or next_raw.startswith("\t")):
                     break
                 content_lines.append(next_raw.rstrip())
                 line_idx += 1
@@ -126,16 +144,17 @@ def parse_segawa_script(filepath):
             })
             continue
 
-        # 7. 囲み枠 (!box:)
+        # 6. 囲み枠 (!box:)
         if stripped.startswith("!box:"):
             title = stripped[5:].strip()
+            title = format_line(title)
             content_lines = []
             line_idx += 1
             while line_idx < len(lines):
                 next_raw = lines[line_idx]
-                if not next_raw.strip():
+                if next_raw.strip() and not (next_raw.startswith(" ") or next_raw.startswith("\t")):
                     break
-                content_lines.append(next_raw.strip())
+                content_lines.append(format_line(next_raw.strip()))
                 line_idx += 1
             
             article["data"].append({
@@ -145,15 +164,15 @@ def parse_segawa_script(filepath):
             })
             continue
 
-        # 8. 通常の会話 (話者名)
+        # 7. 通常の会話 (話者名)
         speaker = stripped
         content_lines = []
         line_idx += 1
         while line_idx < len(lines):
             next_raw = lines[line_idx]
-            if not next_raw.strip():
+            if next_raw.strip() and not (next_raw.startswith(" ") or next_raw.startswith("\t")):
                 break
-            content_lines.append(next_raw.strip())
+            content_lines.append(format_line(next_raw.strip()))
             line_idx += 1
 
         if content_lines:

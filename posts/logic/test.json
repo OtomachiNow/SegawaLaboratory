@@ -1,6 +1,7 @@
 {
   "title": "タイトル未定",
   "date": "2026/01/14",
+  "published": true,
   "data": [
     {
       "type": "heading",
@@ -9,12 +10,77 @@
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "content": "ここに本文を書いてね。"
+      "content": "ここに本文を書いてね。<br>"
     },
     {
       "type": "image",
       "src": "sources/logic/G-Y-fHSbIAAoAtg.jpg",
       "caption": "キャプション"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "content": "これで合ってるんですか<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "content": "合ってないんじゃない？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "content": "ところで，前回の宿題だけど，正解は一つ目だけだったのよね．残りの二つは論理式として不適合．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "content": "三つ目が違うことは分かりましたよ．もともとない $A$ という記号がありましたから．でも二つ目が違うのはどうしてですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "content": "定義にそうあるからよ．論理式の定義では，論理結合子を使った場合かならず $()$ で両端が閉じるようになってるの．だけど二つ目では $\\to$ についてはそうなっていない．だからアウトってわけ．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "content": "定義にそうあるですか...<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "content": "なによその不満そうな顔は．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "content": "そりゃ定義には両端にカッコがありますけど，こんなのって誤差じゃないですか誤差．論理式の意味は変わんないでしょう！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "content": "誤差かもしれないけど，それはたまたま今回の論理式が簡単な形をしているだけよ．世の中には010010111010みたいな論理式もあるんだから<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "content": "例えば計算機の文脈ではかなりそういうことは多いわね．BrainF**kっていうジョーク言語では限られた文字しか使えないことが多いわ．今回はアルファベットに加えて４つも記号があるからリッチなもんよね．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "content": "（耳に入らなさそうな顔）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "content": "うす<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "content": "うすうす"
     }
   ]
 }

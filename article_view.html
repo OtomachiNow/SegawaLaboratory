@@ -308,8 +308,23 @@
             background-color: #ff9800;
         }
 
+        /* プレビューモード用スタイル */
+        .preview-mode a {
+            pointer-events: none; /* リンク無効化 */
+            color: inherit;       /* 色も通常テキストと同じに */
+            text-decoration: none;
+            cursor: default;
+        }
+        .preview-mode .header, .preview-mode .foot {
+            /* ヘッダーとフッターを目立たなくする（お好みで） */
+            opacity: 0.7;
+        }
+
         .foot{
             padding: 15px 0;
+            text-align: center;
+            background-color: burlywood;
+        }
     </style>
 </head>
 <body>
@@ -340,6 +355,12 @@
         try {
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('p') || 'logic/01'; // デフォルトまたは指定なし
+            
+            // プレビューモード判定
+            if (urlParams.get('preview') === 'true') {
+                document.body.classList.add('preview-mode');
+            }
+
             const response = await fetch(`posts/${postId}.json`);
 
             if (!response.ok) {
