@@ -157,3 +157,5 @@ Date: 2026/01/12
     ・$((\neg X)\land X ) \to Y$
     ・$(A\to (X\lor \neg X))$
 
+
+

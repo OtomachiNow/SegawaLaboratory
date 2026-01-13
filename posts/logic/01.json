@@ -230,7 +230,7 @@
     {
       "type": "box",
       "title": "宿題",
-      "content": "$X,Y$ を論理式として，次の文字列が論理式であるかどうかを見よ．<br>・$((\\neg(X\\to Y)) \\to (\\neg Y \\to \\neg X))$<br>・$((\\neg X)\\land X ) \\to Y$<br>・$(A\\to (X\\lor \\neg X))$<br>"
+      "content": "$X,Y$ を論理式として，次の文字列が論理式であるかどうかを見よ．<br>・$((\\neg(X\\to Y)) \\to (\\neg Y \\to \\neg X))$<br>・$((\\neg X)\\land X ) \\to Y$<br>・$(A\\to (X\\lor \\neg X))$<br><br><br>"
     }
   ]
 }

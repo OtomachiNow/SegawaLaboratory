@@ -1,4 +1,4 @@
-Title: タイトル未定
+Title: 命題論理-2
 Date: 2026/01/14
 Status: public
 
@@ -47,6 +47,8 @@ Status: public
 
 柿山
     うすうす
+
+
 
 
 
