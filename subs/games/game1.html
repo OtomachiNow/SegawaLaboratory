@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ゲーム</title>
+    <style>
+        body{
+            margin:0px;
+            background-color: #f4f4f4;
+        }
+        /* 幅制限用の共通スタイル */
+        .width-constraint {
+            width: 90%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.7);
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #333;
+        }
+        .header h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .clm{
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .mokuzi{
+            width: 25%;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 20px;
+            background-color: aquamarine;
+            padding: 20px 10px;
+            border-radius: 5px;
+            height: fit-content;
+        }
+
+        /* もくじのリンクデザイン改善 */
+        .mokuzi h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 5px;
+        }
+        .mokuzi p {
+            margin: 10px 0;
+        }
+        .mokuzi a {
+            display: block;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.6);
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .mokuzi a:hover {
+            background-color: #fff;
+            transform: translateX(5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #008c9e;
+        }
+
+        .main{
+            width: 73%;
+            text-align: left;
+            background-color: bisque;
+            border-radius: 5px;
+            padding-bottom: 50px;
+        }
+        .code{
+            position: relative;
+            left: 50px;
+        }
+        .cnt{
+            margin: 20px;
+        }
+        #brank{
+            margin-bottom: 36px;
+        }
+        img{
+            height: auto;
+            max-width: 100%;
+        }
+        .foot{
+            height: 50px;
+            text-align: center;
+            background-color: burlywood;
+            line-height: 50px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="backall">
+    <div class="header width-constraint" id="head">
+        <h1><a href="../../index.html">瀬川研究室</a></h1>
+        <p>ゲーム</p>
+    </div>
+    <div class="clm width-constraint">
+        <div class="mokuzi">
+            <h2>もくじ</h2>
+            <p><a href="../../index.html">トップ</a></p>
+            <p><a href="../../seminars.html">ゼミ一覧</a></p>
+            <p><a href="../math.html">数学/情報</a></p>
+            <p><a href="../game.html">ゲーム</a></p>
+        </div>
+
+        <div class="main">
+            <div class="cnt">
+                <h1 id="brank">Space Heavenはいいぞ!!!!!!!!!</h1>
+                <p>宇宙に飛び出し略奪の日々! 夢は憧れの超弩級戦艦! </p>
+                <p>子供の夢を叶えるゲーム! それが Space Heaven だ!!!</p>
+                <figure>
+                    <img src="./sources/game1/225551.png" alt="">
+                    <figcaption>-自分で作る宇宙船!!!-</figcaption>
+                </figure>
+                <p>プレイヤーはゲーム開始と同時にわずかな資源を元に小型船を作り，壮大な銀河へ漕ぎ出してゆく．</p>
+                <p>目指すは銀河団で噂の”HEAVEN”．緑あふれ，資源豊かな夢の宙域だ．</p>
+                <figure>
+                    <img src="./sources/game1/194948.png" alt="">
+                    <figcaption>共に旅をする仲間</figcaption>
+                </figure>
+                <p>様々な性格，技能，性癖(?)を持つクルーと共に広大な宇宙を放浪する．</p>
+                <p>時にはクルー同士が互いを"敵"と認識してしまうことも(勘弁してくれ</p>
+                <figure>
+                    <img src="./sources/game1/194921.png" alt="">
+                    <figcaption>大量の宙域にそれを包含するセクター群</figcaption>
+                </figure>
+                <p>HEAVENを追い求めるのは君だけではない．軍事同盟，アンドロイド，教団，さらに海賊，奴隷商など強大なグループが銀河を跋扈する．</p>
+                <p>グループ同士の抗争に漁夫の利を得るのも手だ．</p>
+                <figure>
+                    <img src="./sources/game1/222453.png" alt="">
+                    <figcaption>遁走する敵船長を処刑する我らがクルー</figcaption>
+                </figure>
+                <p>さぁ!!君も今すぐSpace Heavenを購入し，狂騒の銀河へ繰り出せ!!</p>
+                <h2>Steamで税込み¥ 2,499!!! 今すぐコンビニにDASH!!!</h2>
+            </div>
+        </div>
+    </div>
+    <footer class="foot width-constraint">
+        <p></p>
+    </footer>
+</body>

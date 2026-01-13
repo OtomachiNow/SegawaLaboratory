@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ゲーム</title>
+    <style>
+        body{
+            margin:0px;
+            background-color: #f4f4f4;
+        }
+        /* 幅制限用の共通スタイル */
+        .width-constraint {
+            width: 90%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        /* 記事リストスタイル追加 */
+        .article-list {
+            list-style: none;
+            padding: 20px;
+        }
+        .article-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-left: 4px solid #aaa;
+            transition: all 0.2s;
+            border-radius: 0 4px 4px 0;
+        }
+        .article-item:hover {
+            border-left-color: #00bcd4;
+            background-color: #f0f8ff;
+            transform: translateX(5px);
+        }
+        .article-item a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            width: 100%;
+            font-size: 1.1em;
+        }
+
+        .header {
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.7);
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #333;
+        }
+        .header h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .clm{
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .mokuzi{
+            width: 25%;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 20px;
+            background-color: aquamarine;
+            padding: 20px 10px;
+            border-radius: 5px;
+            height: fit-content;
+        }
+
+        /* もくじのリンクデザイン改善 */
+        .mokuzi h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 5px;
+        }
+        .mokuzi p {
+            margin: 10px 0;
+        }
+        .mokuzi a {
+            display: block;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.6);
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .mokuzi a:hover {
+            background-color: #fff;
+            transform: translateX(5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #008c9e;
+        }
+
+        .main{
+            width: 73%;
+            height: 1200px;
+            text-align: left;
+            background-color: bisque;
+            border-radius: 5px;
+        }
+        .post{
+            margin: 20px;
+            margin-top: 10px;
+        }
+        .foot{
+            height: 50px;
+            text-align: center;
+            background-color: burlywood;
+            line-height: 50px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header width-constraint" id="head">
+        <h1><a href="../index.html">瀬川研究室</a></h1>
+        <p>ゲーム</p>
+    </div>
+
+    <div class="clm width-constraint">
+        <div class="mokuzi">
+            <h2>もくじ</h2>
+            <p><a href="../index.html">トップ</a></p>
+            <p><a href="../seminars.html">ゼミ一覧</a></p>
+            <p><a href="math.html">数学/情報</a></p>
+            <p><a href="#">ゲーム</a></p>
+        </div>
+
+        <div class="main">
+            <h2 style="padding: 20px 0 0 20px;">記事一覧</h2>
+            <ul class="article-list">
+                <li class="article-item">
+                    <a href="./games/game1.html">Space Heavenはいいぞ！！！！！！！(クソデカ大声)</a>
+                </li>
+            </ul>
+        </div>
+        
+
+    </div>
+
+    <footer class="foot width-constraint">
+        
+    </footer>
+
+</body>
