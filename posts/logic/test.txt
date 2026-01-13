@@ -1,6 +1,6 @@
 Title: タイトル未定
 Date: 2026/01/14
-Status: draft
+Status: public
 
 # はじめに
 
@@ -47,5 +47,6 @@ Status: draft
 
 柿山
     うすうす
+
 
 

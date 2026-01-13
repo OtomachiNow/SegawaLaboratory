@@ -1,7 +1,7 @@
 {
   "title": "タイトル未定",
   "date": "2026/01/14",
-  "published": false,
+  "published": true,
   "data": [
     {
       "type": "heading",
@@ -80,7 +80,7 @@
     {
       "type": "dialogue",
       "speaker": "柿山",
-      "content": "うすうす<br><br>"
+      "content": "うすうす<br><br><br>"
     }
   ]
 }
