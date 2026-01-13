@@ -202,14 +202,29 @@ class SegawaWriter(tk.Tk):
     def git_push(self):
         self.log("Gitへのアップロードを開始...")
         try:
+            # 1. Add & Commit
             subprocess.run(["git", "add", "."], check=True, shell=True)
-            subprocess.run(["git", "commit", "-m", "Auto update via Segawa Writer"], check=True, shell=True)
+            
+            # コミットは変更がない場合にエラーになることがあるので、try-exceptで囲むか、あるいはエラーを許容する
+            try:
+                subprocess.run(["git", "commit", "-m", "Auto update via Segawa Writer"], check=True, shell=True)
+            except subprocess.CalledProcessError:
+                self.log("変更がないためコミットはスキップされました。")
+
+            # 2. Pull (競合解消のため)
+            self.log("リモートリポジトリと同期中(pull)...")
+            subprocess.run(["git", "pull", "origin", "main"], check=True, shell=True)
+
+            # 3. Push
+            self.log("GitHubへ送信中(push)...")
             subprocess.run(["git", "push", "origin", "main"], check=True, shell=True)
+            
             self.log("アップロード完了！")
             messagebox.showinfo("成功", "サイトの公開が完了しました！")
+            
         except subprocess.CalledProcessError as e:
-            self.log(f"エラー: {e}")
-            messagebox.showerror("エラー", "Git操作に失敗しました。\nコンソールを確認してください。")
+            self.log(f"エラーが発生しました: {e}")
+            messagebox.showerror("エラー", f"Git操作に失敗しました。\n\n詳細:\n{e}")
 
 if __name__ == "__main__":
     app = SegawaWriter()

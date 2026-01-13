@@ -10,6 +10,11 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "content": "ここに本文を書いてね。"
+    },
+    {
+      "type": "image",
+      "src": "sources/logic/G-Y-fHSbIAAoAtg.jpg",
+      "caption": "キャプション"
     }
   ]
 }
