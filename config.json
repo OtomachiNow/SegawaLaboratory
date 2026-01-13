@@ -3,6 +3,7 @@
         "logic": "命題論理ゼミ",
         "algebra": "リー代数ゼミ",
         "computation": "計算可能性ゼミ",
-        "draft": "下書き・その他"
+        "draft": "下書き・その他",
+        "TestJanle": "TestJanle"
     }
 }
