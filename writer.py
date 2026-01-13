@@ -5,352 +5,194 @@ import shutil
 import subprocess
 import datetime
 import re
-# txt2jsonは同じフォルダにある前提
-try:
-    from txt2json import parse_segawa_script, main as convert_json
-except ImportError:
-    pass # txt2jsonがない場合のエラーハンドリングが必要なら追加
+import json
 
 # 設定
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 POSTS_DIR = os.path.join(BASE_DIR, 'posts')
 SOURCES_DIR = os.path.join(BASE_DIR, 'sources')
 SEMINARS_HTML = os.path.join(BASE_DIR, 'seminars.html')
-
-CATEGORIES = {
-    'logic': '命題論理ゼミ',
-    'algebra': 'リー代数ゼミ',
-    'computation': '計算可能性ゼミ'
-}
+CONFIG_FILE = os.path.join(BASE_DIR, 'config.json')
 
 class SegawaWriter(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("Segawa Writer - 記事管理システム")
-        self.geometry("650x600")
+        self.title("Segawa Writer - 管理・公開")
+        self.geometry("600x500")
+        
+        # 設定読み込み
+        self.categories = self.load_config()
         
         style = ttk.Style()
         style.theme_use('clam')
-        
         self.create_widgets()
         
-        # 初期表示更新
-        self.on_mode_change()
+    def load_config(self):
+        default_cats = {
+            'logic': {'name': '命題論理ゼミ', 'desc': '形式論理の基礎'},
+            'algebra': {'name': 'リー代数ゼミ', 'desc': 'リー群・リー代数'},
+            'computation': {'name': '計算可能性ゼミ', 'desc': 'チューリングマシン等'},
+            'draft': {'name': '下書き・その他', 'desc': '作業用'}
+        }
+        if os.path.exists(CONFIG_FILE):
+            try:
+                with open(CONFIG_FILE, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    cats = data.get('categories', {})
+                    # 辞書形式への正規化
+                    new_cats = {}
+                    for k, v in cats.items():
+                        if isinstance(v, str):
+                            new_cats[k] = {'name': v, 'desc': ''}
+                        else:
+                            new_cats[k] = v
+                    return new_cats if new_cats else default_cats
+            except:
+                return default_cats
+        return default_cats
 
     def create_widgets(self):
-        # --- 1. 記事選択エリア ---
-        frame_top = ttk.LabelFrame(self, text="記事の選択・作成", padding=10)
-        frame_top.pack(fill="x", padx=10, pady=5)
-        
-        # ジャンル選択
-        frame_cat = ttk.Frame(frame_top)
-        frame_cat.pack(fill="x", pady=5)
-        ttk.Label(frame_cat, text="ジャンル:").pack(side="left")
-        self.combo_category = ttk.Combobox(frame_cat, values=list(CATEGORIES.keys()), state="readonly")
-        self.combo_category.current(0)
-        self.combo_category.pack(side="left", padx=5, fill="x", expand=True)
-        self.combo_category.bind("<<ComboboxSelected>>", self.on_category_change)
-
-        # モード選択（ラジオボタン）
-        frame_mode = ttk.Frame(frame_top)
-        frame_mode.pack(fill="x", pady=5)
-        self.mode_var = tk.StringVar(value="existing")
-        
-        ttk.Radiobutton(frame_mode, text="既存記事", variable=self.mode_var, value="existing", command=self.on_mode_change).pack(side="left", padx=5)
-        ttk.Radiobutton(frame_mode, text="新規作成", variable=self.mode_var, value="new", command=self.on_mode_change).pack(side="left", padx=5)
-        ttk.Radiobutton(frame_mode, text="テスト/下書き", variable=self.mode_var, value="draft", command=self.on_mode_change).pack(side="left", padx=5)
-
-        # ファイル選択・入力エリア
-        self.frame_file = ttk.Frame(frame_top)
-        self.frame_file.pack(fill="x", pady=5)
-        
-        # ※この中身はモードによって書き換える
-        self.lbl_file = ttk.Label(self.frame_file, text="記事を選択:")
-        self.lbl_file.pack(side="left")
-        
-        self.combo_file = ttk.Combobox(self.frame_file, state="readonly", width=40)
-        self.combo_file.pack(side="left", padx=5, fill="x", expand=True)
-        
-        self.entry_new_id = ttk.Entry(self.frame_file)
-        # 初期状態では非表示にしておくなど制御が必要だが、update_uiでやる
-
-        ttk.Button(frame_top, text="エディタで開く", command=self.open_editor).pack(pady=5)
-
-
-        # --- 2. 画像インポートエリア ---
-        frame_img = ttk.LabelFrame(self, text="画像のインポート", padding=10)
-        frame_img.pack(fill="x", padx=10, pady=5)
-        
-        ttk.Label(frame_img, text="画像を選択すると sources フォルダにコピーされます。").pack()
-        frame_img_btns = ttk.Frame(frame_img)
-        frame_img_btns.pack(pady=5)
-        ttk.Button(frame_img_btns, text="画像を選択...", command=self.import_image).pack(side="left", padx=5)
-        
-        self.entry_img_path = ttk.Entry(frame_img, width=60)
-        self.entry_img_path.pack(pady=5, fill="x")
-
-        # --- 3. 公開エリア ---
+        # ... (GUI部分は今回はStudioから呼ばれるだけなので簡易的で良いが、単体起動用に残す)
         frame_action = ttk.LabelFrame(self, text="サイト反映 & 公開", padding=10)
         frame_action.pack(fill="both", expand=True, padx=10, pady=5)
         
-        btn_convert = ttk.Button(frame_action, text="サイトに反映 (JSON変換 + リンク更新)", command=self.update_site)
-        btn_convert.pack(fill="x", pady=2)
+        btn_convert = ttk.Button(frame_action, text="サイトに反映 (JSON変換 + HTML再構築)", command=self.update_site)
+        btn_convert.pack(fill="x", pady=5)
         
         btn_push = ttk.Button(frame_action, text="GitHubにアップロード", command=self.git_push)
-        btn_push.pack(fill="x", pady=2)
+        btn_push.pack(fill="x", pady=5)
         
-        self.log_area = tk.Text(frame_action, height=6)
+        self.log_area = tk.Text(frame_action, height=15)
         self.log_area.pack(fill="both", expand=True, pady=5)
 
-    # --- UI制御ロジック ---
-
-    def on_category_change(self, event=None):
-        self.update_file_list()
-
-    def on_mode_change(self):
-        mode = self.mode_var.get()
-        
-        # ウィジェットの表示切り替え
-        self.combo_file.pack_forget()
-        self.entry_new_id.pack_forget()
-        
-        if mode == "new":
-            self.lbl_file.config(text="ファイル名 (ID):")
-            self.entry_new_id.pack(side="left", padx=5, fill="x", expand=True)
-            self.combo_category.config(state="readonly") # ジャンル選択有効
-        elif mode == "draft":
-            self.lbl_file.config(text="ファイル選択:")
-            self.combo_file.pack(side="left", padx=5, fill="x", expand=True)
-            self.combo_category.config(state="disabled") # ドラフトはジャンル関係なし
-            self.update_file_list()
-        else: # existing
-            self.lbl_file.config(text="記事を選択:")
-            self.combo_file.pack(side="left", padx=5, fill="x", expand=True)
-            self.combo_category.config(state="readonly")
-            self.update_file_list()
-
-    def get_article_title(self, path):
-        """ファイルの Title: 行を取得する"""
-        try:
-            with open(path, 'r', encoding='utf-8') as f:
-                for _ in range(5): # 最初の5行くらいを見る
-                    line = f.readline()
-                    if line.lower().startswith("title:"):
-                        return line[6:].strip()
-        except:
-            return "読み込みエラー"
-        return "タイトルなし"
-
-    def update_file_list(self):
-        mode = self.mode_var.get()
-        values = []
-        
-        if mode == "existing":
-            cat = self.combo_category.get()
-            dir_path = os.path.join(POSTS_DIR, cat)
-            if os.path.exists(dir_path):
-                files = [f for f in os.listdir(dir_path) if f.endswith('.txt')]
-                files.sort()
-                for f in files:
-                    path = os.path.join(dir_path, f)
-                    title = self.get_article_title(path)
-                    values.append(f"{f} : {title}")
-        
-        elif mode == "draft":
-            # ルートディレクトリの .txt を列挙 (除外リストあり)
-            excludes = ["requirements.txt", "license.txt"]
-            files = [f for f in os.listdir(BASE_DIR) if f.endswith('.txt') and f not in excludes]
-            for f in files:
-                path = os.path.join(BASE_DIR, f)
-                title = self.get_article_title(path)
-                values.append(f"{f} : {title}")
-
-        self.combo_file['values'] = values
-        if values:
-            self.combo_file.current(0)
-        else:
-            self.combo_file.set('')
-
-    # --- 操作ロジック ---
-
-    def get_target_path(self):
-        mode = self.mode_var.get()
-        cat = self.combo_category.get()
-        
-        if mode == "new":
-            fid = self.entry_new_id.get().strip()
-            if not fid:
-                messagebox.showwarning("エラー", "ファイル名を入力してください")
-                return None
-            if not fid.endswith(".txt"):
-                fid += ".txt"
-            
-            dir_path = os.path.join(POSTS_DIR, cat)
-            if not os.path.exists(dir_path):
-                os.makedirs(dir_path)
-            return os.path.join(dir_path, fid)
-            
-        elif mode == "existing":
-            val = self.combo_file.get()
-            if not val: return None
-            fname = val.split(' : ')[0].strip()
-            return os.path.join(POSTS_DIR, cat, fname)
-            
-        elif mode == "draft":
-            val = self.combo_file.get()
-            if not val: return None
-            fname = val.split(' : ')[0].strip()
-            return os.path.join(BASE_DIR, fname)
-            
-        return None
-
-    def open_editor(self):
-        path = self.get_target_path()
-        if not path: return
-        
-        if not os.path.exists(path):
-            # 新規作成テンプレート
-            with open(path, 'w', encoding='utf-8') as f:
-                f.write(f"Title: タイトル未定\nDate: {datetime.date.today().strftime('%Y/%m/%d')}\n\n# はじめに\n\n瀬川\n    ここに本文を書いてね。\n")
-            self.log(f"作成しました: {path}")
-            # リスト更新
-            if self.mode_var.get() == "new":
-                # 新規作成したら既存モードに切り替える？まあそのままでいいか
-                pass
-        
-        os.startfile(path)
-        self.log(f"開きました: {path}")
-
-    def import_image(self):
-        file_path = filedialog.askopenfilename(filetypes=[("Image files", "*.png;*.jpg;*.jpeg;*.gif")])
-        if not file_path: return
-        
-        mode = self.mode_var.get()
-        if mode == "draft":
-            # ドラフトの場合は sources/temp にするか、あるいは直下？
-            # 整理のため sources/draft に入れる
-            cat = "draft"
-        else:
-            cat = self.combo_category.get()
-            
-        target_dir = os.path.join(SOURCES_DIR, cat)
-        if not os.path.exists(target_dir):
-            os.makedirs(target_dir)
-            
-        filename = os.path.basename(file_path)
-        target_path = os.path.join(target_dir, filename)
-        
-        shutil.copy2(file_path, target_path)
-        
-        rel_path = f"sources/{cat}/{filename}"
-        cmd_str = f"!img: {rel_path} [キャプション]"
-        
-        self.entry_img_path.delete(0, tk.END)
-        self.entry_img_path.insert(0, cmd_str)
-        self.clipboard_clear()
-        self.clipboard_append(cmd_str)
-        self.log(f"画像コピー完了: {rel_path}")
-        messagebox.showinfo("成功", "パスをクリップボードにコピーしました！")
-
     def log(self, message):
-        self.log_area.insert(tk.END, message + "\n")
-        self.log_area.see(tk.END)
+        try:
+            self.log_area.insert(tk.END, message + "\n")
+            self.log_area.see(tk.END)
+        except:
+            print(message)
 
     def update_site(self):
         self.log("記事を変換中...")
-        subprocess.run(["python", "txt2json.py", "posts"], shell=True)
-        # ドラフトもJSONにするならここで指定
-        # subprocess.run(["python", "txt2json.py", "draft_sample.txt"], shell=True) 
+        subprocess.run(["python", "txt2json.py", "posts"], shell=True, cwd=BASE_DIR)
         
-        self.log("seminars.html を更新中...")
+        self.log("seminars.html を再構築中...")
         self.update_seminars_html()
         self.log("完了しました。")
 
     def update_seminars_html(self):
-        # 現在のファイル一覧を取得してリンクを生成
-        self.log("seminars.html を更新中...")
-        
+        # seminars.html の構造を解析し、Main部分を全書き換えする
         with open(SEMINARS_HTML, 'r', encoding='utf-8') as f:
             html_content = f.read()
             
-        # クリーニング: <!DOCTYPE html> より前のゴミを削除
-        if "<!DOCTYPE html>" in html_content:
-            idx = html_content.find("<!DOCTYPE html>")
-            if idx > 0:
-                html_content = html_content[idx:]
-                self.log("HTMLファイルの破損(ヘッダー混入)を修復しました。")
+        # ヘッダー部分とフッター部分を分離
+        # <div class="main"> ... <h1>ゼミ一覧</h1> までは残し、その後のセクションを消して、 </div> (main閉じ) までを置き換える
+        
+        # マーカー検索: <div class="main">
+        start_marker = '<div class="main">'
+        end_marker = '<!-- End of Main Content -->' # これがないと閉じタグ特定が難しいので、フッター直前を探す
+        
+        # 簡易的なパース: <div class="main"> から、対応する </div> を探すのは階層が深くないので
+        # class="clm" の中にある main を探す。
+        # 確実なのは、<h1>ゼミ一覧</h1> の直後から、mainの閉じタグまでを置き換えること。
+        
+        if '<h1>ゼミ一覧</h1>' not in html_content:
+            self.log("Error: <h1>ゼミ一覧</h1> tag not found in seminars.html")
+            return
+
+        header_part = html_content.split('<h1>ゼミ一覧</h1>')[0] + '<h1>ゼミ一覧</h1>\n'
+        
+        # フッター部分を探す: </div>\n</div>\n<footer ...
+        # あるいは単に 最後の </div> </div> <footer を探す
+        # 安全のため、footerタグの前にある閉じタグ2つを利用
+        
+        footer_split = html_content.split('<footer class="foot')
+        if len(footer_split) < 2:
+            self.log("Error: footer tag not found.")
+            return
             
-        for cat, cat_name in CATEGORIES.items():
-            dir_path = os.path.join(POSTS_DIR, cat)
-            if not os.path.exists(dir_path): continue
+        footer_part = '\n    </div>\n</div>\n\n<footer class="foot' + footer_split[1]
+        
+        # 中身の生成
+        body_content = ""
+        
+        # 設定順（またはキー順）に生成
+        # 順番を制御したい場合、config.jsonのキー順（Python 3.7+なら挿入順保持）を信じる
+        for key, info in self.categories.items():
+            if key == 'draft' or key == 'trash': continue # 下書きとゴミ箱は一覧に出さない
             
-            # JSONファイルを走査して日付順または名前順にソート
-            files = [f for f in os.listdir(dir_path) if f.endswith('.json')]
-            files.sort(reverse=True) # 新しい順（簡易的にファイル名で）
+            cat_name = info['name']
+            cat_desc = info['desc']
+            dir_path = os.path.join(POSTS_DIR, key)
             
-            new_list_items = []
-            for json_file in files:
-                fid = os.path.splitext(json_file)[0]
-                json_path = os.path.join(dir_path, json_file)
+            # 記事リスト生成
+            articles_html = ""
+            if os.path.exists(dir_path):
+                files = [f for f in os.listdir(dir_path) if f.endswith('.json')]
+                files.sort(reverse=True) # 新しい順
                 
-                # タイトルと日付を取得
-                try:
-                    with open(json_path, 'r', encoding='utf-8') as f:
-                        import json
-                        data = json.load(f)
-                        title = data.get('title', '無題')
-                        date = data.get('date', '----/--/--')
-                        published = data.get('published', True)
-                        
-                        if not published:
-                            continue
-                except:
-                    continue
-                
-                # リンクHTML生成
-                item_html = f'''                <li class="article-item">
-                    <a href="article_view.html?p={cat}/{fid}">
+                for json_file in files:
+                    fid = os.path.splitext(json_file)[0]
+                    json_path = os.path.join(dir_path, json_file)
+                    try:
+                        with open(json_path, 'r', encoding='utf-8') as f:
+                            data = json.load(f)
+                            # 非公開チェック
+                            if not data.get('published', True):
+                                continue
+                                
+                            title = data.get('title', '無題')
+                            date = data.get('date', '----/--/--')
+                            
+                            articles_html += f'''                <li class="article-item">
+                    <a href="article_view.html?p={key}/{fid}">
                         <span class="article-date">{date}</span>
                         {title}
                     </a>
-                </li>'''
-                new_list_items.append(item_html)
+                </li>\n'''
+                    except:
+                        continue
             
-            # 挿入
-            marker = f'<!-- AUTO-INSERT: {cat} -->'
-            if marker in html_content:
-                # マーカーから次の </ul> までを置換... ではなく、
-                # マーカーの直後にリストを再生成して挿入する方式にする（既存の手動リンクが消えるリスクがあるが、管理を一元化するため）
-                # 今回は「マーカーの直後」に追記するのではなく、「マーカー ～ </ul> の間」を書き換える
-                
-                pattern = re.compile(f'({marker})(.*?)(</ul>)', re.DOTALL)
-                
-                def replace_func(match):
-                    return match.group(1) + "\n" + "\n".join(new_list_items) + "\n            " + match.group(3)
-                
-                html_content = pattern.sub(replace_func, html_content)
+            if not articles_html:
+                articles_html = '''                <li class="article-item">
+                    <a href="#" style="color: #ccc; cursor: default;">
+                        <span class="article-date">Coming Soon</span>
+                        準備中
+                    </a>
+                </li>\n'''
+
+            # セクションHTML
+            section_html = f'''
+        <!-- {cat_name} -->
+        <div class="seminar-section">
+            <h2 class="seminar-title">{cat_name}</h2>
+            <p class="seminar-desc">{cat_desc}</p>
+            <ul class="article-list">
+{articles_html}            </ul>
+        </div>
+'''
+            body_content += section_html
+
+        # 結合
+        new_html = header_part + body_content + footer_part
         
         with open(SEMINARS_HTML, 'w', encoding='utf-8') as f:
-            f.write(html_content)
+            f.write(new_html)
             
-        self.log("seminars.html を更新しました。")
+        self.log("seminars.html has been rebuilt.")
 
     def git_push(self):
         self.log("Gitへのアップロードを開始...")
         try:
-            # 1. Add & Commit
             subprocess.run(["git", "add", "."], check=True, shell=True, cwd=BASE_DIR)
-            
             try:
                 subprocess.run(["git", "commit", "-m", "Auto update via Segawa Writer"], check=True, shell=True, cwd=BASE_DIR)
             except subprocess.CalledProcessError:
-                self.log("変更がないためコミットはスキップされました。")
+                pass
 
-            # 2. Pull (競合解消のため)
             self.log("リモートリポジトリと同期中(pull)...")
             subprocess.run(["git", "pull", "origin", "main"], check=True, shell=True, cwd=BASE_DIR)
 
-            # 3. Push
             self.log("GitHubへ送信中(push)...")
             subprocess.run(["git", "push", "origin", "main"], check=True, shell=True, cwd=BASE_DIR)
             
