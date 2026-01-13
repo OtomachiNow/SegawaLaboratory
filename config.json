@@ -1,9 +1,20 @@
 {
     "categories": {
-        "logic": "命題論理ゼミ",
-        "algebra": "リー代数ゼミ",
-        "computation": "計算可能性ゼミ",
-        "draft": "下書き・その他",
-        "TestJanle": "TestJanle"
+        "logic": {
+            "name": "命題論理ゼミ",
+            "desc": "形式論理の基礎"
+        },
+        "algebra": {
+            "name": "リー代数ゼミ",
+            "desc": "リー群・リー代数"
+        },
+        "computation": {
+            "name": "計算可能性ゼミ",
+            "desc": "チューリングマシン等"
+        },
+        "draft": {
+            "name": "下書き・その他",
+            "desc": "作業用"
+        }
     }
 }

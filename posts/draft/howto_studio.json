@@ -34,7 +34,7 @@
     {
       "type": "box",
       "title": "ジャンルの追加",
-      "content": "新しいゼミを始めたくなったら、「ジャンル追加」ボタンを押してね。<br>・<b>ID</b>: フォルダ名になる英数字（例: <code>geometry</code>）<br>・<b>表示名</b>: 画面に表示される名前（例: <code>幾何学ゼミ</code>）<br>これを入力すると、自動的にフォルダと <code>seminars.html</code> の枠組みが作られるわ。"
+      "content": "新しいゼミを始めたくなったら、「ジャンル追加」ボタンを押してね。<br>・<b>ID</b>: フォルダ名になる英数字（例: <code>geometry</code>）<br>・<b>表示名</b>: 画面に表示される名前（例: <code>幾何学ゼミ</code>）<br>これを入力すると、自動的にフォルダと <code>seminars.html</code> の枠組みが作られるわ。<br><br>"
     }
   ]
 }
