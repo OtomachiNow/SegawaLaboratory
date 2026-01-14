@@ -1,0 +1,95 @@
+{
+  "title": "命題論理-2",
+  "date": "2026/01/14",
+  "published": true,
+  "data": [
+    {
+      "type": "heading",
+      "content": "はじめに"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "ここに本文を書いてね!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "これで合ってるんですか"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "合ってないんじゃない？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "ところで，前回の宿題だけど，正解は一つ目だけだったのよね．残りの二つは論理式として不適合．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "三つ目が違うことは分かりましたよ．もともとない $A$ という記号がありましたから．でも二つ目が違うのはどうしてですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "定義にそうあるからよ．論理式の定義では，論理結合子を使った場合かならず $()$ で両端が閉じるようになってるの．だけど二つ目では $\\to$ についてはそうなっていない．だからアウトってわけ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "定義にそうあるですか..."
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "なによその不満そうな顔は．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "そりゃ定義には両端にカッコがありますけど，こんなのって誤差じゃないですか誤差．論理式の意味は変わんないでしょう！"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "誤差かもしれないけど，それはたまたま今回の論理式が簡単な形をしているだけよ．世の中には010010111010みたいな論理式もあるんだから"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "例えば計算機の文脈ではかなりそういうことは多いわね．BrainF**kっていうジョーク言語では限られた文字しか使えないことが多いわ．今回はアルファベットに加えて４つも記号があるからリッチなもんよね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "（耳に入らなさそうな顔）"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "うす"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": null,
+      "content": "うすうす"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+    "site_title": "デモサイト",
+    "site_subtitle": "Demo Laboratory",
+    "home_title": "このサイトについて",
+    "home_desc": "<p>日誌やゼミの記録を公開しています。</p>",
+    "nisi_title": "日誌",
+    "speakers": {
+        "栃村": {
+            "color": "#e0f7fa",
+            "icon": ""
+        },
+        "瀬川": {
+            "color": "#fff3e0",
+            "icon": ""
+        }
+    },
+    "categories": {
+        "logic": {
+            "name": "命題論理ゼミ",
+            "desc": "形式論理の基礎"
+        },
+        "algebra": {
+            "name": "リー代数ゼミ",
+            "desc": "リー群・リー代数"
+        },
+        "computation": {
+            "name": "計算可能性ゼミ",
+            "desc": "チューリングマシン等"
+        },
+        "draft": {
+            "name": "下書き・その他",
+            "desc": "作業用"
+        }
+    }
+}

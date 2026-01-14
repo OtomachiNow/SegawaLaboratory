@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デモサイト</title>
+    <style>
+        body{
+            margin:0px;
+            background-color: #f4f4f4;
+        }
+        /* 幅制限用の共通スタイル */
+        .width-constraint {
+            width: 90%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.7);
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #333;
+        }
+        .header h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .clm{
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .mokuzi{
+            width: 25%;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 20px;
+            background-color: aquamarine;
+            padding: 20px 10px;
+            border-radius: 5px;
+            height: fit-content;
+        }
+        
+        /* もくじのリンクデザイン改善 */
+        .mokuzi h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 5px;
+        }
+        .mokuzi p {
+            margin: 10px 0;
+        }
+        .mokuzi a {
+            display: block;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.6);
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .mokuzi a:hover {
+            background-color: #fff;
+            transform: translateX(5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #008c9e;
+        }
+
+        .main{
+            width: 73%;
+            text-align: center;
+            background-color: bisque;
+            padding-bottom: 50px;
+            min-height: 800px;
+            border-radius: 5px;
+        }
+        
+        /* ゼミ一覧のスタイル */
+        .seminar-section {
+            width: 90%;
+            margin: 30px auto;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .seminar-title {
+            border-bottom: 3px solid #00bcd4;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #333;
+        }
+        .seminar-desc {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .article-list {
+            list-style: none;
+            padding: 0;
+        }
+        .article-item {
+            margin-bottom: 10px;
+            padding: 8px;
+            background-color: #fff;
+            border-left: 4px solid #aaa;
+            transition: all 0.2s;
+        }
+        .article-item:hover {
+            border-left-color: #00bcd4;
+            background-color: #f0f8ff;
+            transform: translateX(5px);
+        }
+        .article-item a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            width: 100%;
+        }
+        .article-date {
+            font-size: 0.8em;
+            color: #888;
+            margin-right: 10px;
+        }
+        .new-badge {
+            background-color: #ff5252;
+            color: white;
+            font-size: 0.7em;
+            padding: 2px 5px;
+            border-radius: 3px;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        .foot{
+            height: 50px;
+            text-align: center;
+            background-color: burlywood;
+            line-height: 50px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="header width-constraint">
+    <h1><a href="index.html">デモサイト</a></h1>
+    <p class="subtitle">Demo Laboratory</p>
+</div>
+
+<div class="clm width-constraint">
+        <div class="mokuzi">
+            <h2>もくじ</h2>
+            <p><a href="index.html">トップ</a></p>
+            <p><a href="seminars.html">ゼミ一覧</a></p>
+        </div>
+    
+    <div class="main">
+        <h1>ゼミ一覧</h1>
+
+        <div class="seminar-section"><h2 class="seminar-title">命題論理ゼミ</h2><p class="seminar-desc">形式論理の基礎</p><ul class="article-list">
+                <li class="article-item"><a href="article_view.html?p=logic/02"><span class="article-date">2026/01/14</span>命題論理-2</a></li>
+                <li class="article-item"><a href="article_view.html?p=logic/01"><span class="article-date">2026/01/12</span>命題論理-1</a></li>
+            </ul></div>
+        <div class="seminar-section"><h2 class="seminar-title">リー代数ゼミ</h2><p class="seminar-desc">リー群・リー代数</p><ul class="article-list">
+                <li class="article-item"><a href="article_view.html?p=algebra/test_2"><span class="article-date">2026/01/14</span>tesutogenkou</a></li>
+            </ul></div>
+        <div class="seminar-section"><h2 class="seminar-title">計算可能性ゼミ</h2><p class="seminar-desc">チューリングマシン等</p><ul class="article-list">
+                <li class="article-item"><a href="#" style="color:#ccc;">準備中</a></li>
+            </ul></div>
+    </div>
+</div>
+
+<footer class="foot width-constraint">
+    &copy; Segawa Laboratory
+</footer>
+
+
+<script>
+    if (window.location.hostname === "localhost") {
+        const evtSource = new EventSource("/_livereload/events");
+        evtSource.onmessage = function(event) {
+            if (event.data === "reload") {
+                console.log("File changed. Reloading...");
+                location.reload();
+            }
+        };
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript"src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <title>情報</title>
+    <style>
+        body{
+            margin:0px;
+            background-color: #f4f4f4;
+        }
+        /* 幅制限用の共通スタイル */
+        .width-constraint {
+            width: 90%;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            background-color: rgba(0, 255, 255, 0.7);
+            padding: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #333;
+        }
+        .header h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .clm{
+            text-align: center;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .mokuzi{
+            width: 25%;
+            text-align: center;
+            position: -webkit-sticky;
+            position: sticky;
+            top: 20px;
+            background-color: aquamarine;
+            padding: 20px 10px;
+            border-radius: 5px;
+            height: fit-content;
+        }
+
+        /* もくじのリンクデザイン改善 */
+        .mokuzi h2 {
+            font-size: 1.2em;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+            padding-bottom: 5px;
+        }
+        .mokuzi p {
+            margin: 10px 0;
+        }
+        .mokuzi a {
+            display: block;
+            padding: 10px;
+            background-color: rgba(255,255,255,0.6);
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        .mokuzi a:hover {
+            background-color: #fff;
+            transform: translateX(5px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #008c9e;
+        }
+
+        .main{
+            width: 73%;
+            text-align: left;
+            background-color: bisque;
+            border-radius: 5px;
+            padding-bottom: 50px;
+        }
+        .code{
+            position: relative;
+            left: 50px;
+        }
+        .cnt{
+            margin: 20px;
+        }
+        #brank{
+            margin-bottom: 36px;
+        }
+        img{
+            height: auto;
+            max-width: 100%;
+        }
+        .foot{
+            height: 50px;
+            text-align: center;
+            background-color: burlywood;
+            line-height: 50px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="backall">
+    <div class="header width-constraint" id="head">
+        <h1><a href="../../index.html">瀬川研究室</a></h1>
+        <p>数学/情報</p>
+    </div>
+    <div class="clm width-constraint">
+        <div class="mokuzi">
+            <h2>もくじ</h2>
+            <p><a href="../../index.html">トップ</a></p>
+            <p><a href="../../seminars.html">ゼミ一覧</a></p>
+            <p><a href="../math.html">数学/情報</a></p>
+            <p><a href="../game.html">ゲーム</a></p>
+            <p>-----</p>
+            <p><a href="#upld">ファイルをアップロードする</a></p>
+            <p><a href="#swst">サイトを公開する</a></p>
+            <p><a href="#edst">サイトを編集する</a></p>
+        </div>
+
+        <div class="main">
+            <div class="cnt">
+                <h1 id="brank">GitHubで個人サイトを作る</h1>
+                <h2 id="upld">ファイルをアップロードする</h2>
+                <p>準備するもの</p>
+                <li>htmlファイル</li>
+                <li id="brank">GitHubのアカウント</li>
+                <p>まずGitHub上でリポジトリ(repository)を新たに作成します</p>
+                <p>右上の+ボタンをクリックして，New repositoryを選択してください</p>
+                <img class="img"src="./sources/info1/2023-01-12 111344.png" alt="">
+                <p>次にリポジトリの名前を決定します．repositry nameに入力します</p>
+                <p>但し必ずこの名前は「index.html」にしましょう．</p>
+                <p>下に色々選択肢がありますが後で変更できるので無視してかまいません</p>
+                <p>入力したら下のcreate repositoryをクリックします．これでrepositoryが作成されました</p>
+                <img class="img" src="./sources/info1/2023-01-12 112752.png" alt="">
+                <p>そうしたらrepositoryのメイン画面に入ります．</p>
+                <p>その画面のまま，uploding an exsisting fileのボタンをクリックしてください</p>
+                <img class="img" src="./sources/info1/2023-01-12 114012.png" alt="">
+                <p>choose fileをクリックし，htmlファイルを選択してください(Drag files~でも違いません)</p>
+                <p>下のcommit changesをクリックし，ファイルのアップロードは完了です</p>
+                <img class="img" src="./sources/info1/2023-01-12 120259.png" alt="">
+                <h2 id="swst">サイトを公開する</h2>
+                <p>メインページに戻り，Settingsのタブをクリックします</p>
+                <p>タブ欄に見当たらない場合は右にある三点リーダーをクリックすれば現れます</p>
+                <img src="./sources/info1/2023-01-12 121228.png" alt="">
+                <p>横のタブからpagesを選択</p>
+                <img src="./sources/info1/2023-01-12 121429.png" alt="">
+                <p>BranchのNoneとなっているボックスをクリックし，Mainを選択します</p>
+                <img src="./sources/info1/2023-01-12 121614.png" alt="">
+                <p>そうしたら横に出てくるsaveのボタンをクリックします</p>
+                <p id="brank">すぐに画面が再読み込みされ，「Your GitHub Pages site is currently being built from the main branch. Learn more.」と表示されます．待ちましょう</p>
+                <p>1~2分の後，画面を再読み込みしてみましょう．うまく行っていれば下の表示が現れます．Visit Siteをクリックしてページを見てみましょう!!!</p>
+                <img src="./sources/info1/2023-01-12 122246.png" alt="">
+                <h2 id="edst">サイトを編集する</h2>
+                <p>まぁやり方はいろいろありますが(ローカルファイルで上書き(手作業)(Git))(GitHub上で編集)</p>
+                <p>その中でもGitHub上で編集する方法を残しておきます</p>
+                <p>codeタブからhtmlを選択，コード部分の右上にあるペンマークをクリック</p>
+                <img src="./sources/info1/2023-01-12 123056.png" alt="">
+                <p>書き換えた後，下にあるcommit changesをクリック</p>
+                <p>終わりです</p>
+                <p></p>
+            </div>
+        </div>
+    </div>
+    <footer class="foot width-constraint">
+        <p></p>
+    </footer>
+</body>

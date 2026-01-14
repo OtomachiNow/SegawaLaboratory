@@ -1,0 +1,108 @@
+{
+  "title": "Segawa Editor ユーザーマニュアル",
+  "date": "2026/01/14",
+  "published": true,
+  "data": [
+    {
+      "type": "heading",
+      "content": "Segawa Editor へようこそ"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>このファイル自体もエディタで開いて、プレビューしながら読めるようになっているわ。"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "なるほど！エディタの機能を使いながら学べるんですね。"
+    },
+    {
+      "type": "box",
+      "title": "基本操作",
+      "content": "・<b>起動</b>: python editor.py (※事前に <code>python server.py</code> を別窓で起動しておくこと)<br>・<b>開く</b>: ツールバーの「開く」ボタンから <code>.txt</code> ファイルを選択。<br>・<b>保存</b>: <code>Ctrl + S</code> またはツールバーの「保存」ボタン。<br>・<b>プレビュー</b>: 「プレビューウィンドウ起動」ボタンで専用ブラウザを表示。保存するたびに自動更新される。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "入力支援ショートカット"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "執筆を効率化するためのショートカットキーを用意したわ。<br>これを覚えるとマウスに触らずに記事が書けるようになるわよ。"
+    },
+    {
+      "type": "box",
+      "title": "ショートカット一覧",
+      "content": "・<code>Ctrl + S</code> : 上書き保存 & プレビュー更新<br>・<code>Ctrl + B</code> : 囲み枠 (<code>!box:</code>) を挿入<br>・<code>Ctrl + M</code> : 数式ブロック (<code>!math:</code>) を挿入<br>・<code>Ctrl + I</code> : 画像 (<code>!img:</code>) を挿入（ファイル選択）<br>・<code>Ctrl + K</code> : コードブロック (<code>!code:</code>) を挿入<br>・<code>Ctrl + F</code> : 折りたたみ (<code>!fold:</code>) を挿入<br>・<code>Tab</code> : インデント（半角スペース4つ）を入力<br>"
+    },
+    {
+      "type": "heading",
+      "content": "画像の挿入方法"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": null,
+      "content": "画像を貼りたいときはどうすればいいんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "とっても簡単よ。以下の2つの方法があるわ。"
+    },
+    {
+      "type": "box",
+      "title": "画像インポート",
+      "content": "1. <b>ドラッグ＆ドロップ</b>:<br>エディタ画面に画像ファイルを直接ドラッグ＆ドロップする。<br>2. <b>ショートカット</b>:<br><code>Ctrl + I</code> を押してファイル選択ダイアログから選ぶ。<br>どちらの方法でも、自動的に <code>sources/ジャンル/</code> フォルダに画像がコピーされ、記事内にコマンドが挿入されるわ。<br>※ 事前に記事ファイルを保存して、ジャンル（保存場所）を確定させておく必要があるわよ。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "記述ルール (Segawa Script)"
+    },
+    {
+      "type": "box",
+      "title": "会話形式",
+      "content": "話者名の行の次に、インデントして内容を書く。<br>空行でブロック終了。<br>"
+    },
+    {
+      "type": "box",
+      "title": "囲み枠 (!box)",
+      "content": "<code>!box: タイトル</code><br>タイトルの文字によって色が自動で変わるわ。<br>・「定義」「Def」 -> 緑<br>・「定理」「Thm」 -> 青<br>・「証明」「Proof」 -> グレー<br>・「まとめ」「宿題」 -> 特別なデザイン<br>"
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "content": "    !box: 定義 1.1\n        ここは定義の本文。\n"
+    },
+    {
+      "type": "box",
+      "title": "数式 (!math)",
+      "content": "MathJax を使って TeX 記法で数式が書けるわ。<br>インラインは <code>$ ... $</code>、ディスプレイは <code>$$ ... $$</code> よ。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$ e^{i\\pi} + 1 = 0 $$\n"
+    },
+    {
+      "type": "box",
+      "title": "コード (!code)",
+      "content": "プログラミングコードをハイライト表示するわ。<br>"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "    print(\"Hello, Segawa Lab!\")\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": null,
+      "content": "使い方は以上よ。<br>このエディタを使って、どんどん記事を書いてちょうだい！"
+    }
+  ]
+}
