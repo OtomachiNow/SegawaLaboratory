@@ -10,13 +10,13 @@
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
+      "side": "left",
       "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>このファイル自体もエディタで開いて、プレビューしながら読めるようになっているわ。"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
+      "side": "right",
       "content": "なるほど！エディタの機能を使いながら学べるんですね。"
     },
     {
@@ -31,7 +31,7 @@
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
+      "side": "left",
       "content": "執筆を効率化するためのショートカットキーを用意したわ。<br>これを覚えるとマウスに触らずに記事が書けるようになるわよ。"
     },
     {
@@ -46,13 +46,13 @@
     {
       "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
+      "side": "right",
       "content": "画像を貼りたいときはどうすればいいんですか？"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
+      "side": "left",
       "content": "とっても簡単よ。以下の2つの方法があるわ。"
     },
     {
@@ -101,7 +101,7 @@
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
+      "side": "left",
       "content": "使い方は以上よ。<br>このエディタを使って、どんどん記事を書いてちょうだい！"
     }
   ]

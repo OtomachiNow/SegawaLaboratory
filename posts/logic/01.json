@@ -207,12 +207,12 @@
     {
       "type": "box",
       "title": "定義 $L_a$ 論理式",
-      "content": "$L_a$ 論理式を以下のように定める．<br>1.命題変数は論理式である．<br>2.命題変数を論理結合子で結んだものも論理式である．すなわち，$p,q$ を論理式として $(\\neg p), (p\\to q), (p\\land q), (p\\lor q)$ も論理式になる．<br>"
+      "content": "$L_a$ 論理式を以下のように定める．<br>・命題変数は　$L_a$論理式である．<br>・命題変数を論理結合子で結んだものも$L_a$論理式である．すなわち，$p,q$ を論理式として $(\\neg p), (p\\to q), (p\\land q), (p\\lor q)$ も論理式になる．<br>"
     },
     {
       "type": "dialogue",
-      "speaker": "栃村　右",
-      "side": null,
+      "speaker": "栃村",
+      "side": "right",
       "content": "なんだか細かいですね．普通の数学じゃないみたいです．"
     },
     {
@@ -265,7 +265,7 @@
     {
       "type": "box",
       "title": "宿題",
-      "content": "$X,Y$ を論理式として，次の文字列が論理式であるかどうかを見よ．<br>・$((\\neg(X\\to Y)) \\to (\\neg Y \\to \\neg X))$<br>・$((\\neg X)\\land X ) \\to Y$<br>・$(A\\to (X\\lor \\neg X))$"
+      "content": "$X,Y$ を$L_a$論理式として，次の文字列が$L_a$論理式であるかどうかを見よ．<br>・$((\\neg(X\\to Y)) \\to ((\\neg Y) \\to (\\neg X)))$<br>・$((\\neg X)\\land X ) \\to Y$<br>・$(A\\to (X\\lor (\\neg X)))$"
     }
   ]
 }
