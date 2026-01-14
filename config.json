@@ -1,7 +1,7 @@
 {
-    "site_title": "瀬川研究室",
-    "site_subtitle": "Segawa Laboratory",
-    "home_title": "このサイトについて",
+    "site_title": "瀬川研究室！",
+    "site_subtitle": "Segawa Laboratory!",
+    "home_title": "このサイトについて！",
     "home_desc": "<p>日誌やゼミの記録を公開しています。</p>",
     "nisi_title": "日誌",
     "speakers": {
@@ -14,7 +14,7 @@
             "icon": ""
         },
         "柿山": {
-            "color": "#ffffff",
+            "color": "#f0f7fa",
             "icon": ""
         }
     },
