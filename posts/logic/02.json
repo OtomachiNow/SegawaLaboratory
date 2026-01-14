@@ -88,8 +88,14 @@
     {
       "type": "dialogue",
       "speaker": "柿山",
-      "side": null,
+      "side": "left",
       "content": "うすうす"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "ってお前はだれやね～ん！！！"
     }
   ]
 }
