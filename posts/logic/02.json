@@ -5,97 +5,114 @@
   "data": [
     {
       "type": "heading",
-      "content": "はじめに"
+      "content": "前回の宿題"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
-      "content": "ここに本文を書いてね!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      "side": "left",
+      "content": "前回の宿題だけど，正解は一つ目だけだったのよね．残りの二つは論理式として不適合．"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
-      "content": "これで合ってるんですか"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "瀬川",
-      "side": null,
-      "content": "合ってないんじゃない？"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "瀬川",
-      "side": null,
-      "content": "ところで，前回の宿題だけど，正解は一つ目だけだったのよね．残りの二つは論理式として不適合．"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "栃村",
-      "side": null,
+      "side": "right",
       "content": "三つ目が違うことは分かりましたよ．もともとない $A$ という記号がありましたから．でも二つ目が違うのはどうしてですか？"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
+      "side": "left",
       "content": "定義にそうあるからよ．論理式の定義では，論理結合子を使った場合かならず $()$ で両端が閉じるようになってるの．だけど二つ目では $\\to$ についてはそうなっていない．だからアウトってわけ．"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
+      "side": "right",
       "content": "定義にそうあるですか..."
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
+      "side": "left",
       "content": "なによその不満そうな顔は．"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
+      "side": "right",
       "content": "そりゃ定義には両端にカッコがありますけど，こんなのって誤差じゃないですか誤差．論理式の意味は変わんないでしょう！"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
-      "content": "誤差かもしれないけど，それはたまたま今回の論理式が簡単な形をしているだけよ．世の中には010010111010みたいな論理式もあるんだから"
+      "side": "left",
+      "content": "誤差かもしれないけど，それはたまたま今回の論理式が簡単な形をしているだけよ．世の中には010010111010みたいな論理式もあるんだから．"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
-      "side": null,
-      "content": "例えば計算機の文脈ではかなりそういうことは多いわね．BrainF**kっていうジョーク言語では限られた文字しか使えないことが多いわ．今回はアルファベットに加えて４つも記号があるからリッチなもんよね．"
+      "side": "left",
+      "content": "例えば計算機の文脈ではかなりそういうことはあるわね．BrainF**kみたいなジョーク言語では限られた文字しか使えないことが多いわ．今回はアルファベットに加えて４つも記号があるからリッチなもんよね．"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
+      "side": "right",
       "content": "（耳に入らなさそうな顔）"
     },
     {
       "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そしたら論理式が定義出来たし，その意味を実装していこうかしら．栃村，$\\lor$ の意味はどう定義したい？"
+    },
+    {
+      "type": "dialogue",
       "speaker": "栃村",
-      "side": null,
-      "content": "うす"
+      "side": "right",
+      "content": "「意味」ですか？そりゃ「または」ですけど．"
     },
     {
       "type": "dialogue",
-      "speaker": "柿山",
+      "speaker": "瀬川",
       "side": "left",
-      "content": "うすうす"
+      "content": "じゃあ $A\\lor B$ っていう論理式が「正しい」とはどう定義する？"
     },
     {
       "type": "dialogue",
-      "speaker": "柿山",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "$A$ が「正しい」または $B$ が「正しい」ことですかね？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
       "side": "left",
-      "content": "ってお前はだれやね～ん！！！"
+      "content": "そうそう！じゃあそんな感じで定義していきましょう．栃村やってみて．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えぇ？？？無理ですよそんなの．「意味」も「正しさ」も何なのか分かってないんですから．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "とにかくやるの！言葉はそのまま使っていいから．コツは論理式の構成に従うことよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えぇと......"
+    },
+    {
+      "type": "box",
+      "title": "「正しい」の定義（？）",
+      "content": ""
     }
   ]
 }
