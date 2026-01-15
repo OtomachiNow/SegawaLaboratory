@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀬川研究室</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .member-card {
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .member-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 20px;
+            flex-shrink: 0;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: #555;
+            border: 3px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .member-info {
+            flex-grow: 1;
+        }
+        .member-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            border-bottom: 2px solid #00bcd4;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .member-desc {
+            font-size: 0.95em;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+        .access-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header width-constraint">
+    <h1><a href="index.html">瀬川研究室</a></h1>
+    <p class="subtitle">Segawa Laboratory!</p>
+</div>
+
+<div class="clm width-constraint">
+    <div class="mokuzi">
+        <h2>もくじ</h2>
+        <p><a href="index.html">トップ</a></p>
+        <p><a href="seminars.html">ゼミ一覧</a></p>
+        <p><a href="about.html">研究室紹介</a></p>
+    </div>
+
+    <div class="main">
+        <div class="setumei">
+            <h1>研究室紹介</h1>
+            <p>東平大学 理学部 数学科 瀬川研究室の紹介ページです。</p>
+            <br/>
+        </div>
+        
+        <div class="katudou" style="width: 95%; margin: auto; text-align: left;">
+            
+            <h2 class="section-heading">メンバー紹介</h2>
+            <!-- MEMBERS_START -->
+
+            <div class="member-card">
+                <div class="member-icon" style="background-color: #e0f7fa;">栃</div>
+                <div class="member-info">
+                    <div class="member-name">栃村</div>
+                    <div class="member-desc">工学部１年生です．宜しくお願いします．</div>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-icon" style="background-color: #fff3e1;">瀬</div>
+                <div class="member-info">
+                    <div class="member-name">瀬川</div>
+                    <div class="member-desc">専門は数理論理学（モデル理論、証明論、計算可能性理論、集合論）および代数学（論、環論、体論、ガロア理論、表現論、ホモロジー代数、可換環論、代数幾何学、数論幾何学、保型形式、ラングランズ・プログラム）。 加えて、幾何学（微分幾何学、位相幾何学、リーマン幾何学、シンプレクティック幾何学、複素幾何学、代数的位相幾何学、結び目理論、低次元トポロジー）、解析学（実解析、複素解析、関数解析、微分方程式論、力学系、確率論、確率解析、調和解析、測度論）、応用数学（数値解析、最適化問題、暗号理論、符号理論、情報幾何学、数理物理学、量子群、場の量子論、統計力学）、また，圏論、トポス理論、ホモトピー型理論といった現代数学の基礎付けに至るまでのありとあらゆる数理現象の構造解明。</div>
+                </div>
+            </div>
+            <div class="member-card">
+                <div class="member-icon" style="background-color: #CDE6C7;">柿</div>
+                <div class="member-info">
+                    <div class="member-name">柿山</div>
+                    <div class="member-desc">文学部哲学科西洋哲学専攻の柿山です！</div>
+                </div>
+            </div>
+<!-- MEMBERS_END -->
+
+            <h2 class="section-heading">アクセス・連絡先</h2>
+            <div class="access-info">
+                <h3>所在地</h3>
+                <p>〒980-8576<br>
+                宮城県仙台市青葉区川内41<br>
+                東平大学 部室棟4階413室</p>
+                
+                <!-- Google Map埋め込み -->
+                <div style="width: 100%; height: 300px; margin: 15px 0;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3132.860366472684!2d140.8526620153225!3d38.25958897967464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8a28180c510b87%3A0xb3a055d7785260!2z5p2x5YyX5aSn5a2m5bed5YaF44Kt44Oj44Oz44OR44K5!5e0!3m2!1sja!2sjp!4v1614000000000!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <h3>連絡先</h3>
+                <p><strong>Email:</strong> contact[at]segawalab.example.com</p>
+                <p><strong>Twitter (X):</strong> <a href="#">@SegawaLab</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="foot width-constraint">
+    &copy; 瀬川研究室
+</footer>
+
+<script>
+    // タイトルなどをconfig.jsonから反映
+    fetch('config.json')
+        .then(res => res.json())
+        .then(config => {
+            document.title = "研究室紹介 - " + (config.site_title || "瀬川研究室");
+            const h1 = document.querySelector(".header h1 a");
+            if(h1) h1.textContent = config.site_title || "瀬川研究室";
+            const sub = document.querySelector(".header .subtitle");
+            if(sub) sub.textContent = config.site_subtitle || "";
+        })
+        .catch(e => console.error(e));
+</script>
+</body>
+</html>

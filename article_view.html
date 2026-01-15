@@ -60,6 +60,13 @@
 
         .article-math { margin: 1.5em auto; text-align: center; }
 
+        /* 前後ナビゲーション */
+        .article-nav { display: flex; justify-content: space-between; margin: 20px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 0.9em; }
+        .article-nav a { text-decoration: none; color: #00bcd4; font-weight: bold; }
+        .article-nav a:hover { text-decoration: underline; }
+        .nav-prev::before { content: "« "; }
+        .nav-next::after { content: " »"; }
+
         .truth-table { margin: 20px auto; border-collapse: collapse; font-size: 0.95em; }
         .truth-table th, .truth-table td { border: 1px solid #ccc; padding: 8px 15px; text-align: center; }
         .truth-table th { background-color: #f5f5f5; font-weight: bold; border-bottom: 2px solid #aaa; }
@@ -204,6 +211,60 @@
                 }
             });
 
+            // 前後ナビゲーションの生成
+            try {
+                const tocRes = await fetch('./posts/toc.json');
+                if (tocRes.ok) {
+                    const toc = await tocRes.json();
+                    // articleId は "logic/01" のような形式
+                    const [cat, id] = articleId.split('/');
+                    const list = toc[cat];
+                    if (list) {
+                        const idx = list.findIndex(item => item.id === articleId);
+                        if (idx !== -1) {
+                            const prev = list[idx - 1];
+                            const next = list[idx + 1];
+                            
+                            const createNav = () => {
+                                const nav = document.createElement('div');
+                                nav.className = 'article-nav';
+                                
+                                const prevLink = document.createElement('div');
+                                prevLink.className = 'nav-prev';
+                                if (prev) {
+                                    prevLink.innerHTML = `<a href="article_view.html?p=${prev.id}">${prev.title}</a>`;
+                                } else {
+                                    prevLink.textContent = " ";
+                                }
+                                
+                                const nextLink = document.createElement('div');
+                                nextLink.className = 'nav-next';
+                                if (next) {
+                                    nextLink.innerHTML = `<a href="article_view.html?p=${next.id}">${next.title}</a>`;
+                                } else {
+                                    nextLink.textContent = " ";
+                                }
+                                
+                                nav.appendChild(prevLink);
+                                nav.appendChild(nextLink);
+                                return nav;
+                            };
+
+                            // 上部ナビゲーション（タイトルの下）
+                            const titleArea = document.querySelector('.article-title') || document.getElementById('article-date');
+                            if (titleArea && titleArea.parentNode) {
+                                // 日付の下に挿入したいが、構造上難しいのでcontentAreaの直前に入れる
+                                contentArea.parentNode.insertBefore(createNav(), contentArea);
+                            }
+                            
+                            // 下部ナビゲーション
+                            contentArea.appendChild(createNav());
+                        }
+                    }
+                }
+            } catch (e) { console.log("Nav error:", e); }
+
+            if (window.MathJax) {
             // MathJax 3 でレンダリング (ロード待ち対応)
             const renderMath = () => {
                 if (window.MathJax && window.MathJax.typesetPromise) {
@@ -214,6 +275,7 @@
                 }
             };
             renderMath();
+            } // if (window.MathJax) の閉じ括弧を追加
 
             // Highlight.js
             if (window.hljs) {
