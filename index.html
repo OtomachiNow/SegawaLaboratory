@@ -3,242 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>瀬川研究室！</title>
+    <title>瀬川研究室</title>
     <style>
-        body{
-            margin:0px;
-            background-color: #f4f4f4; /* 背景色を少しグレーに */
-        }
-        /* 幅制限用の共通スタイル */
-        .width-constraint {
-            width: 90%;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-
-        .header {
-            text-align: center;
-            background-color: rgba(0, 255, 255, 0.7);
-            padding: 20px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 3em;
-            color: #333;
-        }
-        .header h1 a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .clm{
-            text-align: center;
-            padding: 15px 0; /* 左右paddingはwidth-constraintに任せる */
-            display: flex;
-            justify-content: space-between;
-        }
-        .mokuzi{
-            width: 25%;
-            /* height固定は削除し、コンテンツに合わせる */
-            text-align: center;
-            position: -webkit-sticky;
-            position: sticky;
-            top: 20px;
-            background-color: aquamarine;
-            padding: 20px 10px;
-            border-radius: 5px;
-            height: fit-content;
-        }
-        
-        /* もくじのリンクデザイン改善 */
-        .mokuzi h2 {
-            font-size: 1.2em;
-            margin-top: 0;
-            margin-bottom: 15px;
-            border-bottom: 2px solid rgba(255,255,255,0.5);
-            padding-bottom: 5px;
-        }
-        .mokuzi p {
-            margin: 10px 0;
-        }
-        .mokuzi a {
-            display: block;
-            padding: 10px;
-            background-color: rgba(255,255,255,0.6);
-            color: #333;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            font-weight: bold;
-        }
-        .mokuzi a:hover {
-            background-color: #fff;
-            transform: translateX(5px);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            color: #008c9e;
-        }
-
-        .main{
-            width: 73%; /* 少し広げる */
-            text-align: center;
-            background-color: bisque;
-            padding-bottom: 50px;
-            border-radius: 5px;
-        }
-        .setumei{
-            width: 90%;
-            margin: auto;
-            padding-top: 20px;
-        }
-        .katudou{
-            width: 90%;
-            margin: auto;
-            text-align: left;
-        }
-        .post {
-            background-color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 20px;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .post-date {
-            font-weight: bold;
-            color: #555;
-            margin-bottom: 5px;
-            border-bottom: 1px solid #ccc;
-        }
-        .post-content {
-            white-space: pre-wrap;
-        }
-        .foot{
-            padding: 15px 0;
-            text-align: center;
-            background-color: burlywood;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            border-radius: 5px;
-        }
+        body{ margin:0px; background-color: #f4f4f4; }
+        .width-constraint { width: 90%; margin: 0 auto; box-sizing: border-box; }
+        .header { text-align: center; background-color: rgba(0, 255, 255, 0.7); padding: 20px; margin-top: 10px; border-radius: 5px; }
+        .header h1 { margin: 0; font-size: 3em; color: #333; }
+        .header h1 a { text-decoration: none; color: inherit; }
+        .clm{ text-align: center; padding: 15px 0; display: flex; justify-content: space-between; }
+        .mokuzi{ width: 25%; text-align: center; position: -webkit-sticky; position: sticky; top: 20px; background-color: aquamarine; padding: 20px 10px; border-radius: 5px; height: fit-content; }
+        .mokuzi h2 { font-size: 1.2em; margin-top: 0; margin-bottom: 15px; border-bottom: 2px solid rgba(255,255,255,0.5); padding-bottom: 5px; }
+        .mokuzi p { margin: 10px 0; }
+        .mokuzi a { display: block; padding: 10px; background-color: rgba(255,255,255,0.6); color: #333; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; font-weight: bold; }
+        .mokuzi a:hover { background-color: #fff; transform: translateX(5px); box-shadow: 0 2px 5px rgba(0,0,0,0.1); color: #008c9e; }
+        .main{ width: 73%; text-align: center; background-color: bisque; padding-bottom: 50px; border-radius: 5px; }
+        .setumei{ width: 90%; margin: auto; padding-top: 20px; }
+        .katudou{ width: 90%; margin: auto; text-align: left; }
+        .post { background-color: rgba(255, 255, 255, 0.5); margin-bottom: 20px; padding: 15px; border-radius: 5px; }
+        .post-date { font-weight: bold; color: #555; margin-bottom: 5px; border-bottom: 1px solid #ccc; }
+        .post-content { white-space: pre-wrap; }
+        .foot{ padding: 15px 0; text-align: center; background-color: burlywood; line-height: 1.5; margin-bottom: 20px; border-radius: 5px; }
     </style>
 </head>
 <body>
 <div class="header width-constraint" id="head">
-    <h1><a href="index.html">瀬川研究室！</a></h1>
-    <p class="subtitle">Segawa Laboratory!!</p>
+    <h1><a href="index.html">瀬川研究室</a></h1>
+    <p class="subtitle">Segawa Laboratory!</p>
 </div>
 
 <div class="clm width-constraint">
-        <div class="mokuzi">
-            <h2>もくじ</h2>
-            <p><a href="#">トップ</a></p>
-            <p><a href="seminars.html">ゼミ一覧</a></p>
-        </div>
-
-        <div class="main">
-            <div class="setumei">
-                <h1 id="home-title">このサイトについて！</h1>
-                <div id="home-desc"><p>日誌やゼミの記録を公開しています。</p></div>
-                <br/>
-            </div>        
+    <div class="mokuzi">
+        <h2>もくじ</h2>
+        <p><a href="#">トップ</a></p>
+        <p><a href="seminars.html">ゼミ一覧</a></p>
+    </div>
+    <div class="main">
+        <div class="setumei">
+            <h1 id="home-title">このサイトについて.</h1>
+            <div id="home-desc"><p>東平大学で行われている日誌やゼミの記録を公開しています。</p></div>
+            <br/>
+        </div>        
         <div class="katudou" id="katudou">
             <h1 id="nisi-title">日誌</h1>
-            <div id="blog-posts">
-                <p>読み込み中...</p>
-            </div>
+            <div id="blog-posts"><p>読み込み中...</p></div>
         </div>
     </div>
 </div>
 <footer class="foot width-constraint">
-    &copy; Demo Laboratory<br>
-    Contact: @your_id / your-email[at]example.com
+    &copy; Segawa Laboratory
 </footer>
 
 <script type="module">
-    async function loadPosts() {
-        try {
-            let text = "";
-            try {
-                // 既存の取得方法
-                const module = await import('./gettxt.js');
-                text = await module.default;
-            } catch (e) {
-                // 直接フェッチ (ローカル用)
-                const res = await fetch('nisi.txt');
-                text = await res.text();
-            }
+    async function loadPageData() {
+        const configPromise = fetch('config.json').then(res => res.json());
+        const postsPromise = fetch('nisi.txt').then(res => res.text());
 
+        configPromise.then(config => {
+            document.title = config.site_title || "瀬川研究室";
+            const siteTitleLink = document.querySelector(".header h1 a");
+            if (siteTitleLink) siteTitleLink.textContent = config.site_title || "瀬川研究室";
+            const subtitle = document.querySelector(".header .subtitle");
+            if (subtitle) subtitle.textContent = config.site_subtitle || "";
+            const homeTitle = document.getElementById("home-title");
+            if (homeTitle) homeTitle.textContent = config.home_title || "このサイトについて";
+            const homeDesc = document.getElementById("home-desc");
+            if (homeDesc) homeDesc.innerHTML = config.home_desc || "";
+            const nisiTitle = document.getElementById("nisi-title");
+            if (nisiTitle) nisiTitle.textContent = config.nisi_title || "日誌";
+        }).catch(error => console.error('Failed to load config:', error));
+
+        postsPromise.then(text => {
             const container = document.getElementById('blog-posts');
             if (!text || text.trim() === "") {
                 container.innerHTML = '<p>まだ記事がありません。</p>';
                 return;
             }
-            container.innerHTML = ''; // クリア
-
-            // 日付形式 (YYYY/M/D) で分割して記事を抽出する簡易パーサー
-            // 日付行を見つけたら、それが新しい記事の始まりとみなす
+            container.innerHTML = '';
             const lines = text.split(/\r\n|\n/);
             const posts = [];
             let currentPost = null;
-
-            // 日付の正規表現: 行頭にある YYYY/MM/DD または YYYY/M/D
             const dateRegex = /^\d{4}\/\d{1,2}\/\d{1,2}\s*$/;
 
             for (let line of lines) {
-                line = line.trim();
-                if (dateRegex.test(line)) {
-                    // 新しい記事の開始
-                    if (currentPost) {
-                        posts.push(currentPost);
-                    }
-                    currentPost = {
-                        date: line,
-                        content: []
-                    };
+                if (dateRegex.test(line.trim())) {
+                    if (currentPost) posts.push(currentPost);
+                    currentPost = { date: line.trim(), content: [] };
                 } else if (currentPost) {
-                    // 本文に追加（空行も含むが、最初の連続する空行は無視したいなどの調整はCSSの white-space: pre-wrap である程度カバー）
                     currentPost.content.push(line);
                 }
             }
-            if (currentPost) {
-                posts.push(currentPost);
-            }
+            if (currentPost) posts.push(currentPost);
 
-            // 表示
             posts.forEach(post => {
                 const postDiv = document.createElement('div');
                 postDiv.className = 'post';
-                
                 const dateDiv = document.createElement('div');
                 dateDiv.className = 'post-date';
                 dateDiv.textContent = post.date;
-                
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'post-content';
-                // HTMLタグが含まれている可能性があるので innerHTML を使うが、
-                // XSSのリスクはある。本来はサニタイズすべきだが、
-                // 今回は「自分のサイトの残骸を利用」という文脈なので簡易的に許可。
                 contentDiv.innerHTML = post.content.join('\n'); 
-
                 postDiv.appendChild(dateDiv);
                 postDiv.appendChild(contentDiv);
                 container.appendChild(postDiv);
             });
-
-        } catch (error) {
+        }).catch(error => {
             console.error('Failed to load posts:', error);
             document.getElementById('blog-posts').textContent = '記事の読み込みに失敗しました。';
-        }
+        });
     }
 
-    loadPosts();
+    loadPageData();
 </script>
 <script>
     if (window.location.hostname === "localhost") {
         const evtSource = new EventSource("/_livereload/events");
         evtSource.onmessage = function(event) {
             if (event.data === "reload") {
-                console.log("File changed. Reloading...");
                 location.reload();
             }
         };

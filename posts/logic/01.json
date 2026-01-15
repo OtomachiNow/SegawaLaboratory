@@ -163,7 +163,7 @@
     },
     {
       "type": "math",
-      "content": "$$\n(A\\to B) \\to ((B\\to C) \\to (A\\to C))\n$$\n"
+      "content": "$$\n\\\\\n(A\\to B) \\to ((B\\to C) \\to (A\\to C))\n\n$$\n"
     },
     {
       "type": "dialogue",

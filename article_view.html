@@ -3,508 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>瀬川研究室！</title>
-    <script type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    <title>瀬川研究室</title>
+    <!-- MathJax -->
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\(', '\)']], displayMath: [['$$', '$$'], ['\[', '\]']] },
+            options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+        };
     </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
     <!-- Highlight.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [['$','$'], ['\(','\)']],
-            displayMath: [['$$','$$'], ['\[','\]']],
-            processEscapes: true
-          }
-        });
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/vs2015.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <style>
-        body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            background-color: #f4f4f4; /* 背景色変更 */
-            margin: 0;
-            padding: 0;
-            color: #333;
-        }
-        /* 幅制限用の共通スタイル */
-        .width-constraint {
-            width: 90%;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-
-        .header {
-            text-align: center;
-            background-color: rgba(0, 255, 255, 0.7);
-            padding: 20px;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 1.8em;
-        }
-        .header h1 a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .header p a {
-            /* トップに戻るリンクのスタイル改善 */
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 15px;
-            background-color: rgba(255,255,255,0.5);
-            border-radius: 15px;
-            text-decoration: none;
-            color: #00796b;
-            font-size: 0.9em;
-            transition: background 0.2s;
-        }
-        .header p a:hover {
-            background-color: rgba(255,255,255,0.8);
-        }
-
-        .container {
-            /* 既存のcontainerをwidth-constraint風に調整 */
-            width: 90%; /* 800px固定をやめてレスポンシブかつ統一感を持たせる */
-            max-width: 900px; /* 記事なので少し狭くても読みやすいが、統一感のためある程度確保 */
-            margin: 20px auto;
-            padding: 40px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border-radius: 5px;
-        }
+        body { margin: 0; background-color: #f4f4f4; font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif; line-height: 1.7; color: #333; }
+        .width-constraint { width: 92%; max-width: 850px; margin: 0 auto; box-sizing: border-box; }
+        .header { text-align: center; background-color: rgba(0, 255, 255, 0.6); padding: 15px; margin-top: 10px; border-radius: 5px; }
+        .header h1 { margin: 0; font-size: 1.8em; color: #333; }
+        .header h1 a { text-decoration: none; color: inherit; }
         
-        /* 記事タイトル */
-        .article-title {
-            text-align: center;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-
-        /* 会話パートのスタイル (動的に適用) */
-        .dialogue-row {
-            display: flex;
-            margin-bottom: 20px;
-            align-items: flex-start;
-        }
+        .main-container { background-color: #fff; margin: 20px auto; padding: 30px 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); min-height: 800px; }
         
-        /* 交互に配置するための基本クラス */
-        .speaker-left {
-            flex-direction: row;
-        }
-        .speaker-left .icon {
-            order: 1;
-            margin-right: 15px;
-        }
-        .speaker-left .bubble {
-            order: 2;
-            border-top-left-radius: 0;
-        }
+        #article-title { font-size: 1.8em; margin-bottom: 5px; color: #333; border-bottom: 3px solid #00bcd4; padding-bottom: 10px; }
+        #article-date { font-size: 0.85em; color: #999; margin-bottom: 30px; display: block; text-align: right; }
 
-        .speaker-right {
-            flex-direction: row-reverse;
-        }
-        .speaker-right .icon {
-            order: 1;
-            margin-left: 15px;
-        }
-        .speaker-right .bubble {
-            order: 2;
-            border-top-right-radius: 0;
-        }
+        .dialogue-row { display: flex; align-items: flex-start; margin-bottom: 20px; width: 100%; }
+        .dialogue-row.left { flex-direction: row; }
+        .dialogue-row.right { flex-direction: row-reverse; }
 
-
-        /* 共通アイコンスタイル */
-        .icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.8em;
-            color: #555;
-            flex-shrink: 0;
-            border: 1px solid #ccc;
-        }
-
-        /* 共通吹き出しスタイル */
-        .bubble {
-            padding: 15px;
-            border-radius: 15px;
-            position: relative;
-            max-width: 70%;
-            line-height: 1.6;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-        }
+        .icon { width: 50px; height: 50px; border-radius: 50%; background-color: #ddd; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #333; font-size: 1.1em; border: 2px solid #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-size: cover; background-position: center; }
         
-        .speaker-name {
-            font-size: 0.8em;
-            color: #777;
-            margin-bottom: 5px;
-            margin-top: -15px; /* rowのマージン調整 */
-        }
+        .bubble { max-width: 75%; padding: 12px 18px; border-radius: 12px; position: relative; font-size: 0.95em; box-shadow: 0 1px 3px rgba(0,0,0,0.05); white-space: pre-wrap; word-break: break-word; }
+        .left .bubble { margin-left: 15px; background-color: #f0f0f0; border-top-left-radius: 2px; }
+        .right .bubble { margin-right: 15px; background-color: #e1f5fe; border-top-right-radius: 2px; }
 
-        /* 見出しスタイル */
-        .section-heading {
-            border-left: 5px solid #00bcd4;
-            padding-left: 15px;
-            margin: 40px 0 20px 0;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
+        .section-heading { border-left: 5px solid #00bcd4; padding-left: 15px; margin: 40px 0 20px 0; font-size: 1.5em; font-weight: bold; color: #333; border-bottom: none; }
+        .article-image { text-align: center; margin: 25px 0; }
+        .article-image img { max-width: 90%; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .article-image figcaption { font-size: 0.8em; color: #777; margin-top: 8px; }
 
-        /* 画像スタイル */
-        .article-image {
-            text-align: center;
-            margin: 30px 0;
-        }
-        .article-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .article-image figcaption {
-            color: #777;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
+        pre { background-color: #f8f8f8; padding: 15px; border-radius: 4px; overflow-x: auto; color: #333; font-size: 0.9em; margin: 20px 0; border: none; }
+        code { font-family: Consolas, "Courier New", monospace; }
 
-        /* 折りたたみ（証明など）スタイル */
-        .article-details {
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 20px auto; /* 中央寄せ */
-            max-width: 85%; /* 幅を制限 */
-            overflow: hidden;
-        }
-        .article-details summary {
-            background-color: #eee;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-weight: bold;
-            color: #555;
-            list-style: none; /* デフォルトの三角を消す（お好みで） */
-        }
-        .article-details summary::after {
-            content: "+"; 
-            float: right;
-            font-weight: bold;
-        }
-        .article-details[open] summary::after {
-            content: "-";
-        }
-        .details-content {
-            padding: 15px;
-            border-top: 1px solid #ddd;
-        }
+        .article-box { margin: 25px auto; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; font-size: 0.95em; max-width: 90%; }
+        .box-title { padding: 8px 15px; font-weight: bold; background-color: #f1f1f1; border-bottom: 1px solid #ddd; font-size: 0.9em; }
+        .box-body { padding: 15px 20px; background-color: #fff; }
+        .box-def { border-color: #81c784; } .box-def .box-title { background-color: #e8f5e9; color: #2e7d32; }
+        .box-thm { border-color: #64b5f6; } .box-thm .box-title { background-color: #e3f2fd; color: #1565c0; }
+        .box-proof { border-color: #bdbdbd; } .box-proof .box-title { background-color: #f5f5f5; color: #616161; }
+        .box-summary { border-color: #2196f3; } .box-summary .box-title { background-color: #2196f3; color: #fff; text-align: center; }
+        .box-hw { border-color: #ff9800; } .box-hw .box-title { background-color: #ff9800; color: #fff; }
 
-        /* 独立数式スタイル */
-        .article-math {
-            text-align: center;
-            margin: 20px 0;
-            padding: 10px;
-            overflow-x: auto;
-        }
+        .article-math { margin: 1.5em auto; text-align: center; }
+        .box-summary { border-color: #2196f3; } .box-summary .box-title { background-color: #2196f3; color: #fff; text-align: center; }
+        .box-hw { border-color: #ff9800; } .box-hw .box-title { background-color: #ff9800; color: #fff; }
 
-        /* コードブロックスタイル */
-        pre {
-            max-width: 85%;
-            margin: 20px auto;
-            background-color: #1e1e1e; /* ダーク背景 */
-            padding: 15px;
-            border-radius: 5px;
-            border: 1px solid #333;
-            overflow-x: auto;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        pre code {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 0.9em;
-            background: none !important; /* highlight.jsの背景を上書き */
-            padding: 0 !important;
-        }
+        .article-math { margin: 1.5em auto; text-align: center; }
 
-        /* 囲み枠 (tcolorbox風) スタイル */
-        .article-box {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 20px auto;
-            max-width: 85%;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            background-color: #fff;
-        }
-        .article-box-title {
-            background-color: #00bcd4; /* デフォルト: 水色 */
-            color: #fff;
-            padding: 8px 15px;
-            font-weight: bold;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        .article-box-content {
-            padding: 15px;
-            line-height: 1.6;
-        }
-        
-        /* 色バリエーション */
-        .box-def { border-color: #4caf50; }
-        .box-def .article-box-title { background-color: #4caf50; } /* 定義: 緑 */
-        
-        .box-thm { border-color: #2196f3; }
-        .box-thm .article-box-title { background-color: #2196f3; } /* 定理: 青 */
-        
-        .box-proof { border-color: #607d8b; }
-        .box-proof .article-box-title { background-color: #607d8b; } /* 証明: グレー */
-        
-        .box-alert { border-color: #ff5252; }
-        .box-alert .article-box-title { background-color: #ff5252; } /* 注意: 赤 */
+        .truth-table { margin: 20px auto; border-collapse: collapse; font-size: 0.95em; }
+        .truth-table th, .truth-table td { border: 1px solid #ccc; padding: 8px 15px; text-align: center; }
+        .truth-table th { background-color: #f5f5f5; font-weight: bold; border-bottom: 2px solid #aaa; }
 
-        /* まとめ */
-        .box-summary {
-            border: 2px solid #009688;
-            background-color: #e0f2f1;
-        }
-        .box-summary .article-box-title {
-            background-color: #009688;
-            text-align: center;
-            font-size: 1.1em;
-            letter-spacing: 2px;
-        }
-
-        /* 宿題 */
-        .box-homework {
-            border: 2px dashed #ff9800;
-            background-color: #fff3e0;
-        }
-        .box-homework .article-box-title {
-            background-color: #ff9800;
-        }
-
-        /* プレビューモード用スタイル */
-        .preview-mode a {
-            pointer-events: none; /* リンク無効化 */
-            color: inherit;       /* 色も通常テキストと同じに */
-            text-decoration: none;
-            cursor: default;
-        }
-        .preview-mode .header, .preview-mode .foot {
-            /* ヘッダーとフッターを目立たなくする（お好みで） */
-            opacity: 0.7;
-        }
-
-        .foot{
-            padding: 15px 0;
-            text-align: center;
-            background-color: burlywood;
-        }
+        .foot { padding: 20px 0; text-align: center; background-color: burlywood; margin-top: 30px; margin-bottom: 20px; border-radius: 5px; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
 <div class="header width-constraint">
-    <h1><a href="index.html">瀬川研究室！</a></h1>
-    <p class="subtitle">Segawa Laboratory!!</p>
+    <h1><a href="index.html">瀬川研究室</a></h1>
+    <p class="subtitle">Segawa Laboratory!</p>
 </div>
 
-<div class="container" id="article-container">
-    <div class="article-title">
-        <h1 id="title">読み込み中...</h1>
-        <p id="date" style="color: #777; font-size: 0.9em;"></p>
-    </div>
-    
-    <div id="content-area">
-        <!-- ここにJavaScriptでコンテンツが生成されます -->
-    </div>
+<div class="main-container width-constraint">
+    <h1 id="article-title">読み込み中...</h1>
+    <span id="article-date"></span>
+    <div id="article-content"></div>
 </div>
 
 <footer class="foot width-constraint">
-    &copy; Segawa Laboratory
+    &copy; 瀬川研究室
 </footer>
 
 <script>
-    // JSONファイルを読み込んで表示する関数
     async function loadArticle() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleId = urlParams.get('p');
+
+        if (!articleId) {
+            document.getElementById('article-title').textContent = '記事が指定されていません。';
+            return;
+        }
+
         try {
-            const urlParams = new URLSearchParams(window.location.search);
-            const postId = urlParams.get('p') || 'logic/01'; 
-            
-            // プレビューモード判定
-            if (urlParams.get('preview') === 'true') {
-                document.body.classList.add('preview-mode');
-            }
-
-            // 設定の読み込み
-            const configRes = await fetch('config.json');
+            const configRes = await fetch('./config.json');
             const config = await configRes.json();
-            const speakerSettings = config.speakers || {};
+            const speakers = config.speakers || {};
+            
+            document.title = config.site_title || "記事";
+            const siteTitleLink = document.querySelector(".header h1 a");
+            if(siteTitleLink) siteTitleLink.textContent = config.site_title || "瀬川研究室";
+            const subtitle = document.querySelector(".header .subtitle");
+            if(subtitle) subtitle.textContent = config.site_subtitle || "Segawa Laboratory";
 
-            const response = await fetch(`posts/${postId}.json`);
-            if (!response.ok) throw new Error('Network response was not ok');
+            const response = await fetch(`./posts/${articleId}.json`);
+            if (!response.ok) throw new Error("記事データが見つかりません。");
             const article = await response.json();
 
-            // タイトルと日付の設定
-            document.getElementById('title').textContent = article.title;
-            document.getElementById('date').textContent = article.date;
+            document.getElementById('article-title').textContent = article.title;
+            document.getElementById('article-date').textContent = article.date;
 
-            const contentArea = document.getElementById('content-area');
-            let speakerToggle = true; // 左右交互用
+            const contentArea = document.getElementById('article-content');
+            contentArea.innerHTML = ''; 
 
-            // データ配列をループして要素を生成
             article.data.forEach(item => {
                 if (item.type === 'dialogue') {
                     const row = document.createElement('div');
                     row.className = 'dialogue-row';
-                    
-                    const speakerName = item.speaker.trim();
-                    const setting = speakerSettings[speakerName] || {};
-                    
-                    // 左右の決定 (記事内の指定があれば優先、なければ交互)
-                    let side = item.side;
-                    if (!side) {
-                        side = speakerToggle ? 'left' : 'right';
-                        speakerToggle = !speakerToggle;
-                    }
-                    row.classList.add(side === 'left' ? 'speaker-left' : 'speaker-right');
+                    const side = item.side || 'left';
+                    row.classList.add(side);
 
-                    // アイコン
+                    const speakerKey = item.speaker.trim();
+                    const profile = speakers[speakerKey] || { color: '#f0f0f0', icon: '' };
+                    
                     const icon = document.createElement('div');
                     icon.className = 'icon';
-                    if (setting.icon) {
-                        icon.style.backgroundImage = `url(${setting.icon})`;
-                        icon.style.backgroundSize = 'cover';
+                    if (profile.icon) {
+                        icon.style.backgroundImage = `url(${profile.icon})`;
                         icon.textContent = '';
                     } else {
-                        icon.textContent = speakerName.charAt(0);
-                        icon.style.backgroundColor = setting.color || '#eee';
+                        icon.textContent = speakerKey.charAt(0);
                     }
+                    icon.style.backgroundColor = profile.color;
 
-                    // 吹き出し
                     const bubble = document.createElement('div');
                     bubble.className = 'bubble';
-                    bubble.style.backgroundColor = setting.color || '#eee';
                     bubble.innerHTML = item.content;
+                    if (side === 'left') {
+                        bubble.style.backgroundColor = profile.color || '#f0f0f0';
+                    }
 
                     row.appendChild(icon);
                     row.appendChild(bubble);
                     contentArea.appendChild(row);
-
-
+                
                 } else if (item.type === 'heading') {
-                    // 見出しの作成
                     const heading = document.createElement('h2');
                     heading.className = 'section-heading';
                     heading.textContent = item.content;
                     contentArea.appendChild(heading);
-                
-                } else if (item.type === 'image') {
-                    // 画像の作成
-                    const figure = document.createElement('figure');
-                    figure.className = 'article-image';
-                    
-                    const img = document.createElement('img');
-                    img.src = item.src;
-                    img.alt = item.caption || '';
-                    
-                    figure.appendChild(img);
-                    
-                    if (item.caption) {
-                        const caption = document.createElement('figcaption');
-                        caption.textContent = item.caption;
-                        figure.appendChild(caption);
-                    }
-                    contentArea.appendChild(figure);
-
-                } else if (item.type === 'details') {
-                    // 折りたたみの作成
-                    const details = document.createElement('details');
-                    details.className = 'article-details';
-                    
-                    const summary = document.createElement('summary');
-                    summary.textContent = item.summary;
-                    
-                    const div = document.createElement('div');
-                    div.className = 'details-content';
-                    div.innerHTML = item.content; // 数式対応
-                    
-                    details.appendChild(summary);
-                    details.appendChild(div);
-                    contentArea.appendChild(details);
 
                 } else if (item.type === 'math') {
-                    // 独立数式の作成
                     const div = document.createElement('div');
                     div.className = 'article-math';
                     div.innerHTML = item.content;
                     contentArea.appendChild(div);
 
                 } else if (item.type === 'code') {
-                    // コードブロックの作成
                     const pre = document.createElement('pre');
                     const code = document.createElement('code');
-                    
-                    if (item.language) {
-                        code.className = `language-${item.language}`;
-                    }
-                    
-                    code.textContent = item.content; // エスケープのためtextContentを使用
+                    if (item.language) code.className = `language-${item.language}`;
+                    code.textContent = item.content;
                     pre.appendChild(code);
                     contentArea.appendChild(pre);
-                
+
                 } else if (item.type === 'box') {
-                    // 囲み枠の作成
                     const box = document.createElement('div');
                     box.className = 'article-box';
-                    
-                    // タイトルに応じた色分け
                     const t = item.title || "";
-                    if (t.includes("定義") || t.includes("Def")) {
-                        box.classList.add("box-def");
-                    } else if (t.includes("定理") || t.includes("命題") || t.includes("Thm") || t.includes("Prop")) {
-                        box.classList.add("box-thm");
-                    } else if (t.includes("証明") || t.includes("Proof")) {
-                        box.classList.add("box-proof");
-                    } else if (t.includes("注意") || t.includes("Note")) {
-                        box.classList.add("box-alert");
-                    } else if (t.includes("まとめ") || t.includes("Summary")) {
-                        box.classList.add("box-summary");
-                    } else if (t.includes("宿題") || t.includes("課題") || t.includes("Homework")) {
-                        box.classList.add("box-homework");
+                    if (t.includes("定義")) box.classList.add("box-def");
+                    else if (t.includes("定理")) box.classList.add("box-thm");
+                    else if (t.includes("証明")) box.classList.add("box-proof");
+                    else if (t.includes("まとめ")) box.classList.add("box-summary");
+                    else if (t.includes("宿題")) box.classList.add("box-hw");
+
+                    if (item.title) {
+                        const title = document.createElement('div');
+                        title.className = 'box-title';
+                        title.textContent = item.title;
+                        box.appendChild(title);
                     }
-                    
-                    const boxTitle = document.createElement('div');
-                    boxTitle.className = 'article-box-title';
-                    boxTitle.textContent = item.title;
-                    
-                    const boxContent = document.createElement('div');
-                    boxContent.className = 'article-box-content';
-                    boxContent.innerHTML = item.content;
-                    
-                    box.appendChild(boxTitle);
-                    box.appendChild(boxContent);
+                    const body = document.createElement('div');
+                    body.className = 'box-body';
+                    body.innerHTML = item.content;
+                    box.appendChild(body);
                     contentArea.appendChild(box);
+
+                } else if (item.type === 'truth') {
+                    const table = document.createElement('table');
+                    table.className = 'truth-table';
+                    item.rows.forEach((rowItems, index) => {
+                        const tr = document.createElement('tr');
+                        rowItems.forEach(cellText => {
+                            const cell = document.createElement(index === 0 ? 'th' : 'td');
+                            cell.innerHTML = cellText; // 数式対応のためinnerHTML
+                            tr.appendChild(cell);
+                        });
+                        table.appendChild(tr);
+                    });
+                    contentArea.appendChild(table);
                 }
             });
 
-            // MathJaxによる数式のレンダリングを実行
             if (window.MathJax) {
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, contentArea]);
+                MathJax.typesetPromise([contentArea]).catch((err) => console.log(err));
             }
-            
-            // コードハイライトの実行
             if (window.hljs) {
-                hljs.highlightAll();
+                contentArea.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightElement(block);
+                });
             }
 
         } catch (error) {
             console.error('Failed to load article:', error);
-            document.getElementById('content-area').textContent = '記事の読み込みに失敗しました。';
+            document.getElementById('article-content').innerHTML = `<div style="color:red;padding:20px;background:#fff;border:1px solid red;"><h3>読み込みエラー</h3><p>${error.message}</p></div>`;
         }
     }
 
@@ -514,10 +225,7 @@
     if (window.location.hostname === "localhost") {
         const evtSource = new EventSource("/_livereload/events");
         evtSource.onmessage = function(event) {
-            if (event.data === "reload") {
-                console.log("File changed. Reloading...");
-                location.reload();
-            }
+            if (event.data === "reload") location.reload();
         };
     }
 </script>

@@ -57,13 +57,19 @@
     },
     {
       "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "だけどまぁ，これからは一番外側のカッコは省略しようかしら．あった方が奇麗だけど，見た目だけなら無い方が奇麗だものね．命題論理レベルならどっちでも変わんないし．"
+    },
+    {
+      "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "（耳に入らなさそうな顔）"
+      "content": "さいですか"
     },
     {
       "type": "heading",
-      "content": "意味論とは"
+      "content": "意味論"
     },
     {
       "type": "dialogue",
@@ -157,7 +163,272 @@
     {
       "type": "box",
       "title": "定義：$L_a$　の意味論",
-      "content": "１．"
+      "content": "１．$\\mathrm{Prop}$ （命題変数全体の集合）から真理値の集合 $\\{T,F\\}$ への写像 $I$ を付値関数と呼ぶ．<br>２．付値関数を拡大していくことによって真偽を定める．すなわち，$p$ を命題変数，$\\phi,\\psi$ を $L_a$ 論理式として，<br>$$<br>\\left\\{<br>\\begin{array}{rl}<br>f_0(p) &= I(p)\\\\<br>f_{n+1}(\\neg\\phi) &=\\left\\{\\begin{array}{rl}<br>F& (f_{n}(\\phi)=T) \\\\<br>T&(f_{n}(\\phi)=F)<br>\\end{array}\\right.  \\\\<br>f_{n+1}(\\phi\\to\\psi) &=\\left\\{\\begin{array}{rl}<br>F& (f_{n}(\\phi)=T~かつ~f_{n}(\\psi)=F) \\\\<br>T&(その他)<br>\\end{array}\\right. \\\\<br>f_{n+1}(\\phi\\land\\psi) &= \\left\\{\\begin{array}{rl}<br>F&(f_{n}(\\phi)=F~または~f_{n}(\\psi)=F) \\\\<br>T&(その他)<br>\\end{array}\\right.\\\\<br>f_{n+1}(\\phi\\lor\\psi) &=\\left\\{\\begin{array}{rl}<br>F&(f_{n}(\\phi) = F~かつ~f_{n}(\\psi)=F) \\\\<br>T&(その他)<br>\\end{array}\\right.<br>\\end{array}\\right.$$以上をもって写像 $f$ を<br>$$f(\\phi) = f_m(\\phi)~~~(mはf_mが定義される最小の数)$$と定義する．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "長いですね．写像とか集合とかの言葉を使うとは思ってませんでした．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そうね．今回は使わせてもらったわ．使いたくない人も少なくはないんだけど，便利だもの．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ところで，この定義では僕の疑問に全く答えていないように読めるんですが"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "......"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "命題変数はいきなり出てきた写像 $I$ で真理値を決められていますし，$\\to$ の意味はなんですかこれ？僕を騙くらかそうってんですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "............"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それはね......"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "それは形式論理の性，いや原罪と言っても過言ではない性質です！"
+    },
+    {
+      "type": "heading",
+      "content": "形式論理とは"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "いきなり入ってきてなにを言い出すかと思えば......でもまぁ，柿山の言うとおりね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "はい．前回栃村くんは「窓が割れるなら窓が割れる」を変な例にあげたと聞きました．これに命題変数を新しくあてがうなら，どうしますか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "命題変数をですか？そうだな......"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「窓」には一つ変数をつけたいですね．窓ができることは「割れる」他にも「開く」や「曇る」もあるので，「割れる」にも変数をつけたいです．でもこうなると $(mado\\cdot wareru) \\to (mado\\cdot wareru)$ みたいな感じになるんですかね？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "いい線いってますよ！じゃあ「窓」とはどういうものでしょう．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "窓枠にガラスが嵌っているものとか"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "となると，先ほどの論理式は $((madowaku \\cdot has \\cdot grass)\\cdot wareru)$$ \\to ((madowaku \\cdot has \\cdot grass)\\cdot wareru)$ になりますね．ところで窓枠の定義を考えて見てください"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "うっ"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "そうです．循環参照で論理式が無限に長くなっていっちゃいますね！これが形式言語の難しいところです．自然言語を形式言語で扱おうとすると，簡単にバグっちゃうんです！"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "だから命題論理では難しい部分は捨象して，命題と命題の関係のみに注力するの．$\\to$ の定義が直観的でないのもその一つよ．これが前回言った「全く別物の記号」の意味．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（じゃあそう言ってくれればいいのに）"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "じゃあそう言ってくれればいいのにって顔してるわね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "うっ"
+    },
+    {
+      "type": "heading",
+      "content": "真理値表"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "さて，意味論の意味も学べたとこで手を動かしましょう．柿山，適当な論理式を言ってみて．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "瀬川ちゃんは急に振ってきますね．いいですよ．じゃあこれはどうでしょう．"
+    },
+    {
+      "type": "math",
+      "content": "$$\np\\to(q\\to(p\\land q))\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "なるほどね．じゃあ栃村．これがトートロジーであることを示して．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "トートロジー？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "トートロジーも知らないの？？？高校で何をやってたのかしら．この大学はそんなに悪い大学じゃないとおもってたんだけど"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "勘弁してください......"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "トートロジー（tautology）とは，解釈 $I$ によらず真であるような論理式のことですよ！"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ええと..."
+    },
+    {
+      "type": "box",
+      "title": "証明",
+      "content": "与えられた論理式を $\\phi$ とする．論理式の構造より $m=3$ であり，$p,q$ の解釈として考えられる4通りを調べれば $f(\\phi)$ の値が決定できる．<br>・$I(p)=T,I(q)=T$ のとき，$f(p\\land q)=T$．よって $f(q\\to(p\\land q))\\not=F$ より $f(q\\to(p\\land q))=T$．同様に $f(\\phi) = T$<br>・他の解釈の場合も同様に確かめられ，いずれにせよ $f(\\phi)=T$．<br><br>したがって $\\phi$ はトートロジー．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "うん．まぁ出来て当然よね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "でも証明が汚いわね．アンタの生き方を見てるみたいよ．もうちょっと洗練させようと思わなかったのかしら．例えば真理値表とかを使いますと言えば認めてあげたんだけどね．"
+    },
+    {
+      "type": "truth",
+      "rows": [
+        [
+          "p",
+          "q",
+          "$p\\land q$",
+          "$q\\to (p\\land q)$",
+          "$\\phi$"
+        ],
+        [
+          "T",
+          "T",
+          "T",
+          "T",
+          "T"
+        ],
+        [
+          "T",
+          "F",
+          "F",
+          "T",
+          "T"
+        ],
+        [
+          "T",
+          "F",
+          "F",
+          "F",
+          "T"
+        ],
+        [
+          "F",
+          "F",
+          "T",
+          "T",
+          "T"
+        ]
+      ]
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（じゃあそう言ってくれればいいのに）"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "じゃあそう言ってくれればいいのにって顔してますね"
+    },
+    {
+      "type": "box",
+      "title": "まとめ",
+      "content": "・意味論は $\\{T,F\\}$ への写像として定義される<br>・論理式の構造に沿いながら帰納的に定義される<br>・完璧な形式論理への道は長い......らしい<br>"
+    },
+    {
+      "type": "box",
+      "title": "宿題",
+      "content": "１．次の二つの論理式が，同じ真理値を持つか調べよ．<br>・$((p\\to q)\\land(q\\to r))\\to(p\\to r)$<br>・$(p\\to q)\\to((q\\to r)\\to (p\\to r))$<br><br>２．論理式の中には，命題変数のいくつかは論理式自体の真偽に関与しないものがある．例えば$$p\\lor (p\\land q)$$の真偽値に $q$ は関与しない．このような命題変数を「ダミー変数」と呼ぼう．<br>・命題変数 $p,q,r$ を持ちながら $p,q$ のみがダミー変数であるような論理式を一つ作れ．"
     }
   ]
 }
