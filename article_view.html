@@ -204,9 +204,18 @@
                 }
             });
 
-            if (window.MathJax) {
-                MathJax.typesetPromise([contentArea]).catch((err) => console.log(err));
-            }
+            // MathJax 3 でレンダリング (ロード待ち対応)
+            const renderMath = () => {
+                if (window.MathJax && window.MathJax.typesetPromise) {
+                    MathJax.typesetPromise([contentArea]).catch((err) => console.log('MathJax error: ' + err));
+                } else {
+                    // まだロードされていない場合は少し待って再試行
+                    setTimeout(renderMath, 100);
+                }
+            };
+            renderMath();
+
+            // Highlight.js
             if (window.hljs) {
                 contentArea.querySelectorAll('pre code').forEach((block) => {
                     hljs.highlightElement(block);
