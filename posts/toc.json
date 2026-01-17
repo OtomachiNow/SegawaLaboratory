@@ -3,31 +3,41 @@
     {
       "id": "logic/20260112_000003",
       "title": "命題論理-1",
-      "date": "2026/01/12"
+      "date": "2026/01/12",
+      "order": 0,
+      "type": "math"
     },
     {
       "id": "logic/20260114_000004",
       "title": "命題論理-2",
-      "date": "2026/01/14"
+      "date": "2026/01/14",
+      "order": 0,
+      "type": "math"
     }
   ],
   "story": [
     {
       "id": "story/20260120_story01",
       "title": "第1話：罠とドアノブ",
-      "date": "2026/01/20"
+      "date": "2026/01/20",
+      "order": 1.0,
+      "type": "novel"
     },
     {
       "id": "story/20260120_story02",
       "title": "第2話：塩昆布と指パッチン",
-      "date": "2026/01/20"
+      "date": "2026/01/20",
+      "order": 2.0,
+      "type": "novel"
     }
   ],
   "Fourier": [
     {
       "id": "Fourier/20260120_story03",
       "title": "フーリエ変換-1",
-      "date": "2026/01/20"
+      "date": "2026/01/20",
+      "order": 3.0,
+      "type": "math"
     }
   ]
 }

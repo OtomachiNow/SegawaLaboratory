@@ -274,14 +274,41 @@
                 const tocRes = await fetch('./posts/toc.json');
                 if (tocRes.ok) {
                     const toc = await tocRes.json();
-                    // articleId は "logic/01" のような形式
+                    
+                    // 現在の記事の情報を取得（tocから探す）
                     const [cat, id] = articleId.split('/');
-                    const list = toc[cat];
-                    if (list) {
-                        const idx = list.findIndex(item => item.id === articleId);
-                        if (idx !== -1) {
-                            const prev = list[idx - 1];
-                            const next = list[idx + 1];
+                    let currentEntry = null;
+                    if (toc[cat]) {
+                        currentEntry = toc[cat].find(a => a.id === articleId);
+                    }
+
+                    let targetList = [];
+                    
+                    // StoryOrderがある場合 -> ストーリーモード（全ジャンルのorder順）
+                    if (currentEntry && currentEntry.order && currentEntry.order > 0) {
+                        let allArticles = [];
+                        Object.keys(toc).forEach(catKey => {
+                            const articles = toc[catKey]
+                                .filter(a => a.order && a.order > 0)
+                                .map(a => ({...a, cat: catKey}));
+                            allArticles = allArticles.concat(articles);
+                        });
+                        allArticles.sort((a, b) => a.order - b.order);
+                        targetList = allArticles;
+                    
+                    } else if (toc[cat]) {
+                        // StoryOrderがない場合 -> ゼミモード（同ジャンル内順）
+                        // 日付順やID順など、toc.jsonの並び順をそのまま使う
+                        targetList = toc[cat];
+                    }
+
+                    // リスト内で現在の記事を探して前後を特定
+                    if (targetList.length > 0) {
+                        const currentIdx = targetList.findIndex(item => item.id === articleId);
+                        
+                        if (currentIdx !== -1) {
+                            const prev = targetList[currentIdx - 1];
+                            const next = targetList[currentIdx + 1];
                             
                             const createNav = () => {
                                 const nav = document.createElement('div');
@@ -308,10 +335,9 @@
                                 return nav;
                             };
 
-                            // 上部ナビゲーション（タイトルの下）
+                            // 上部ナビゲーション
                             const titleArea = document.querySelector('.article-title') || document.getElementById('article-date');
                             if (titleArea && titleArea.parentNode) {
-                                // 日付の下に挿入したいが、構造上難しいのでcontentAreaの直前に入れる
                                 contentArea.parentNode.insertBefore(createNav(), contentArea);
                             }
                             
