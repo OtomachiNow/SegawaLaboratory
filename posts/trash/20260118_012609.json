@@ -1,0 +1,28 @@
+{
+  "title": "フーリエ変換-1",
+  "date": "2026/01/18",
+  "published": false,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "フーリエ変換"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "フーリエ変換ねぇ、準備するものは色々あるけど、せっかくだし基礎からやった方がいいと思うのよ。工学部で分からないと言ってるんだから、数式を与えたって分かんないままよどうせ。じゃあ　$\\mathrm{L^2}$ 空間の定義から。<br>"
+    },
+    {
+      "type": "box",
+      "title": "定義： $\\mathrm{L^2}$空間",
+      "content": ""
+    }
+  ]
+}

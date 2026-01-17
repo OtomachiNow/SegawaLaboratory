@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>瀬川研究室</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ストーリー一覧専用のスタイル */
+        .story-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+        .story-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: baseline;
+            transition: background-color 0.2s;
+        }
+        .story-item:hover {
+            background-color: rgba(255,255,255,0.5);
+        }
+        .story-order {
+            font-weight: bold;
+            color: #00bcd4;
+            margin-right: 15px;
+            min-width: 30px;
+            text-align: right;
+        }
+        .story-info {
+            flex-grow: 1;
+        }
+        .story-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        .story-meta {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 3px;
+        }
+        .badge-novel {
+            background-color: #ff9800;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        .badge-math {
+            background-color: #2196f3;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header width-constraint">
+    <h1><a href="index.html">瀬川研究室</a></h1>
+    <p class="subtitle">Segawa Laboratory!</p>
+</div>
+
+<div class="clm width-constraint">
+    <div class="mokuzi">
+        <h2>もくじ</h2>
+        <p><a href="index.html">トップ</a></p>
+        <p><a href="story.html">ストーリー</a></p>
+        <p><a href="seminars.html">ゼミ一覧</a></p>
+        <p><a href="about.html">研究室紹介</a></p>
+    </div>
+
+    <div class="main">
+        <div class="setumei">
+            <h1>ストーリー</h1>
+            <p>瀬川研究室の物語と、そこでのゼミの記録を時系列順に掲載しています。</p>
+            <br/>
+        </div>
+        
+        <div class="katudou" style="width: 95%; margin: auto;">
+            <!-- ここから下は manager.py によって自動生成されるエリア -->
+            <!-- AUTO_GENERATED_START -->
+<ul class="story-list">
+
+                <li class="story-item">
+                    <span class="story-order">1.</span>
+                    <div class="story-info">
+                        <a href="article_view.html?p=story/20260120_story01" class="story-title">第1話：罠とドアノブ <span class="badge-novel">小説</span></a>
+                        <div class="story-meta">2026/01/20</div>
+                    </div>
+                </li>
+                <li class="story-item">
+                    <span class="story-order">2.</span>
+                    <div class="story-info">
+                        <a href="article_view.html?p=story/20260120_story02" class="story-title">第2話：塩昆布と指パッチン <span class="badge-novel">小説</span></a>
+                        <div class="story-meta">2026/01/20</div>
+                    </div>
+                </li>
+                <li class="story-item">
+                    <span class="story-order">3.</span>
+                    <div class="story-info">
+                        <a href="article_view.html?p=Fourier/20260120_story03" class="story-title">フーリエ変換-1 <span class="badge-math">数学</span></a>
+                        <div class="story-meta">2026/01/20</div>
+                    </div>
+                </li></ul>
+<!-- AUTO_GENERATED_END -->
+        </div>
+    </div>
+</div>
+
+<footer class="foot width-constraint">
+    &copy; 瀬川研究室
+</footer>
+
+<script>
+    // タイトルなどをconfig.jsonから反映
+    fetch('config.json')
+        .then(res => res.json())
+        .then(config => {
+            document.title = (config.site_title || "瀬川研究室") + " - ストーリー";
+            const h1 = document.querySelector(".header h1 a");
+            if(h1) h1.textContent = config.site_title || "瀬川研究室";
+            const sub = document.querySelector(".header .subtitle");
+            if(sub) sub.textContent = config.site_subtitle || "";
+        })
+        .catch(e => console.error(e));
+</script>
+</body>
+</html>

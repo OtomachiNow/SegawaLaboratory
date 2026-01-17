@@ -2,16 +2,22 @@
   "title": "Segawa Studio ユーザーマニュアル",
   "date": "2026/01/14",
   "published": false,
+  "order": 0,
+  "type": "math",
   "data": [
     {
       "type": "heading",
       "content": "Segawa Studio とは"
     },
     {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
       "type": "dialogue",
       "speaker": "瀬川",
       "side": null,
-      "content": "ここは統合執筆環境 <b>Segawa Studio</b> の使い方を説明するわ。<br>記事の管理、公開、ジャンルの追加など、サイト運営に関わる操作はここで行うの。"
+      "content": "ここは統合執筆環境 <b>Segawa Studio</b> の使い方を説明するわ。<br>記事の管理、公開、ジャンルの追加など、サイト運営に関わる操作はここで行うの。<br>"
     },
     {
       "type": "box",
@@ -21,6 +27,10 @@
     {
       "type": "heading",
       "content": "主な機能"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
     },
     {
       "type": "box",

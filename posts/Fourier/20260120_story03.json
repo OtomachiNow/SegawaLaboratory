@@ -1,0 +1,298 @@
+{
+  "title": "フーリエ変換-1",
+  "date": "2026/01/20",
+  "published": true,
+  "order": 3.0,
+  "type": "math",
+  "data": [
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "歓迎してあげるわ、新入部員。これが瀬川研究室の『ゼミ』よ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（ゼミ！　これが、あのビラに書いてあった試験対策！でも、なんか雰囲気がさっきまでと全然違う。目がマジだ……）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "いい？　あんたが「フーリエ変換が分からない」と言った。その言葉の罪深さを、今から教えてあげる。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そもそも、あんたたち工学部生が教わるフーリエ変換は、単なる計算の「手続き」でしかないのよ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "て、手続き……ですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう。公式を覚えて、適当な関数を積分して、答えを出して満足しているだけ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "なぜあの積分が成り立つのか。なぜそれが元の関数を再構成できるのか。その背後にある『構造』をあんたたちは見ていない。それは数学じゃないわ。ただの計算作業よ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（うっ、いきなり全否定……）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "フーリエ変換を語るなら、まずその舞台を定義しなさい。関数を『ベクトル』として、関数全体を『空間』として捉える。ここから全てが始まるの<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "関数がベクトル……？矢印とか、数字が並んでるやつじゃなくてですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "抽象化すれば同じことよ。ある区間で定義された、二乗して積分できるような関数全体の集合を考えるわ。これを $L^2$ 空間というの。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そして、この空間に『内積』をこう定義する<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$\n\\langle f, g \\rangle := \\int f(x) \\overline{g(x)} dx\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あ、その記号！でも、矢印の内積の計算とは全然違いますよね……？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "いいえ、本質は同じ。この内積から、関数の『長さ』、つまりノルム$\\|f\\| = \\sqrt{\\langle f, f \\rangle}$が定義できるわ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そして、このノルムから導かれる距離によって、コーシー列が常に収束する……つまり『完備』な空間。それが『ヒルベルト空間』。まずはこの名前を脳に刻みなさい。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "は、はあ……<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（完備……？　ヒルベルト……？　工学の教科書にそんな言葉出てきたっけ……）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "このヒルベルト空間の中で、三角関数系 $\\{\\frac{1}{\\sqrt{2\\pi}}e^{inx}\\}_{n\\in\\mathbb{Z}}$ は、正規直交基底をなすの。有限次元のベクトル空間で言うところの、互いに直交する長さ１の単位ベクトルみたいなものよ。ここまでが最低限の準備。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（こ、これで最低限......？）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そしてここからが本題。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "どんなベクトルも基底の線形和で書けるように、どんな関数も、この三角関数という『基底』の線形和で一意に書ける。それがフーリエ級数展開よ！<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$\nf(x) = \\sum_{n=-\\infty}^{\\infty} c_n e^{inx}\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "でも問題は、この『＝』の意味。この収束がどういう意味を持つかよ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "……？　イコールはイコールじゃないんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "甘いわね。各点収束？ 一様収束？ それともノルムの意味での収束？$L^2$ 空間で議論しているなら、当然 $L^2$ 収束を考えるべきでしょ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そのためには、ディリクレ核の $L^1$ ノルムが発散することを抑えて、フェイエール核による近似恒等元を……<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あ、あの！ちょっと、待ってください！全然、全く、一ミリもついていけません！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "……は？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "その、えるつー？　とか、収束の種類がどうとか、そういう言葉、僕の知ってるフーリエ変換には出てこなかったんです<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "…………<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "あんた、まさかルベーグ積分、やってないの？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "る、るべーぐ……？重積分ならやりましたけど……<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "……<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "…………<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "…………そう。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そうよね。工学部の低学年でやるわけないわよね<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "あーあ、華ちゃん。すっかり自分の世界に入っちゃって。置いてけぼりだよ～<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "（不機嫌そうに黙り込む）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（あ、あれ……？　急に黙っちゃった。怒ってる？）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "……もういいわ。今日のところはここまで。時間の無駄よ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えっ、あ、はい。すみません……<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "次に来るつもりがあるなら、これを解いてきなさい<br>"
+    },
+    {
+      "type": "box",
+      "title": "宿題",
+      "content": "関数列 $f_n(x) = \\sqrt{n} e^{-n|x|}$ が、$L^2(\\mathbb{R})$ において $0$ に収束することを示せ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えっ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "できなければ、二度とこの部屋の敷居を跨がないでちょうだい<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（あ……黒板に向き直っちゃった）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "right",
+      "content": "......ま、そういうことらしいね。はい、これ今日の分の塩昆布ね。お疲れ様～<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（塩昆布だけ持たされて追い出された……どうしよう、これ……）"
+    }
+  ]
+}

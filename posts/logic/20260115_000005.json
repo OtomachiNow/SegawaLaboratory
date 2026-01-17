@@ -1,0 +1,73 @@
+{
+  "title": "命題論理-3",
+  "date": "2026/01/15",
+  "published": false,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "前回の宿題"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "前回の宿題ですけど，1番は簡単でしたね．真理値表を書くだけだったので．ただ2番はちょっと手こずりました．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "だけど命題の真偽を変えないようにと思えば解けました。トートロジーに変数を埋め込んで無視すればいいんですね。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$(p\\lor \\neg p)\\land (q\\lor \\neg p)\\land r$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "正解よ。つまんない例だけどね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "じゃあつまんなくない例はどんなものなんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "こういうのはね、問題設定を疑問視すると楽しくなるの。まずはこれら論理式が同値であることを意識する。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$p\\lor q,~\\neg p\\to q$$\n$$p\\land q,~\\neg(p\\to \\neg q)$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ここから何が言えるかしら？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えっと、$\\lor$ と $\\land$ が $\\to, \\neg$ だけで表されてますね。ってことは、$\\lor,\\land$ は別の論理式で代用できるってことですか。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "もっと強く言えるわ。$\\lor,\\land$ は論理体系に「不要」ってこと。"
+    }
+  ]
+}

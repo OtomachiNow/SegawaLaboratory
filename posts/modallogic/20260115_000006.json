@@ -1,0 +1,71 @@
+{
+  "title": "様相論理-1",
+  "date": "2026/01/15",
+  "published": false,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "イントロダクション"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "様相様相様相！！！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "なによ急に騒ぎ立てて．アグネス・チャンでも出てきた？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（そこそこ古いＣＭのはずなのに何で知ってるんだろう）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "違うよ華ちゃん！学会の準備が終わらないの！発表レジュメもスカスカだしどういうこと！？！？！？！？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "また発表？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "ううん．厳密に言うと......というか発表なんてしないの．だけど研究室の先生から「次の学会のＯ埼くんの発表は面白いから，予習してくるように．あとで説明させるから」とか言われて！流し目でさも当然のように言われたら反論も質問も出来ないでしょ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それは...お気の毒と言うほかないわね．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "それで、どんな内容なんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "ええとね、「様相μ計算に対するゲーム意味論について」って書いてる"
+    }
+  ]
+}

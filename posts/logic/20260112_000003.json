@@ -1,0 +1,281 @@
+{
+  "title": "命題論理-1",
+  "date": "2026/01/12",
+  "published": true,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "イントロダクション"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "瀬川さん！なんですかこの水平線！水平線の上にアルファベットとやじるしが浮かんで，あぁ...幻想的な海辺<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "何を言うかと思えば，証明図じゃない．それも自然演繹かしら？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "証明図？証明の，図？いやいやこれはどう見ても水平線に決まってるじゃないですか．この穏やかな海はきっと内陸ですよ．宮崎県とかじゃないですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "バカなこと言ってないで，章題を読み上げなさい！大体幻想的な内陸ならカスピ海とかが<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "め　い　だ　い　ろ　ん　り......<br>"
+    },
+    {
+      "type": "heading",
+      "content": "命題論理"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "というわけで，ここでは命題論理を扱うわよ．とりあえずヒルベルト流での健全性，完全性を扱った後に自然演繹やタブロー形式との互換性を見ていくわ．そのあとモデル論的な部分に触れておしまい．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "早速記号の定義から進めていきたいわけだけど<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "待ってください！「命題論理」だか「やだらめ倫理」だか知りませんけど，こんなパズルゲームみたいな記号だらけのテキスト渡されてもさっぱりですよ！説明を求めます！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "説明？そうね...「栃村は頭が悪い」って，python ならどう書く？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "脈絡もなく刺してきますね．まぁいいですよ．<br>"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "        if(Tochimura.brain > threshold): #栃村ブレインは2980\n            print(\"yes\")　#yes\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "（めんどくさそうな顔）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "栃村の栃村ブレインの値が2980で，閾値を超えているから「頭がいい」としたのね．でも，こういう風にもできるんじゃないかしら．<br>"
+    },
+    {
+      "type": "code",
+      "language": "python",
+      "content": "        print(isBrainGood(Tochimura)) #no\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "簡単ですね<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう．あんたの頭がどうスコア化されてるかは知らないけど，知りたい事実自体は知りたい問題文だけで完結できる．こう書くこともできる．<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$\np\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "p 一文字じゃないですか！これじゃ僕の名前かも頭の良さかも，何を言ってるかわかんないですよ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "まったくもってその通りなんだけど，これはある種の言い換えと思えばいいわ．つまり，$p$ 一文字をもって「栃村は頭が悪い」という命題と考えるの．そしたらもう一つ，「栃村はモテる」を $q$ としましょう．ここで「$p$ ならば $q$」はどういう意味の文章になる？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「栃村は頭が悪いなら，栃村はモテる」ですか？ちょっといびつな日本語ですけど，意味は通りますね．真偽は......僕がモテてないのでコメントは差し控えますが．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "あら，栃村は古典論理に生きてるのね．別に対偶が真だからと言って元の命題について何も言わなくたっていいのに．っとそしたら非古典論理的反応だったかしら．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "何を言ってるんですか<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "いま使った「ならば」を，$\\to$ に置き換えてみると見覚えのある文字列になるはずよ．<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$\np\\to q\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "本当だ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "世の中の様々なステートメントは記号の列で表せるっていうのが「形式言語」のアイデア．たとえば三段論法なんかはこう．<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$\n\\\\\n(A\\to B) \\to ((B\\to C) \\to (A\\to C))\n\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あれ？三段論法って「『AならばB かつ BならばC』ならば『AならばC』」ですよね？瀬川さんの記号には「ならば」しかありませんけど．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "いい目の付け所ね．あんたが言う三段論法はこれね．「かつ」は　$\\land$ と書いているわ．<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$\n((A\\to B)\\land (B\\to C))\\to (A\\to C)\n$$\n"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "そうです．二つは全然違うじゃないですか．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "全然違うけど，同じなのよ．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "今まで話してきた文字列は「論理式」と呼ばれるわ．性急かもしれないけど，命題論理の言語を定義してしまいましょう．<br>"
+    },
+    {
+      "type": "box",
+      "title": "定義： $L_{a}$",
+      "content": "言語 $L_{a}$ は以下のものからなる．<br>・命題変数 $p,q,...$<br>・論理結合子 $\\neg, \\to, \\land,\\lor$<br>"
+    },
+    {
+      "type": "box",
+      "title": "定義： $L_a$ 論理式",
+      "content": "$L_a$ 論理式を以下のように定める．<br>・命題変数は　$L_a$論理式である．<br>・命題変数を論理結合子で結んだものも$L_a$論理式である．すなわち，$p,q$ を論理式として $(\\neg p), (p\\to q), (p\\land q), (p\\lor q)$ も論理式になる．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "なんだか細かいですね．普通の数学じゃないみたいです．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「普通の数学」の定義によるわね．理工系の数学は解析に寄ってることがほとんどだけど，代数とかならこういう定義は普通よ．見慣れないのもわけないわ．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ところで，今までは普通の文章から論理式（？）を作っていたのに，この定義だとめちゃくちゃな論理式もいくらでも作れてしまいますよね．「窓が割れるなら窓が割れる」みたいな．窓が割れたってその原因は窓が割れたこと自体ではないじゃないですか．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "私たちが普段使う「ならば」とは全く別物の記号ってことよ．ある程度の範囲には適用できるかもしれないけど，人間の会話を全て再現したものとは一言も言ってないもの．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "同じことが今後現れる様々な定義にも言えるわ．あくまでも私たちが扱うのは「命題論理」についてであって，推論一般についてじゃないということ．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "なんか，自縄自縛って感じで変ですね．自分から論理学を名乗っておいて．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "まぁそこらへんの込み入った話は，哲学系の人がやってくれるもの．私が話したっていいけど，長くなるだけだし．<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "触れたら駄目そうなので，触れません．<br>"
+    },
+    {
+      "type": "box",
+      "title": "まとめ",
+      "content": "・論理式は一定の規則に従って沢山作れる<br>・命題論理は普通の文章（自然言語というらしい）を形式化するし，形式化しないらしい<br>"
+    },
+    {
+      "type": "box",
+      "title": "宿題",
+      "content": "$X,Y$ を$L_a$論理式として，次の文字列が$L_a$論理式であるかどうかを見よ．<br>・$((\\neg(X\\to Y)) \\to ((\\neg Y) \\to (\\neg X)))$<br>・$((\\neg X)\\land X ) \\to Y$<br>・$(A\\to (X\\lor (\\neg X)))$"
+    }
+  ]
+}

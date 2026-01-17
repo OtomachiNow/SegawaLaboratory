@@ -2,22 +2,28 @@
   "title": "Segawa Editor ユーザーマニュアル",
   "date": "2026/01/14",
   "published": true,
+  "order": 0,
+  "type": "math",
   "data": [
     {
       "type": "heading",
       "content": "Segawa Editor へようこそ"
     },
     {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>このファイル自体もエディタで開いて、プレビューしながら読めるようになっているわ。"
+      "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>このファイル自体もエディタで開いて、プレビューしながら読めるようになっているわ。<br>"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "なるほど！エディタの機能を使いながら学べるんですね。"
+      "content": "なるほど！エディタの機能を使いながら学べるんですね。<br>"
     },
     {
       "type": "box",
@@ -29,10 +35,14 @@
       "content": "入力支援ショートカット"
     },
     {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "執筆を効率化するためのショートカットキーを用意したわ。<br>これを覚えるとマウスに触らずに記事が書けるようになるわよ。"
+      "content": "執筆を効率化するためのショートカットキーを用意したわ。<br>これを覚えるとマウスに触らずに記事が書けるようになるわよ。<br>"
     },
     {
       "type": "box",
@@ -44,16 +54,20 @@
       "content": "画像の挿入方法"
     },
     {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "画像を貼りたいときはどうすればいいんですか？"
+      "content": "画像を貼りたいときはどうすればいいんですか？<br>"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "とっても簡単よ。以下の2つの方法があるわ。"
+      "content": "とっても簡単よ。以下の2つの方法があるわ。<br>"
     },
     {
       "type": "box",
@@ -63,6 +77,10 @@
     {
       "type": "heading",
       "content": "記述ルール (Segawa Script)"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
     },
     {
       "type": "box",

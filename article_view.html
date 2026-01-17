@@ -60,6 +60,40 @@
 
         .article-math { margin: 1.5em auto; text-align: center; }
 
+        /* 小説モード (なろう風) */
+        .novel-mode {
+            font-family: "Yu Mincho", "游明朝", serif;
+            line-height: 1.6;
+            font-size: 95%;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: left;
+        }
+        .novel-mode .dialogue-row, .novel-mode .narrative-text {
+            display: block;
+            margin-bottom: 0;
+            text-indent: 0;
+        }
+        .novel-mode .icon, .novel-mode .speaker-name { display: none !important; }
+        .novel-mode .bubble {
+            background-color: transparent !important;
+            box-shadow: none;
+            padding: 0;
+            margin: 0;
+            max-width: 100%;
+            border-radius: 0;
+            font-size: inherit;
+            line-height: inherit;
+        }
+        .novel-mode .novel-text {
+            margin-bottom: 0;
+            text-indent: 0;
+            min-height: 1em; /* 空行を維持 */
+        }
+
         /* 前後ナビゲーション */
         .article-nav { display: flex; justify-content: space-between; margin: 20px 0; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 0.9em; }
         .article-nav a { text-decoration: none; color: #00bcd4; font-weight: bold; }
@@ -121,43 +155,67 @@
 
             const contentArea = document.getElementById('article-content');
             contentArea.innerHTML = ''; 
+            
+            // 小説モード判定
+            const isNovel = article.type === 'novel';
+            if (isNovel) {
+                contentArea.classList.add('novel-mode');
+            } else {
+                contentArea.classList.remove('novel-mode');
+            }
 
             article.data.forEach(item => {
                 if (item.type === 'dialogue') {
-                    const row = document.createElement('div');
-                    row.className = 'dialogue-row';
-                    const side = item.side || 'left';
-                    row.classList.add(side);
-
-                    const speakerKey = item.speaker.trim();
-                    const profile = speakers[speakerKey] || { color: '#f0f0f0', icon: '' };
-                    
-                    const icon = document.createElement('div');
-                    icon.className = 'icon';
-                    if (profile.icon) {
-                        icon.style.backgroundImage = `url(${profile.icon})`;
-                        icon.textContent = '';
+                    if (isNovel) {
+                        // 小説モード: 装飾なしで中身だけを表示（ユーザーが自分で鍵カッコを書く想定）
+                        const p = document.createElement('p');
+                        p.className = 'novel-text';
+                        p.innerHTML = item.content;
+                        contentArea.appendChild(p);
                     } else {
-                        icon.textContent = speakerKey.charAt(0);
-                    }
-                    icon.style.backgroundColor = profile.color;
-
+                        // 通常モード: 吹き出し
+                        const row = document.createElement('div');
+                        row.className = 'dialogue-row';
+                        const side = item.side || 'left';
+                        row.classList.add(side);
+    
+                        const speakerKey = item.speaker.trim();
+                        const profile = speakers[speakerKey] || { color: '#f0f0f0', icon: '' };
+                        
+                        const icon = document.createElement('div');
+                        icon.className = 'icon';
+                        if (profile.icon) {
+                            icon.style.backgroundImage = `url(${profile.icon})`;
+                            icon.textContent = '';
+                        } else {
+                            icon.textContent = speakerKey.charAt(0);
+                        }
+                        icon.style.backgroundColor = profile.color;
+    
                     const bubble = document.createElement('div');
                     bubble.className = 'bubble';
                     bubble.innerHTML = item.content;
-                    if (side === 'left') {
-                        bubble.style.backgroundColor = profile.color || '#f0f0f0';
+                    // 話者の設定色を適用（左右どちらでも）
+                    if (profile.color) {
+                        bubble.style.backgroundColor = profile.color;
                     }
 
                     row.appendChild(icon);
-                    row.appendChild(bubble);
-                    contentArea.appendChild(row);
+                        row.appendChild(bubble);
+                        contentArea.appendChild(row);
+                    }
                 
                 } else if (item.type === 'heading') {
                     const heading = document.createElement('h2');
                     heading.className = 'section-heading';
                     heading.textContent = item.content;
                     contentArea.appendChild(heading);
+
+                } else if (item.type === 'text') {
+                    const p = document.createElement('p');
+                    p.className = isNovel ? 'novel-text' : 'narrative-text';
+                    p.innerHTML = item.content;
+                    contentArea.appendChild(p);
 
                 } else if (item.type === 'math') {
                     const div = document.createElement('div');

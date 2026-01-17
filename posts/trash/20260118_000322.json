@@ -1,0 +1,21 @@
+{
+  "title": "未定",
+  "date": "2026/01/18",
+  "published": false,
+  "order": 0,
+  "type": "novel",
+  "data": [
+    {
+      "type": "heading",
+      "content": "第一話"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "text",
+      "content": "ある晴れた日のことだった。"
+    }
+  ]
+}
