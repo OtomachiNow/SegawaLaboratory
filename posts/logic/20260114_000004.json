@@ -287,7 +287,7 @@
       "type": "dialogue",
       "speaker": "柿山",
       "side": "left",
-      "content": "はい．前回栃村くんは「窓が割れるなら窓が割れる」を変な例にあげたと聞きました．これに命題変数を新しくあてがうなら，どうしますか？<br>"
+      "content": "はい．前回栃村くんは「窓が割れるなら窓が割れる」を変な例にあげたと聞いたよ．これに命題変数を新しくあてがうなら，どうする？<br>"
     },
     {
       "type": "dialogue",
@@ -317,7 +317,7 @@
       "type": "dialogue",
       "speaker": "柿山",
       "side": "left",
-      "content": "となると，先ほどの論理式は $((madowaku \\cdot has \\cdot grass)\\cdot wareru)$$ \\to ((madowaku \\cdot has \\cdot grass)\\cdot wareru)$ になりますね．ところで窓枠の定義を考えて見て？<br>"
+      "content": "となると，先ほどの論理式は $((madowaku \\cdot has \\cdot grass)\\cdot wareru)$$ \\to ((madowaku \\cdot has \\cdot grass)\\cdot wareru)$ になりますね．ところで窓枠の定義を考えてみて？<br>"
     },
     {
       "type": "dialogue",
@@ -329,7 +329,7 @@
       "type": "dialogue",
       "speaker": "柿山",
       "side": "left",
-      "content": "そう．循環参照で論理式が無限に長くなっていっちゃうね！これが形式言語の難しいところです．自然言語を形式言語で扱おうとすると，簡単にバグっちゃうんです！<br>"
+      "content": "そう．循環参照で論理式が無限に長くなっていっちゃうね！これが形式言語の難しいところ．自然言語を形式言語で扱おうとすると，簡単にバグっちゃうの！<br>"
     },
     {
       "type": "dialogue",
@@ -373,7 +373,7 @@
       "type": "dialogue",
       "speaker": "柿山",
       "side": "left",
-      "content": "瀬川ちゃんは急に振ってきますね．いいですよ．じゃあこれはどうでしょう．<br>"
+      "content": "瀬川ちゃんは急に振ってくるね．いいよ、じゃあこれはどうでしょう．<br>"
     },
     {
       "type": "math",
@@ -407,7 +407,7 @@
       "type": "dialogue",
       "speaker": "柿山",
       "side": "left",
-      "content": "トートロジー（tautology）とは，解釈 $I$ によらず真であるような論理式のことですよ！<br>"
+      "content": "トートロジー（tautology）とは，解釈 $I$ によらず真であるような論理式のことだよ！<br>"
     },
     {
       "type": "dialogue",

@@ -36,6 +36,13 @@
       "date": "2026/01/20",
       "order": 2.0,
       "type": "novel"
+    },
+    {
+      "id": "story/20260121_story03_1",
+      "title": "第3話：慈悲と生成AI",
+      "date": "2026/01/21",
+      "order": 4.0,
+      "type": "novel"
     }
   ],
   "Fourier": [

@@ -1,0 +1,53 @@
+{
+  "title": "命題論理-4",
+  "date": "2026/01/21",
+  "published": false,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "前回の宿題"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "さて、前回の宿題なんですけど<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "どうしたの急に固まって。フレーメン反応？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "いえ、瀬川さんの匂いを嗅いでいたわけではないんですが、2番が分からなかったと正直に言っていいのかなと<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "殺されやしないかと<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "私を何だと思ってるの？後輩が情けなくたって、身体に一つや二つ穴が開く程度で済むに決まってるじゃない<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（全然済んでない......）"
+    }
+  ]
+}
