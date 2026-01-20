@@ -17,22 +17,204 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>このファイル自体もエディタで開いて、プレビューしながら読めるようになっているわ。<br>"
+      "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>新機能が追加されたから、しっかり覚えなさい。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "新しいブロック記法"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
     },
     {
       "type": "dialogue",
-      "speaker": "栃村",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "これまでの <code>!box:</code> のようにインデントで囲む記法も使えるけど、もっと複雑なことをしたいときは、新しい <code>!begin</code> 記法を使いなさい。<br>これなら箱の中に数式を入れたり、箱の中に箱を入れたりできるわ。<br>"
+    },
+    {
+      "type": "box",
+      "title": "新記法 (推奨)",
+      "children": [
+        {
+          "type": "text",
+          "content": "<code></code>`text"
+        },
+        {
+          "type": "box",
+          "title": "タイトル",
+          "children": [
+            {
+              "type": "text",
+              "content": "中身のテキスト"
+            },
+            {
+              "type": "math",
+              "content": "数式など"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "<code></code>`"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "・<code>Ctrl + B</code> などのショートカットも、この新記法に対応したわ。"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "heading",
+      "content": "特殊な機能"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "box",
+      "title": "真理値表 (!truth:)",
+      "children": [
+        {
+          "type": "text",
+          "content": "カンマ区切りで簡単に表が作れるわ。"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "<code></code>`text"
+        },
+        {
+          "type": "truth",
+          "rows": [
+            [
+              "P",
+              "Q",
+              "P -> Q"
+            ],
+            [
+              "T",
+              "T",
+              "T"
+            ],
+            [
+              "T",
+              "F",
+              "F"
+            ],
+            [
+              "```"
+            ],
+            [
+              "!truth:"
+            ],
+            [
+              "P",
+              "Q",
+              "P -> Q"
+            ],
+            [
+              "T",
+              "T",
+              "T"
+            ],
+            [
+              "T",
+              "F",
+              "F"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "box",
+      "title": "証明図 (prooftree)",
+      "children": [
+        {
+          "type": "text",
+          "content": "<code>bussproofs</code> パッケージに対応したわ。"
+        },
+        {
+          "type": "text",
+          "content": "<code>!box</code> の中でも使えるようになったの。"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "math",
+          "content": "\\begin{prooftree}\n\\AxiomC{$A$}\n\\AxiomC{$A \\to B$}\n\\BinaryInfC{$B$}\n\\end{prooftree}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "box",
+      "title": "数式の空白",
+      "children": [
+        {
+          "type": "text",
+          "content": "数式内で <code>~</code> (チルダ) を使うと、空白として表示されるようになったわ。"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "math",
+          "content": "$$ a = b \\quad \\text{if}~ x > 0 $$"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "heading",
+      "content": "小説モード"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
       "side": "right",
-      "content": "なるほど！エディタの機能を使いながら学べるんですね。<br>"
+      "content": "小説を書くときは、新規作成で「小説記事」を選んでね。<br>そうすると、自動的に「なろう」風の縦書き……じゃなくて、読みやすい横書きスタイルになるよ！<br>"
     },
     {
-      "type": "box",
-      "title": "基本操作",
-      "content": "・<b>起動</b>: python editor.py (※事前に <code>python server.py</code> を別窓で起動しておくこと)<br>・<b>開く</b>: ツールバーの「開く」ボタンから <code>.txt</code> ファイルを選択。<br>・<b>保存</b>: <code>Ctrl + S</code> またはツールバーの「保存」ボタン。<br>・<b>プレビュー</b>: 「プレビューウィンドウ起動」ボタンで専用ブラウザを表示。保存するたびに自動更新される。<br>"
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "<code>Type: novel</code> をヘッダーに書くだけよ。<br>小説モードでは、会話文もカギカッコでそのまま書けばいいわ。<br>インデントや行間も、エディタの見た目通りに反映されるようになったから、ストレスなく書けるはずよ。<br>"
     },
     {
       "type": "heading",
-      "content": "入力支援ショートカット"
+      "content": "ストーリーとゼミの融合"
     },
     {
       "type": "text",
@@ -42,85 +224,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "執筆を効率化するためのショートカットキーを用意したわ。<br>これを覚えるとマウスに触らずに記事が書けるようになるわよ。<br>"
-    },
-    {
-      "type": "box",
-      "title": "ショートカット一覧",
-      "content": "・<code>Ctrl + S</code> : 上書き保存 & プレビュー更新<br>・<code>Ctrl + B</code> : 囲み枠 (<code>!box:</code>) を挿入<br>・<code>Ctrl + M</code> : 数式ブロック (<code>!math:</code>) を挿入<br>・<code>Ctrl + I</code> : 画像 (<code>!img:</code>) を挿入（ファイル選択）<br>・<code>Ctrl + K</code> : コードブロック (<code>!code:</code>) を挿入<br>・<code>Ctrl + F</code> : 折りたたみ (<code>!fold:</code>) を挿入<br>・<code>Tab</code> : インデント（半角スペース4つ）を入力<br>"
-    },
-    {
-      "type": "heading",
-      "content": "画像の挿入方法"
-    },
-    {
-      "type": "text",
-      "content": "<br>"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "栃村",
-      "side": "right",
-      "content": "画像を貼りたいときはどうすればいいんですか？<br>"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "瀬川",
-      "side": "left",
-      "content": "とっても簡単よ。以下の2つの方法があるわ。<br>"
-    },
-    {
-      "type": "box",
-      "title": "画像インポート",
-      "content": "1. <b>ドラッグ＆ドロップ</b>:<br>エディタ画面に画像ファイルを直接ドラッグ＆ドロップする。<br>2. <b>ショートカット</b>:<br><code>Ctrl + I</code> を押してファイル選択ダイアログから選ぶ。<br>どちらの方法でも、自動的に <code>sources/ジャンル/</code> フォルダに画像がコピーされ、記事内にコマンドが挿入されるわ。<br>※ 事前に記事ファイルを保存して、ジャンル（保存場所）を確定させておく必要があるわよ。<br>"
-    },
-    {
-      "type": "heading",
-      "content": "記述ルール (Segawa Script)"
-    },
-    {
-      "type": "text",
-      "content": "<br>"
-    },
-    {
-      "type": "box",
-      "title": "会話形式",
-      "content": "話者名の行の次に、インデントして内容を書く。<br>空行でブロック終了。<br>"
-    },
-    {
-      "type": "box",
-      "title": "囲み枠 (!box)",
-      "content": "<code>!box: タイトル</code><br>タイトルの文字によって色が自動で変わるわ。<br>・「定義」「Def」 -> 緑<br>・「定理」「Thm」 -> 青<br>・「証明」「Proof」 -> グレー<br>・「まとめ」「宿題」 -> 特別なデザイン<br>"
-    },
-    {
-      "type": "code",
-      "language": "text",
-      "content": "    !box: 定義 1.1\n        ここは定義の本文。\n"
-    },
-    {
-      "type": "box",
-      "title": "数式 (!math)",
-      "content": "MathJax を使って TeX 記法で数式が書けるわ。<br>インラインは <code>$ ... $</code>、ディスプレイは <code>$$ ... $$</code> よ。<br>"
-    },
-    {
-      "type": "math",
-      "content": "$$ e^{i\\pi} + 1 = 0 $$\n"
-    },
-    {
-      "type": "box",
-      "title": "コード (!code)",
-      "content": "プログラミングコードをハイライト表示するわ。<br>"
-    },
-    {
-      "type": "code",
-      "language": "python",
-      "content": "    print(\"Hello, Segawa Lab!\")\n"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "瀬川",
-      "side": "left",
-      "content": "使い方は以上よ。<br>このエディタを使って、どんどん記事を書いてちょうだい！"
+      "content": "記事に <code>StoryOrder: 1</code> みたいな番号を振ると、「ストーリー一覧」ページに時系列順に並ぶわ。<br>数学の記事も小説の記事も、この番号順に繋がって読めるようになるの。<br>これで、「物語」としてこの研究室の日々を綴ることができるわね。"
     }
   ]
 }

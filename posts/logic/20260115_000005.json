@@ -1,7 +1,7 @@
 {
   "title": "命題論理-3",
   "date": "2026/01/15",
-  "published": false,
+  "published": true,
   "order": 0,
   "type": "math",
   "data": [
@@ -27,7 +27,11 @@
     },
     {
       "type": "math",
-      "content": "$$(p\\lor \\neg p)\\land (q\\lor \\neg p)\\land r$$\n"
+      "content": "$$(p\\lor \\neg p)\\land (q\\lor \\neg p)\\land r$$"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
     },
     {
       "type": "dialogue",
@@ -49,7 +53,11 @@
     },
     {
       "type": "math",
-      "content": "$$p\\lor q,~\\neg p\\to q$$\n$$p\\land q,~\\neg(p\\to \\neg q)$$\n"
+      "content": "$$p\\lor q, ~\\neg p\\to q$$\n$$p\\land q, ~\\neg(p\\to \\neg q)$$"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
     },
     {
       "type": "dialogue",
@@ -67,7 +75,613 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "もっと強く言えるわ。$\\lor,\\land$ は論理体系に「不要」ってこと。"
+      "content": "もっと強く言えるわ。$\\lor,\\land$ は論理体系に「不要」ってこと。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "他の論理式をわざわざ別の記号で表すなんて余計だと思うのよ。命題論理の範疇なら出来る限り簡素にしておくべき。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "でもたまたまかもしれないですよ？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "たまたまじゃないから言ってるの！そもそも命題論理はブール束としての構造を持つんだから、演算が冗長になるのは当然よ。私としては、矛盾 $\\bot$ と含意 $\\to$ だけで構成する体系が美しいと思うわ。統語論的にもスッキリするし。特に $\\to$ で構成される部分については、パースの法則さえ認めれば古典論理としての強さを持てるしね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "それでつまんなくない例はなんなんです？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "アンタの例を $\\to$ に書き換えれば十分よ。つまりこれね。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$(p\\to p)\\to((q\\to q)\\to r)$$"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（トートロジーに埋め込むのとなにが違うんだろう）<br>"
+    },
+    {
+      "type": "heading",
+      "content": "証明論"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そしたら今日は論理の花形とも言うべき証明論を扱うわよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "しょーめーろん<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう「証明論」！証明の論！証明とは何かを定義する、プリミティブでファンダメンタルなエキサイティング・アクティビティよ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ときに栃村。この命題をどう証明する？<br>"
+    },
+    {
+      "type": "box",
+      "title": "問題",
+      "children": [
+        {
+          "type": "text",
+          "content": "整数 $n$ について、$n^2$ が偶数ならば $n$ も偶数である。"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "なっ！あんまりバカにしないでくださいよ。これでも理系大学生なんですからね。こんなもん解けないわけないじゃないですか。<br>"
+    },
+    {
+      "type": "box",
+      "title": "証明",
+      "children": [
+        {
+          "type": "text",
+          "content": "対偶「$n$ が奇数ならば $n^2$ も奇数である」を示す。$n=2k+1$ とすると，$$n^2 = (2k+1)^2=2(2k^2+2k)+1$$ である。$2k^2+2k$ は整数なので、$n^2$ は奇数。"
+        },
+        {
+          "type": "text",
+          "content": "対偶が示されたので、元の命題も真である。"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "じゃあそれを命題論理っぽく書いて<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "命題論理っぽく......ってどんな感じに書けばいいんですか。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "自分で考えて<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えぇ......<br>"
+    },
+    {
+      "type": "box",
+      "title": "命題論理っぽい証明",
+      "children": [
+        {
+          "type": "text",
+          "content": "元の命題を　$p\\to q$ と置き、この対偶　$\\neg q\\to \\neg p$ を示す。"
+        },
+        {
+          "type": "text",
+          "content": "上の式変形と同じようなことをして、 $\\neg q$ が真であることが分かる。なので意味論の定義より　$\\neg q\\to\\neg p$ は真。対偶が真なので、元の命題は真。"
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "40点ってところね。まぁ項も変数も扱えない以上しょうがないけど。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（出来ないことをやらせないで欲しいなぁ）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そしたらこの「証明」がどんな推論で構成されてるかを見ていくわよ。あんたが書いた「上の式変形」の部分。「偶数ではないから奇数」という思考があったはずよね？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ええ、まあ。「整数は奇数か偶数かのどちらかで、偶数ではないのだから奇数だ」と考えましたけど。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それよ。それを論理式で書くとこうなるわ。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$(A \\lor B) \\to (\\neg B \\to A)$$"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "他には対偶をとる操作。これも論理式で書くとこう。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$(\\neg B\\to \\neg A)\\to(A\\to B)$$"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "少なくとも数学の証明では、これら２つの推論は正しいと分かるわね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "はあ……まあ、言われてみれば。じゃあ、これらを使えば証明になるんですか。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "いいえ？正式には「公理」として論理式を置く必要があるわ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "コウリ？功利？氷？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "全部違う！公理ってのはね、議論の大大大前提なの。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "私たちは無限に『なぜ？』を繰り返すことはできない。だから、どこかで『これは無条件に正しいとする！』という宣言が必要になるの。それが公理 (Axiom)。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "で、アンタの証明から抜き出したものだけでいいかと言うと...<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "いいかと言うと？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "率直に言って全然駄目ね。もう全然だめ。まぁ証明一つから全部抜き出そうっていうのが無理な話だけど。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えぇ......<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "証明体系として必要な公理の数は多くなりがちなの。特に今回みたいに演算子が多い場合はね。<br>だから今回は、私が特別に公理を10個あげる。喜んでね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（ソシャゲのガチャかな...）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "これを『瀬川研究室』における公理として定義しましょう。<br>"
+    },
+    {
+      "type": "box",
+      "title": "定義：公理図式",
+      "children": [
+        {
+          "type": "math",
+          "content": "\\begin{array}{rl}\n\\text{(ax.1)} & A \\to (B \\to A) \\\\\n\\text{(ax.2)} & (A \\to (B \\to C)) \\to ((A \\to B) \\to (A \\to C)) \\\\\n\\text{(ax.3)} & A \\to (B \\to (A \\land B)) \\\\\n\\text{(ax.4)} & (A \\land B) \\to A \\\\\n\\text{(ax.5)} & (A \\land B) \\to B \\\\\n\\text{(ax.6)} & A \\to (A \\lor B) \\\\\n\\text{(ax.7)} & B \\to (A \\lor B) \\\\\n\\text{(ax.8)} & (A \\to C) \\to ((B \\to C) \\to ((A \\lor B) \\to C)) \\\\\n\\text{(ax.9)} & (\\neg B \\to \\neg A) \\to (A \\to B) \\\\\n\\text{(ax.10)} & A \\to (\\neg A \\to B)\n\\end{array}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それぞれ意味はあるけど、まあ今は「論理パズルの初期手札」だと思えばいいわ。<br>ax.1 は「弱化」、ax.2 は「分配」、ax.9 は「対偶」ね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "でも、これだけあっても、ただの式の羅列ですよね？これから何を言えば証明とするんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう、公理だけではただの置物よ。そこに新たな命題を生み出すルールが必要。それが「推論規則」！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "今回あんたが対偶を示した後、「だから元の命題も真だ」と言ったわよね。それはこのルールを使っているの。<br>"
+    },
+    {
+      "type": "box",
+      "title": "分離規則 （Modus Ponens）（MP）",
+      "children": [
+        {
+          "type": "text",
+          "content": "$A$ が正しく、$A \\to B$ が正しいなら、$B$ を正しいと認めてよい。"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あの……推論規則って、公理じゃだめなんですか？これも「正しいとする式」の一つに見えるんですけど。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "……ふん。意外といい勘してるじゃない。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それは論理とメタ論理の違いよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "サッカーで例えるなら、「手を使ってはいけない」はルール（公理）だけど、「ルールを破ったら反則」というのは、ルールブックの外にある運用規則（メタ論理）でしょ？推論規則を公理として書いちゃうと、「その公理をどう使うか」っていう別の規則が必要になって、無限後退に陥るのよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "む、無限後退……なんとなく分かるような、分からないような……<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "これは歴史的にもかなり議論のあった部分だから、気づいただけ十分よ。とりあえず今は、「公理は道具、推論規則は使い方」とでも思っておきなさい。命題論理をやり終えたころには、その意味が嫌というほど分かるようになるわ。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "「証明」してみる"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「証明」を始める前に、まずは「証明」の定義をするわよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "証明の定義ってどうするんですか？いまのところ、公理と規則だけを与えられて何をするのか分かってないんですけど。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "推論規則を定義したとき、「新たな命題を生み出すルール」と言ったわよね。あらゆる問題は命題である以上、我々が求められているのは「命題から命題を生み出し、最終的に欲しい命題を作り出す」ことであり、その行為が証明であると定義出来るわ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "つまりこういうこと。<br>"
+    },
+    {
+      "type": "box",
+      "title": "定義：$L_a$ の証明体系 $H_a$",
+      "children": [
+        {
+          "type": "text",
+          "content": "$H_a$ は上の公理図式と、推論規則MPを持つ。"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "math",
+          "content": "\\begin{prooftree}\n\\AxiomC{$A$}\n\\AxiomC{$A \\to B$}\n\\RightLabel{$~~$MP}\n\\BinaryInfC{$B$}\n\\end{prooftree}"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "における「証明」は、有限個の公理と推論規則を繰り返し用いて新たな論理式 $\\phi$ を得ることと定義される。このとき"
+        },
+        {
+          "type": "math",
+          "content": "$$\\vdash_{H_a} \\phi$$"
+        },
+        {
+          "type": "text",
+          "content": "とかく。"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ええと...これはどういうことですか？「公理と推論規則を用いて」とありますけど、推論規則が使える公理はないように見えますが。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それは栃村が「公理」を分かっていないからね。公理は「正しいとするもの」だったんだから、あの中の $A$ や $B$ にはあらゆる論理式が入る。例えば ax.1 の $A, B$ にそれぞれ $A\\to B, B$ を代入すれば、$(A\\to B) \\to (B \\to (A\\to B))$ という式が得られるわ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "じゃあ、簡単な例で証明の練習をしてみましょうか。これを証明してみて。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$X\\to X$$"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "はい。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えっと、$A\\to A$ は当たり前なのでこれをそのまま結論に<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "当たり前じゃない！全然当たり前じゃない！！！！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "すいませんっ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "定義をよく読みなさいよ。「当たり前」の公理に $A\\to A$ は入ってるわけ？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "入って<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "入ってないわよね？だから別の公理の形からひねり出す必要があるの。今 $(＊\\to ＊)\\to(＊\\to ＊)$ という形を持っている公理はどれ？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ax.2 ですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう。だからまず、これに示したい論理式を入れられるように、元の命題をバラシて入れる。この場合、公理での $A,B,C$ はなんになる？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ええっと、右側の $A\\to C$ 部分が $X\\to X$ となるので、$A=X,C=X$ ですかね？でも $B$ はどうしましょう。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "最終的に $A\\to C$ 部分を出すには、$A\\to B$ が正しくある必要があるわよね。だから $A\\to B$ が公理になるようにすればいいの。 ax.1 を使いなさい。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "$C=A$ としたので、ax.2 の左側は ax.1 の形そのものなので、$A\\to B$ が公理になれさえすればいいんですね。そしたら $(X\\to X)$ とかはどうでしょう。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "つまり、公理の使い方はこうなります。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$(X\\to((X\\to X)\\to X)\\to((X\\to(X\\to X))\\to(X\\to X))$$"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "自分で書いておいてアレですけど、長くないですか。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それがいいところなの。<br>"
+    },
+    {
+      "type": "box",
+      "title": "証明",
+      "children": [
+        {
+          "type": "math",
+          "content": "\\begin{array}{lr}\nX \\to ((X\\to X) \\to X) &(\\text{ax.1})\\\\\n(X\\to((X\\to X)\\to X)\\to((X\\to(X\\to X))\\to(X\\to X)) &(\\text{az.2})\\\\\n(X\\to(X\\to X))\\to(X\\to X) &(\\text{1,2,MP})\\\\\nX\\to(X\\to X) &(\\text{ax.1})\\\\\nX\\to X&(\\text{3,4,MP})\n\\end{array}"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "box",
+      "title": "まとめ",
+      "children": [
+        {
+          "type": "text",
+          "content": "・$\\land,\\lor$ は論理に不要らしい（？）"
+        },
+        {
+          "type": "text",
+          "content": "・既に使っていい論理式（公理）が準備されている"
+        },
+        {
+          "type": "text",
+          "content": "・証明は難しい"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "box",
+      "title": "宿題",
+      "children": [
+        {
+          "type": "text",
+          "content": "１．日常で使っている、「必ず正しい」推論を論理式の形に起こしてみよ。またそれの、意味論で定義した真理値を考え、トートロジーになっていることを確認せよ。"
+        },
+        {
+          "type": "text",
+          "content": "２．証明体系 $H_a$ において、$\\vdash_{H_a} A\\lor\\neg A$ を証明せよ。"
+        }
+      ]
     }
   ]
 }

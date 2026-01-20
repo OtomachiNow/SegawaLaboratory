@@ -7,7 +7,12 @@
     <!-- MathJax -->
     <script>
         window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\(', '\)']], displayMath: [['$$', '$$'], ['\[', '\]']] },
+            loader: { load: ['[tex]/physics', '[tex]/mathtools', '[tex]/ams', '[tex]/noerrors', '[tex]/bussproofs'] },
+            tex: {
+                inlineMath: [['$', '$'], ['\(', '\)']],
+                displayMath: [['$$', '$$'], ['\[', '\]']],
+                packages: {'[+]': ['bussproofs', 'physics', 'mathtools', 'ams']}
+            },
             options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
         };
     </script>
@@ -45,9 +50,9 @@
         pre { background-color: #f8f8f8; padding: 15px; border-radius: 4px; overflow-x: auto; color: #333; font-size: 0.9em; margin: 20px 0; border: none; }
         code { font-family: Consolas, "Courier New", monospace; }
 
-        .article-box { margin: 25px auto; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; font-size: 0.95em; max-width: 90%; }
+        .article-box { margin: 12px auto; border-radius: 6px; overflow: hidden; border: 1px solid #ddd; font-size: 0.95em; max-width: 90%; }
         .box-title { padding: 8px 15px; font-weight: bold; background-color: #f1f1f1; border-bottom: 1px solid #ddd; font-size: 0.9em; }
-        .box-body { padding: 15px 20px; background-color: #fff; }
+        .box-body { padding: 8px 20px; background-color: #fff; }
         .box-def { border-color: #81c784; } .box-def .box-title { background-color: #e8f5e9; color: #2e7d32; }
         .box-thm { border-color: #64b5f6; } .box-thm .box-title { background-color: #e3f2fd; color: #1565c0; }
         .box-proof { border-color: #bdbdbd; } .box-proof .box-title { background-color: #f5f5f5; color: #616161; }
@@ -55,10 +60,10 @@
         .box-hw { border-color: #ff9800; } .box-hw .box-title { background-color: #ff9800; color: #fff; }
 
         .article-math { margin: 1.5em auto; text-align: center; }
-        .box-summary { border-color: #2196f3; } .box-summary .box-title { background-color: #2196f3; color: #fff; text-align: center; }
-        .box-hw { border-color: #ff9800; } .box-hw .box-title { background-color: #ff9800; color: #fff; }
 
-        .article-math { margin: 1.5em auto; text-align: center; }
+        .truth-table { margin: 20px auto; border-collapse: collapse; font-size: 0.95em; }
+        .truth-table th, .truth-table td { border: 1px solid #ccc; padding: 8px 15px; text-align: center; }
+        .truth-table th { background-color: #f5f5f5; font-weight: bold; border-bottom: 2px solid #aaa; }
 
         /* 小説モード (なろう風) */
         .novel-mode {
@@ -101,18 +106,13 @@
         .nav-prev::before { content: "« "; }
         .nav-next::after { content: " »"; }
 
-        .truth-table { margin: 20px auto; border-collapse: collapse; font-size: 0.95em; }
-        .truth-table th, .truth-table td { border: 1px solid #ccc; padding: 8px 15px; text-align: center; }
-        .truth-table th { background-color: #f5f5f5; font-weight: bold; border-bottom: 2px solid #aaa; }
-
         .foot { padding: 20px 0; text-align: center; background-color: burlywood; margin-top: 30px; margin-bottom: 20px; border-radius: 5px; font-size: 0.9em; }
     </style>
 </head>
 <body>
 
 <div class="header width-constraint">
-    <h1><a href="index.html">瀬川研究室</a></h1>
-    <p class="subtitle">Segawa Laboratory!</p>
+    <h1 id="site-title-header"><a href="index.html">読み込み中...</a></h1>
 </div>
 
 <div class="main-container width-constraint">
@@ -141,10 +141,8 @@
             const speakers = config.speakers || {};
             
             document.title = config.site_title || "記事";
-            const siteTitleLink = document.querySelector(".header h1 a");
+            const siteTitleLink = document.querySelector("#site-title-header a");
             if(siteTitleLink) siteTitleLink.textContent = config.site_title || "瀬川研究室";
-            const subtitle = document.querySelector(".header .subtitle");
-            if(subtitle) subtitle.textContent = config.site_subtitle || "Segawa Laboratory";
 
             const response = await fetch(`./posts/${articleId}.json`);
             if (!response.ok) throw new Error("記事データが見つかりません。");
@@ -164,110 +162,120 @@
                 contentArea.classList.remove('novel-mode');
             }
 
-            article.data.forEach(item => {
-                if (item.type === 'dialogue') {
-                    if (isNovel) {
-                        // 小説モード: 装飾なしで中身だけを表示（ユーザーが自分で鍵カッコを書く想定）
-                        const p = document.createElement('p');
-                        p.className = 'novel-text';
-                        p.innerHTML = item.content;
-                        contentArea.appendChild(p);
-                    } else {
-                        // 通常モード: 吹き出し
-                        const row = document.createElement('div');
-                        row.className = 'dialogue-row';
-                        const side = item.side || 'left';
-                        row.classList.add(side);
-    
-                        const speakerKey = item.speaker.trim();
-                        const profile = speakers[speakerKey] || { color: '#f0f0f0', icon: '' };
-                        
-                        const icon = document.createElement('div');
-                        icon.className = 'icon';
-                        if (profile.icon) {
-                            icon.style.backgroundImage = `url(${profile.icon})`;
-                            icon.textContent = '';
+            // 要素生成関数（再帰対応）
+            const renderElements = (elements, container) => {
+                elements.forEach(item => {
+                    if (item.type === 'dialogue') {
+                        if (isNovel) {
+                            const p = document.createElement('p');
+                            p.className = 'novel-text';
+                            p.innerHTML = item.content;
+                            container.appendChild(p);
                         } else {
-                            icon.textContent = speakerKey.charAt(0);
+                            const row = document.createElement('div');
+                            row.className = 'dialogue-row';
+                            const side = item.side || 'left';
+                            row.classList.add(side);
+        
+                            const speakerKey = item.speaker.trim();
+                            const profile = speakers[speakerKey] || { color: '#f0f0f0', icon: '' };
+                            
+                            const icon = document.createElement('div');
+                            icon.className = 'icon';
+                            if (profile.icon) {
+                                icon.style.backgroundImage = `url(${profile.icon})`;
+                                icon.textContent = '';
+                            } else {
+                                icon.textContent = speakerKey.charAt(0);
+                            }
+                            icon.style.backgroundColor = profile.color;
+        
+                            const bubble = document.createElement('div');
+                            bubble.className = 'bubble';
+                            bubble.innerHTML = item.content;
+                            if (profile.color) {
+                                bubble.style.backgroundColor = profile.color;
+                            }
+        
+                            row.appendChild(icon);
+                            row.appendChild(bubble);
+                            container.appendChild(row);
                         }
-                        icon.style.backgroundColor = profile.color;
+                    
+                    } else if (item.type === 'heading') {
+                        const heading = document.createElement('h2');
+                        heading.className = 'section-heading';
+                        heading.textContent = item.content;
+                        container.appendChild(heading);
     
-                    const bubble = document.createElement('div');
-                    bubble.className = 'bubble';
-                    bubble.innerHTML = item.content;
-                    // 話者の設定色を適用（左右どちらでも）
-                    if (profile.color) {
-                        bubble.style.backgroundColor = profile.color;
-                    }
-
-                    row.appendChild(icon);
-                        row.appendChild(bubble);
-                        contentArea.appendChild(row);
-                    }
-                
-                } else if (item.type === 'heading') {
-                    const heading = document.createElement('h2');
-                    heading.className = 'section-heading';
-                    heading.textContent = item.content;
-                    contentArea.appendChild(heading);
-
-                } else if (item.type === 'text') {
-                    const p = document.createElement('p');
-                    p.className = isNovel ? 'novel-text' : 'narrative-text';
-                    p.innerHTML = item.content;
-                    contentArea.appendChild(p);
-
-                } else if (item.type === 'math') {
-                    const div = document.createElement('div');
-                    div.className = 'article-math';
-                    div.innerHTML = item.content;
-                    contentArea.appendChild(div);
-
-                } else if (item.type === 'code') {
-                    const pre = document.createElement('pre');
-                    const code = document.createElement('code');
-                    if (item.language) code.className = `language-${item.language}`;
-                    code.textContent = item.content;
-                    pre.appendChild(code);
-                    contentArea.appendChild(pre);
-
-                } else if (item.type === 'box') {
-                    const box = document.createElement('div');
-                    box.className = 'article-box';
-                    const t = item.title || "";
-                    if (t.includes("定義")) box.classList.add("box-def");
-                    else if (t.includes("定理")) box.classList.add("box-thm");
-                    else if (t.includes("証明")) box.classList.add("box-proof");
-                    else if (t.includes("まとめ")) box.classList.add("box-summary");
-                    else if (t.includes("宿題")) box.classList.add("box-hw");
-
-                    if (item.title) {
-                        const title = document.createElement('div');
-                        title.className = 'box-title';
-                        title.textContent = item.title;
-                        box.appendChild(title);
-                    }
-                    const body = document.createElement('div');
-                    body.className = 'box-body';
-                    body.innerHTML = item.content;
-                    box.appendChild(body);
-                    contentArea.appendChild(box);
-
-                } else if (item.type === 'truth') {
-                    const table = document.createElement('table');
-                    table.className = 'truth-table';
-                    item.rows.forEach((rowItems, index) => {
-                        const tr = document.createElement('tr');
-                        rowItems.forEach(cellText => {
-                            const cell = document.createElement(index === 0 ? 'th' : 'td');
-                            cell.innerHTML = cellText; // 数式対応のためinnerHTML
-                            tr.appendChild(cell);
+                    } else if (item.type === 'text') {
+                        const p = document.createElement('p');
+                        p.className = isNovel ? 'novel-text' : 'narrative-text';
+                        p.innerHTML = item.content;
+                        container.appendChild(p);
+    
+                    } else if (item.type === 'math') {
+                        const div = document.createElement('div');
+                        div.className = 'article-math';
+                        div.innerHTML = item.content;
+                        container.appendChild(div);
+    
+                    } else if (item.type === 'code') {
+                        const pre = document.createElement('pre');
+                        const code = document.createElement('code');
+                        if (item.language) code.className = `language-${item.language}`;
+                        code.textContent = item.content;
+                        pre.appendChild(code);
+                        container.appendChild(pre);
+    
+                    } else if (item.type === 'box') {
+                        const box = document.createElement('div');
+                        box.className = 'article-box';
+                        const t = item.title || "";
+                        if (t.includes("定義")) box.classList.add("box-def");
+                        else if (t.includes("定理")) box.classList.add("box-thm");
+                        else if (t.includes("証明")) box.classList.add("box-proof");
+                        else if (t.includes("まとめ")) box.classList.add("box-summary");
+                        else if (t.includes("宿題")) box.classList.add("box-hw");
+    
+                        if (item.title) {
+                            const title = document.createElement('div');
+                            title.className = 'box-title';
+                            title.textContent = item.title;
+                            box.appendChild(title);
+                        }
+                        const body = document.createElement('div');
+                        body.className = 'box-body';
+                        
+                        // 再帰的描画または文字列表示
+                        if (item.children) {
+                            renderElements(item.children, body);
+                        } else {
+                            body.innerHTML = item.content;
+                        }
+                        
+                        box.appendChild(body);
+                        container.appendChild(box);
+    
+                    } else if (item.type === 'truth') {
+                        const table = document.createElement('table');
+                        table.className = 'truth-table';
+                        item.rows.forEach((rowItems, index) => {
+                            const tr = document.createElement('tr');
+                            rowItems.forEach(cellText => {
+                                const cell = document.createElement(index === 0 ? 'th' : 'td');
+                                cell.innerHTML = cellText;
+                                tr.appendChild(cell);
+                            });
+                            table.appendChild(tr);
                         });
-                        table.appendChild(tr);
-                    });
-                    contentArea.appendChild(table);
-                }
-            });
+                        container.appendChild(table);
+                    }
+                });
+            };
+
+            // メイン描画実行
+            renderElements(article.data, contentArea);
 
             // 前後ナビゲーションの生成
             try {
@@ -275,7 +283,7 @@
                 if (tocRes.ok) {
                     const toc = await tocRes.json();
                     
-                    // 現在の記事の情報を取得（tocから探す）
+                    // 現在の記事の情報を取得
                     const [cat, id] = articleId.split('/');
                     let currentEntry = null;
                     if (toc[cat]) {
@@ -298,7 +306,6 @@
                     
                     } else if (toc[cat]) {
                         // StoryOrderがない場合 -> ゼミモード（同ジャンル内順）
-                        // 日付順やID順など、toc.jsonの並び順をそのまま使う
                         targetList = toc[cat];
                     }
 
@@ -335,33 +342,27 @@
                                 return nav;
                             };
 
-                            // 上部ナビゲーション
-                            const titleArea = document.querySelector('.article-title') || document.getElementById('article-date');
+                            const titleArea = document.querySelector('#article-date');
                             if (titleArea && titleArea.parentNode) {
-                                contentArea.parentNode.insertBefore(createNav(), contentArea);
+                                titleArea.parentNode.insertBefore(createNav(), titleArea.nextSibling);
                             }
                             
-                            // 下部ナビゲーション
                             contentArea.appendChild(createNav());
                         }
                     }
                 }
             } catch (e) { console.log("Nav error:", e); }
 
-            if (window.MathJax) {
             // MathJax 3 でレンダリング (ロード待ち対応)
             const renderMath = () => {
                 if (window.MathJax && window.MathJax.typesetPromise) {
                     MathJax.typesetPromise([contentArea]).catch((err) => console.log('MathJax error: ' + err));
                 } else {
-                    // まだロードされていない場合は少し待って再試行
                     setTimeout(renderMath, 100);
                 }
             };
             renderMath();
-            } // if (window.MathJax) の閉じ括弧を追加
 
-            // Highlight.js
             if (window.hljs) {
                 contentArea.querySelectorAll('pre code').forEach((block) => {
                     hljs.highlightElement(block);

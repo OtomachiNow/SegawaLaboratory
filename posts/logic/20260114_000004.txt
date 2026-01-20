@@ -108,8 +108,10 @@ Status: public
                   F&(f_{n}(\phi) = F~かつ~f_{n}(\psi)=F) \\
                   T&(その他)
              \end{array}\right.
-         \end{array}\right.$$以上をもって写像 $f$ を
-    $$f(\phi) = f_m(\phi)~~~(mはf_mが定義される最小の数)$$と定義する．
+         \end{array}\right.$$
+    以上をもって写像 $f$ を
+    $$f(\phi) = f_m(\phi)~~~(mはf_mが定義される最小の数)$$
+    と定義する．
 
 栃村 右
     長いですね．写像とか集合とかの言葉を使うとは思ってませんでした．

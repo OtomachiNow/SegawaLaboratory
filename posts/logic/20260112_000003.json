@@ -212,12 +212,38 @@
     {
       "type": "box",
       "title": "定義： $L_{a}$",
-      "content": "言語 $L_{a}$ は以下のものからなる．<br>・命題変数 $p,q,...$<br>・論理結合子 $\\neg, \\to, \\land,\\lor$<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "言語 $L_{a}$ は以下のものからなる．"
+        },
+        {
+          "type": "text",
+          "content": "・命題変数 $p,q,...$"
+        },
+        {
+          "type": "text",
+          "content": "・論理結合子 $\\neg, \\to, \\land,\\lor$"
+        }
+      ]
     },
     {
       "type": "box",
       "title": "定義： $L_a$ 論理式",
-      "content": "$L_a$ 論理式を以下のように定める．<br>・命題変数は　$L_a$論理式である．<br>・命題変数を論理結合子で結んだものも$L_a$論理式である．すなわち，$p,q$ を論理式として $(\\neg p), (p\\to q), (p\\land q), (p\\lor q)$ も論理式になる．<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "$L_a$ 論理式を以下のように定める．"
+        },
+        {
+          "type": "text",
+          "content": "・命題変数は　$L_a$論理式である．"
+        },
+        {
+          "type": "text",
+          "content": "・命題変数を論理結合子で結んだものも$L_a$論理式である．すなわち，$p,q$ を論理式として $(\\neg p), (p\\to q), (p\\land q), (p\\lor q)$ も論理式になる．"
+        }
+      ]
     },
     {
       "type": "dialogue",
@@ -270,12 +296,38 @@
     {
       "type": "box",
       "title": "まとめ",
-      "content": "・論理式は一定の規則に従って沢山作れる<br>・命題論理は普通の文章（自然言語というらしい）を形式化するし，形式化しないらしい<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "・論理式は一定の規則に従って沢山作れる"
+        },
+        {
+          "type": "text",
+          "content": "・命題論理は普通の文章（自然言語というらしい）を形式化するし，形式化しないらしい"
+        }
+      ]
     },
     {
       "type": "box",
       "title": "宿題",
-      "content": "$X,Y$ を$L_a$論理式として，次の文字列が$L_a$論理式であるかどうかを見よ．<br>・$((\\neg(X\\to Y)) \\to ((\\neg Y) \\to (\\neg X)))$<br>・$((\\neg X)\\land X ) \\to Y$<br>・$(A\\to (X\\lor (\\neg X)))$"
+      "children": [
+        {
+          "type": "text",
+          "content": "$X,Y$ を$L_a$論理式として，次の文字列が$L_a$論理式であるかどうかを見よ．"
+        },
+        {
+          "type": "text",
+          "content": "・$((\\neg(X\\to Y)) \\to ((\\neg Y) \\to (\\neg X)))$"
+        },
+        {
+          "type": "text",
+          "content": "・$((\\neg X)\\land X ) \\to Y$"
+        },
+        {
+          "type": "text",
+          "content": "・$(A\\to (X\\lor (\\neg X)))$"
+        }
+      ]
     }
   ]
 }

@@ -132,7 +132,28 @@
     {
       "type": "box",
       "title": "「正しい」の定義（？）",
-      "content": "論理式 $\\phi$ の「意味」を以下のように定める．<br>・論理式が $A\\lor B$ という形をしているなら，$A,B$ いずれかが「正しい」時に $\\phi$ は「正しい」ものとする．<br>・同様に $A\\land B$ という形なら，$A,B$ が共に「正しい」とき，<br>・$A\\to B$ なら，$A$ が正しいときにのみ $B$ が正しいとき．<br>・$\\neg A$ なら $A$ が正しくないとき．<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "論理式 $\\phi$ の「意味」を以下のように定める．"
+        },
+        {
+          "type": "text",
+          "content": "・論理式が $A\\lor B$ という形をしているなら，$A,B$ いずれかが「正しい」時に $\\phi$ は「正しい」ものとする．"
+        },
+        {
+          "type": "text",
+          "content": "・同様に $A\\land B$ という形なら，$A,B$ が共に「正しい」とき，"
+        },
+        {
+          "type": "text",
+          "content": "・$A\\to B$ なら，$A$ が正しいときにのみ $B$ が正しいとき．"
+        },
+        {
+          "type": "text",
+          "content": "・$\\neg A$ なら $A$ が正しくないとき．"
+        }
+      ]
     },
     {
       "type": "dialogue",
@@ -173,7 +194,32 @@
     {
       "type": "box",
       "title": "定義：$L_a$　の意味論",
-      "content": "１．$\\mathrm{Prop}$ （命題変数全体の集合）から真理値の集合 $\\{T,F\\}$ への写像 $I$ を付値関数と呼ぶ．<br>２．付値関数を拡大していくことによって真偽を定める．すなわち，$p$ を命題変数，$\\phi,\\psi$ を $L_a$ 論理式として，<br>$$<br>\\left\\{<br>\\begin{array}{rl}<br>f_0(p) &= I(p)\\\\<br>f_{n+1}(\\neg\\phi) &=\\left\\{\\begin{array}{rl}<br>F& (f_{n}(\\phi)=T) \\\\<br>T&(f_{n}(\\phi)=F)<br>\\end{array}\\right.  \\\\<br>f_{n+1}(\\phi\\to\\psi) &=\\left\\{\\begin{array}{rl}<br>F& (f_{n}(\\phi)=T~かつ~f_{n}(\\psi)=F) \\\\<br>T&(その他)<br>\\end{array}\\right. \\\\<br>f_{n+1}(\\phi\\land\\psi) &= \\left\\{\\begin{array}{rl}<br>F&(f_{n}(\\phi)=F~または~f_{n}(\\psi)=F) \\\\<br>T&(その他)<br>\\end{array}\\right.\\\\<br>f_{n+1}(\\phi\\lor\\psi) &=\\left\\{\\begin{array}{rl}<br>F&(f_{n}(\\phi) = F~かつ~f_{n}(\\psi)=F) \\\\<br>T&(その他)<br>\\end{array}\\right.<br>\\end{array}\\right.$$以上をもって写像 $f$ を<br>$$f(\\phi) = f_m(\\phi)~~~(mはf_mが定義される最小の数)$$と定義する．<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "１．$\\mathrm{Prop}$ （命題変数全体の集合）から真理値の集合 $\\{T,F\\}$ への写像 $I$ を付値関数と呼ぶ．"
+        },
+        {
+          "type": "text",
+          "content": "２．付値関数を拡大していくことによって真偽を定める．すなわち，$p$ を命題変数，$\\phi,\\psi$ を $L_a$ 論理式として，"
+        },
+        {
+          "type": "math",
+          "content": "$$\n\\left\\{\n\\begin{array}{rl}\nf_0(p) &= I(p)\\\\\nf_{n+1}(\\neg\\phi) &=\\left\\{\\begin{array}{rl}\nF& (f_{n}(\\phi)=T) \\\\\nT&(f_{n}(\\phi)=F)\n\\end{array}\\right.  \\\\\nf_{n+1}(\\phi\\to\\psi) &=\\left\\{\\begin{array}{rl}\nF& (f_{n}(\\phi)=T~かつ~f_{n}(\\psi)=F) \\\\\nT&(その他)\n\\end{array}\\right. \\\\\nf_{n+1}(\\phi\\land\\psi) &= \\left\\{\\begin{array}{rl}\nF&(f_{n}(\\phi)=F~または~f_{n}(\\psi)=F) \\\\\nT&(その他)\n\\end{array}\\right.\\\\\nf_{n+1}(\\phi\\lor\\psi) &=\\left\\{\\begin{array}{rl}\nF&(f_{n}(\\phi) = F~かつ~f_{n}(\\psi)=F) \\\\\nT&(その他)\n\\end{array}\\right.\n\\end{array}\\right.$$"
+        },
+        {
+          "type": "text",
+          "content": "以上をもって写像 $f$ を"
+        },
+        {
+          "type": "math",
+          "content": "$$f(\\phi) = f_m(\\phi)~~~(mはf_mが定義される最小の数)$$"
+        },
+        {
+          "type": "text",
+          "content": "と定義する．"
+        }
+      ]
     },
     {
       "type": "dialogue",
@@ -372,7 +418,28 @@
     {
       "type": "box",
       "title": "証明",
-      "content": "与えられた論理式を $\\phi$ とする．論理式の構造より $m=3$ であり，$p,q$ の解釈として考えられる4通りを調べれば $f(\\phi)$ の値が決定できる．<br>・$I(p)=T,I(q)=T$ のとき，$f(p\\land q)=T$．よって $f(q\\to(p\\land q))\\not=F$ より $f(q\\to(p\\land q))=T$．同様に $f(\\phi) = T$<br>・他の解釈の場合も同様に確かめられ，いずれにせよ $f(\\phi)=T$．<br><br>したがって $\\phi$ はトートロジー．<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "与えられた論理式を $\\phi$ とする．論理式の構造より $m=3$ であり，$p,q$ の解釈として考えられる4通りを調べれば $f(\\phi)$ の値が決定できる．"
+        },
+        {
+          "type": "text",
+          "content": "・$I(p)=T,I(q)=T$ のとき，$f(p\\land q)=T$．よって $f(q\\to(p\\land q))\\not=F$ より $f(q\\to(p\\land q))=T$．同様に $f(\\phi) = T$"
+        },
+        {
+          "type": "text",
+          "content": "・他の解釈の場合も同様に確かめられ，いずれにせよ $f(\\phi)=T$．"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "したがって $\\phi$ はトートロジー．"
+        }
+      ]
     },
     {
       "type": "dialogue",
@@ -441,12 +508,50 @@
     {
       "type": "box",
       "title": "まとめ",
-      "content": "・意味論は $\\{T,F\\}$ への写像として定義される<br>・論理式の構造に沿いながら帰納的に定義される<br>・完璧な形式論理への道は長い......らしい<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "・意味論は $\\{T,F\\}$ への写像として定義される"
+        },
+        {
+          "type": "text",
+          "content": "・論理式の構造に沿いながら帰納的に定義される"
+        },
+        {
+          "type": "text",
+          "content": "・完璧な形式論理への道は長い......らしい"
+        }
+      ]
     },
     {
       "type": "box",
       "title": "宿題",
-      "content": "１．次の二つの論理式が，同じ真理値を持つか調べよ．（同じ真理値を持つ論理式を同値な論理式という）<br>・$((p\\to q)\\land(q\\to r))\\to(p\\to r)$<br>・$(p\\to q)\\to((q\\to r)\\to (p\\to r))$<br><br>２．論理式の中には，命題変数のいくつかは論理式自体の真偽に関与しないものがある．例えば$$p\\lor (p\\land q)$$の真偽値に $q$ は関与しない．このような命題変数を「ダミー変数」と呼ぼう．<br>・命題変数 $p,q,r$ を持ちながら $p,q$ のみがダミー変数であるような論理式を一つ作れ．"
+      "children": [
+        {
+          "type": "text",
+          "content": "１．次の二つの論理式が，同じ真理値を持つか調べよ．（同じ真理値を持つ論理式を同値な論理式という）"
+        },
+        {
+          "type": "text",
+          "content": "・$((p\\to q)\\land(q\\to r))\\to(p\\to r)$"
+        },
+        {
+          "type": "text",
+          "content": "・$(p\\to q)\\to((q\\to r)\\to (p\\to r))$"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "２．論理式の中には，命題変数のいくつかは論理式自体の真偽に関与しないものがある．例えば$$p\\lor (p\\land q)$$の真偽値に $q$ は関与しない．このような命題変数を「ダミー変数」と呼ぼう．"
+        },
+        {
+          "type": "text",
+          "content": "・命題変数 $p,q,r$ を持ちながら $p,q$ のみがダミー変数であるような論理式を一つ作れ．"
+        }
+      ]
     }
   ]
 }

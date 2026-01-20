@@ -262,7 +262,12 @@
     {
       "type": "box",
       "title": "宿題",
-      "content": "関数列 $f_n(x) = \\sqrt{n} e^{-n|x|}$ が、$L^2(\\mathbb{R})$ において $0$ に収束することを示せ。<br>"
+      "children": [
+        {
+          "type": "text",
+          "content": "関数列 $f_n(x) = \\sqrt{n} e^{-n|x|}$ が、$L^2(\\mathbb{R})$ において $0$ に収束することを示せ。"
+        }
+      ]
     },
     {
       "type": "dialogue",
