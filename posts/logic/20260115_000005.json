@@ -644,10 +644,6 @@
       ]
     },
     {
-      "type": "text",
-      "content": "<br>"
-    },
-    {
       "type": "box",
       "title": "まとめ",
       "children": [
@@ -664,10 +660,6 @@
           "content": "・証明は難しい"
         }
       ]
-    },
-    {
-      "type": "text",
-      "content": "<br>"
     },
     {
       "type": "box",

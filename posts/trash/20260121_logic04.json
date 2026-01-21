@@ -1,0 +1,317 @@
+{
+  "title": "命題論理-4",
+  "date": "2026/01/21",
+  "published": true,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "前回の宿題"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "前回の宿題の2番、排中律 $A"
+    },
+    {
+      "type": "text",
+      "content": "v$ \u0007 A$ の証明ですけど……。"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "どうだった？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "正直、無理でした。$X \to X$ すらあんなに長かったのに、$"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "v$",
+      "side": null,
+      "content": "3時間粘って、ノートが真っ黒になっただけでした。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ふふ、まあそうでしょうね。素人がヒルベルト流の公理系で、真正面からパズルを解こうなんて100年早いわ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えぇ……じゃあどうすればよかったんですか。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "実はね、証明を劇的に簡単にする「魔法の定理」があるの。今日はそれを授けるわ。<br>その名も <b>「演繹定理 (Deduction Theorem)」</b> よ。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "演繹定理"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "box",
+      "title": "定理：演繹定理",
+      "children": [
+        {
+          "type": "text",
+          "content": "論理式の集合 $\\Gamma$ と論理式 $A, B$ について、以下が成り立つ。"
+        },
+        {
+          "type": "math",
+          "content": "$$\\Gamma, A \\vdash B \\iff \\Gamma \\vdash A \\to B$$"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えっと、これはどういう意味ですか？左側の $\\Gamma, A \\vdash B$ っていうのは……。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「仮定 $\\Gamma$ に加えて、$A$ も仮定していいなら、$B$ が証明できる」という意味ね。<br>右側は、「仮定 $\\Gamma$ だけで、$A \to B$ という含意記号を含む式が証明できる」という意味。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "つまりね、<b>「$A \to B$ を証明せよ」と言われたら、「$A$ を仮定して $B$ を導けばいい」</b> ということなの！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "！！<br>それって、すごく当たり前のことじゃないですか？数学の証明っていつもそうやってますよ。「$n$ が偶数ならば」を証明するとき、とりあえず「$n$ を偶数と置く」ところから始めますし。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう、その「数学でいつもやっている当たり前の論法」が、この形式的な記号操作の世界でもちゃんと使える、ということを保証するのがこの定理なの。<br>前回やった $X \to X$ の証明、覚えてる？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "はい。ax.1 と ax.2 を組み合わせて、すごく長くなったやつですよね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "演繹定理を使えば一瞬よ。<br>証明したいのは $\\vdash X \to X$ 。演繹定理によれば、これは $X"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "v$",
+      "side": null,
+      "content": "$X$ を仮定して $X$ を導く……つまり、「$X$ があるとき、$X$ はあるか？」<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あります！というか、仮定そのものです！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "はい証明終了。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "うわああああ！あんなに苦労したのに！ズルじゃないですかこれ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ズルじゃないわよ。メタ定理という強力な武器なの。<br>これを使えば、前回の宿題 $A"
+    },
+    {
+      "type": "text",
+      "content": "v$ \u0007 A$ も、これまた証明が面倒な $(\u0007 A \to \u0007 B) \to (B \to A)$ のような式も、仮定を使うことで驚くほど簡単に証明できるようになるわ。"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "へぇぇ……すごい。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ただし！この演繹定理自体を証明するには、少し骨が折れるわ。<br>基本的には、証明の長さ（ステップ数）に関する数学的帰納法を使うの。<br>1. 公理そのものの場合<br>2. 仮定 $A$ そのものの場合<br>3. MP（分離規則）を使った場合<br>それぞれについて、変換が可能であることを示していくわけ。まあ、細かい証明は教科書に譲るとして、今日は「使える」ようになりなさい。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "健全性"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "さて、これで私たちはバリバリと証明ができるようになったわけだけど……ここで一つ、不安にならない？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "不安？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "私たちがパズルみたいに記号を組み合わせて作った「定理」。<br>これ、<b>本当に「正しい」の？</b><br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "え？正しいって、公理から正しく導かれたんだから、正しいんじゃないんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それは「構文論（証明論）」としての正しさ。<br>私が聞いているのは、「意味論（真理値表）」としての正しさよ。<br>一生懸命証明した式が、真理値表を書いたら「偽」になることがあったらどうする？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "それは……困ります。証明した意味がないというか、詐欺というか。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そうよね。だから、我々の論理システムが「まとも」であることを保証する必要がある。<br>それが <b>「健全性 (Soundness)」</b> よ。<br>"
+    },
+    {
+      "type": "box",
+      "title": "定理：健全性定理",
+      "children": [
+        {
+          "type": "text",
+          "content": "任意の論理式 $\\phi$ について、"
+        },
+        {
+          "type": "math",
+          "content": "$$\\vdash \\phi \\implies \\models \\phi$$"
+        },
+        {
+          "type": "text",
+          "content": "（証明できるならば、それはトートロジー（恒真式）である）"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "記号 $\\vdash$ は証明可能、$\\models$ は意味的に正しい（トートロジー）を表すわ。<br>証明論の世界と、意味論の世界。この2つの世界が、この定理によって橋渡しされるの。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "なるほど。これが成り立ってないと、安心して証明できないですね。<br>で、これは成り立つんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "もちろん。証明の方針はこうよ。<br>1. <b>全ての公理がトートロジーであることを確認する。</b><br>2. <b>推論規則（MP）が、「真なるものから真なるものしか導かない」ことを確認する。</b><br><br>この2つが言えれば、公理から出発してMPを繰り返してできる定理は、すべてトートロジーになるはずでしょ？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "確かに。ドミノ倒しみたいに、最初が正しくて、倒れるルールが正しければ、最後まで正しいはずです。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "じゃあ、チェックしてみましょうか。<br>まず一番簡単な (ax.1) $A \to (B \to A)$ 。これの真理値表を書いてみて。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "えっと、こうですか？<br>"
+    },
+    {
+      "type": "text",
+      "content": "| $A$ | $B$ | $B \to A$ | $A \to (B \to A)$ |"
+    },
+    {
+      "type": "text",
+      "content": "|:---:|:---:|:---:|:---:|"
+    },
+    {
+      "type": "text",
+      "content": "| T | T | T | <b>T</b> |"
+    },
+    {
+      "type": "text",
+      "content": "| T | F | T | <b>T</b> |"
+    },
+    {
+      "type": "text",
+      "content": "| F | T | F | <b>T</b> |"
+    },
+    {
+      "type": "text",
+      "content": "| F | F | T | <b>T</b> |"
+    }
+  ]
+}

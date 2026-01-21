@@ -165,6 +165,7 @@ code {
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     white-space: pre-wrap;
     word-break: break-word;
+    overflow-x: auto; /* 数式などがはみ出る場合にスクロール */
 }
 .left .bubble { margin-left: 15px; border-top-left-radius: 2px; }
 .right .bubble { margin-right: 15px; border-top-right-radius: 2px; }
@@ -173,7 +174,7 @@ code {
 .article-box {
     margin: 25px auto;
     border-radius: 6px;
-    overflow: hidden;
+    /* overflow: hidden; 削除: はみ出しカット防止 */
     border: 1px solid #ddd;
     font-size: 0.95em;
     max-width: 95%;
@@ -185,9 +186,12 @@ code {
     background-color: #f1f1f1;
     border-bottom: 1px solid #ddd;
     font-size: 0.95em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .box-body {
     padding: 15px 20px;
+    overflow-x: auto; /* コンテンツがはみ出る場合にスクロール */
 }
 
 /* Box Variations */
@@ -344,8 +348,15 @@ code {
 
 /* --- レスポンシブデザイン (スマホ対応) --- */
 @media screen and (max-width: 768px) {
+    body {
+        font-size: 14px; /* 文字サイズを小さく */
+    }
+
     /* 全体の幅制限を緩和 */
-    .width-constraint { width: 96%; }
+    .width-constraint { 
+        width: 100%; 
+        padding: 0 5px;
+    }
 
     /* 2カラム -> 1カラム */
     .clm {
@@ -363,9 +374,8 @@ code {
         margin-bottom: 10px;
         font-size: 1.1em;
     }
-    /* もくじのリンクを少し押しやすく */
     .mokuzi a {
-        padding: 12px;
+        padding: 10px;
         margin-bottom: 5px;
     }
 
@@ -375,19 +385,47 @@ code {
         padding-bottom: 30px;
         box-sizing: border-box;
     }
+
+    .main-container {
+        padding: 15px 10px; /* 白い背景の余白を減らす */
+        width: 100% !important;
+        margin-top: 10px;
+        min-height: auto;
+    }
     
     /* ヘッダー文字サイズ調整 */
-    .header h1 { font-size: 1.8em; }
+    .header h1 { font-size: 1.6em; }
     
     /* 記事内の要素調整 */
-    .bubble { max-width: 85%; font-size: 0.9em; }
-    .icon { width: 40px; height: 40px; font-size: 1em; }
-    .dialogue-row { margin-bottom: 15px; }
+    .bubble { 
+        max-width: 88%; 
+        font-size: 0.95em;
+        padding: 10px 12px;
+    }
+    .icon { 
+        width: 36px; 
+        height: 36px; 
+        font-size: 0.9em; 
+    }
+    .dialogue-row { 
+        margin-bottom: 15px; 
+    }
+    
+    /* 左右の空白を小さく */
+    .left .bubble { margin-left: 8px; }
+    .right .bubble { margin-right: 8px; }
     
     .article-box { max-width: 100%; margin: 15px auto; }
-    pre { max-width: 100%; font-size: 0.85em; }
+    pre { max-width: 100%; font-size: 0.85em; padding: 10px; }
     
-    /* ナビゲーションを縦並びにするか、小さくする */
+    /* ナビゲーション */
     .article-nav { font-size: 0.85em; flex-direction: column; gap: 10px; text-align: center; }
     .nav-prev, .nav-next { width: 100%; }
+}
+
+/* MathJaxの数式スクロール用汎用クラス */
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
 }

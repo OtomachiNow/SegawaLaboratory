@@ -17,7 +17,7 @@
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "さて、前回の宿題なんですけど<br>"
+      "content": "さて、前回の宿題なんですけ...ど.......<br>"
     },
     {
       "type": "dialogue",
@@ -47,7 +47,109 @@
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "（全然済んでない......）"
+      "content": "（全然済んでない......）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "冗談よ。それで宿題の二番だけど、秋葉に聞いたのよ。ヒルベルト流をさらから考えさせるのは流石に酷かしらって。そしたら秋葉、クビをぶんぶんふって「当たり前です！」なんて<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "そんなに難しかったんですかあの宿題<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "んん、難しいともいえるし、慣れれば簡単とも言えるわ。実際のところパズルなのよね。コンパイラを検証するようなものだし。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "コンパイラですか。それは一体どういう意味ですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "私たちが普段使う証明がソフトウェアだとしたら、ヒルベルト流ってプログラム未満の超超原始的な論理構造なのよ。最低限の事しか認められてないの。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "便利な構造が全くないので、当たり前なことをゼロから組み立てないといけないってことですね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そう。分かってるじゃない。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "じゃあヒルベルト流を使う意味なんてないんじゃないですか？他の方法はありますかね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "意味がないわけではないのよ。世の中には色んな論理の組み立て方がある。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "論理の組み立て方...？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「便利な構造」を $H_a$ にも導入すればいいの。それも、最低限の前提は変えないようにね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "そんなことが可能なんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "\"extension by definition\"<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「定義による拡張」よ。今日はその一例として演繹定理を導入することにしましょう。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "演繹定理"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "演繹定理ってのは、仮定ありの推論についての定理。例えば「A\\to B」は自然言語なら「AならばB」よね？これを「Aを仮定してBを演繹する」ものと見れるようにする...そのためにある定理なの。<br>"
+    },
+    {
+      "type": "text",
+      "content": "栃村"
     }
   ]
 }

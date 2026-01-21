@@ -1,0 +1,23 @@
+{
+  "title": "フーリエ変換-1",
+  "date": "2026/01/22",
+  "published": false,
+  "order": 0,
+  "type": "math",
+  "data": [
+    {
+      "type": "heading",
+      "content": "イントロダクション"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "仕切り直しね。"
+    }
+  ]
+}

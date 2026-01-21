@@ -1,4 +1,4 @@
-Title: フーリエ変換-1
+Title: フーリエ変換-0
 Date: 2026/01/20
 Type: math
 StoryOrder: 3
