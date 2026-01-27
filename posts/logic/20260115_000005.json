@@ -357,7 +357,7 @@
     },
     {
       "type": "box",
-      "title": "定義：公理図式",
+      "title": "定義：公理図式 $Ax_a$",
       "children": [
         {
           "type": "math",
@@ -373,7 +373,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "それぞれ意味はあるけど、まあ今は「論理パズルの初期手札」だと思えばいいわ。<br>ax.1 は「弱化」、ax.2 は「分配」、ax.9 は「対偶」ね。<br>"
+      "content": "それぞれ意味はあるけど、まあ今は「論理パズルの初期手札」だと思えばいいわ。ax.1 は「弱化」、ax.2 は「分配」、ax.9 は「対偶」ね。<br>"
     },
     {
       "type": "dialogue",
@@ -481,7 +481,7 @@
       "children": [
         {
           "type": "text",
-          "content": "$H_a$ は上の公理図式と、推論規則MPを持つ。"
+          "content": "$H_a$ は上の公理図式 $\\mathrm{Ax_a}$ と、推論規則 $\\mathrm{MP}$ を持つ。"
         },
         {
           "type": "text",
@@ -497,7 +497,7 @@
         },
         {
           "type": "text",
-          "content": "における「証明」は、有限個の公理と推論規則を繰り返し用いて新たな論理式 $\\phi$ を得ることと定義される。このとき"
+          "content": "$H_a$ における $\\phi$ の「証明」とは、$\\mathrm{Ax_a}$と推論規則をそれぞれ有限の数、繰り返し用いて $\\phi$ を得ることと定義される。このとき"
         },
         {
           "type": "math",
@@ -551,7 +551,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "当たり前じゃない！全然当たり前じゃない！！！！<br>"
+      "content": "当たり前じゃない！全っ然当たり前じゃない！！！！<br>"
     },
     {
       "type": "dialogue",
@@ -605,7 +605,7 @@
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "$C=A$ としたので、ax.2 の左側は ax.1 の形そのものなので、$A\\to B$ が公理になれさえすればいいんですね。そしたら $(X\\to X)$ とかはどうでしょう。<br>"
+      "content": "$C=A$ としたので、ax.2 の左側は ax.1 の形そのものなので、$A\\to B$ が公理になりさえすればいいんですね。そしたら $(X\\to X)$ とかはどうでしょう。<br>"
     },
     {
       "type": "dialogue",

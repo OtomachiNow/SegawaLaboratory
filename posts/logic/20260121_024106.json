@@ -1,7 +1,7 @@
 {
   "title": "命題論理-4",
   "date": "2026/01/21",
-  "published": false,
+  "published": true,
   "order": 0,
   "type": "math",
   "data": [
@@ -131,7 +131,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "「定義による拡張」よ。今日はその一例として演繹定理を導入することにしましょう。<br>"
+      "content": "「定義による拡張」よ。今日はその一例として演繹定理を導入することにしましょう。*1<br>"
     },
     {
       "type": "heading",
@@ -145,11 +145,361 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "演繹定理ってのは、仮定ありの推論についての定理。例えば「A\\to B」は自然言語なら「AならばB」よね？これを「Aを仮定してBを演繹する」ものと見れるようにする...そのためにある定理なの。<br>"
+      "content": "演繹定理ってのは、仮定ありの推論についての定理。例えば「$A\\to B$」は自然言語なら「AならばB」よね？これを「Aを仮定してBを演繹する」ものと見れるようにする......そのためにある定理なの。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「Aを仮定する」...？どういうことですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "意味論の話をするわよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "$A\\to B$ が正しいこと、それは「$A$ が誤りか、または $B$ が正しい」として真理値を定義したわよね。じゃあ、実は $B$ が「考えるメインの対象」である場合はどうすればいい？$A$ はこの命題でどういう立ち位置にいるかしら。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "$A\\to B$ を示すために $B$ を考えたい、ということですね。真偽値を確かめるという点では、$A$ が誤りであるときは $A\\to B$ は真になります。なので「$A$ が真である」場合のみを考えて、そのうえで $B$ の真偽を確かめるのはどうでしょう？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "正解。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「$A$ が真である場合のみを考える」。それが証明論の世界では 「$A$ を仮定（前提）に置く」という操作になるの。つまり、「$A \\to B$ を証明する」というタスクを、「$A$ という手札が最初からある状態で、$B$を証明する」というタスクに変換できるってこと。これなら簡単そうでしょ？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "......なんとなく分かりました。しかし。「手札が最初からある」とは一体なんですか？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "$H_a$ における証明では、使っていいのは公理だけだったわよね。アレに仮定を追加するの。仮定と公理を一緒くたに使うのよ。<br>"
+    },
+    {
+      "type": "box",
+      "title": "定義：仮定ありの証明",
+      "children": [
+        {
+          "type": "text",
+          "content": "$\\phi$ を $L_a$ 論理式、$\\Gamma$ を $L_a$ 論理式の有限集合とする。$\\phi$ の仮定ありの証明とは、$\\mathrm{Ax_a}$と、「$\\Gamma$ に含まれる論理式」と推論規則をそれぞれ有限の数、繰り返し用いて $\\phi$ を得ることと定義される。このとき"
+        },
+        {
+          "type": "math",
+          "content": "$$\\Gamma \\vdash_{H_a} \\phi$$"
+        },
+        {
+          "type": "text",
+          "content": "とかく。"
+        }
+      ]
     },
     {
       "type": "text",
-      "content": "栃村"
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "これでやっと演繹定理の説明が出来るわね。さっきあんたが言った「$A$ が真である場合」が $\\Gamma$ の論理式を使っていいことに対応するの。そして、そういう仮定の論理式が沢山ある場合は、次の論理式で表現出来る。$A$ から $X$ は仮定 $\\Gamma$ に対応して、結論が $Y$ よ。<br>"
+    },
+    {
+      "type": "math",
+      "content": "$$A\\to(B\\to(...\\to(X\\to Y)...)$$"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "これに「演繹定理」を適用すると、$\\vdash$ 記号の前に論理式を配置出来る。それが基本的な形ね。<br>"
+    },
+    {
+      "type": "box",
+      "title": "定理：演繹定理",
+      "children": [
+        {
+          "type": "text",
+          "content": "$A,B$ を $L_a$ 論理式、$\\Gamma$ を $L_a$ 論理式の有限集合とする。次の関係が成り立つ。"
+        },
+        {
+          "type": "math",
+          "content": "$$\\Gamma, A\\vdash B ~~~\\mathrm{IFF}~~~ \\Gamma\\vdash A\\to B$$"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ふへ～っ！仮定って集合なんですね......！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "別に集合にしなくてもいいのよ。順番の入れ替えを認めない体系もある。とりあえず今回は集合として定義したに過ぎないわ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "早速証明してもらおう......と思ったけど、証明論における証明は「あるある」がいっぱいあるの。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あるある、とは？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「帰納法を使う」だったり「完全性を利用する」だったり「反映可能性を先に示す」だったりよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "？？？？？？？？？？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "あら、いい加減壊れちゃったかしら。とりあえず証明しちゃうわね。<br>"
+    },
+    {
+      "type": "box",
+      "title": "証明",
+      "children": [
+        {
+          "type": "text",
+          "content": "まず右から左（$\\Leftarrow$）を示す。"
+        },
+        {
+          "type": "text",
+          "content": "右辺 $\\Gamma \\vdash A \\to B$ の証明における論理式列の最後はこうなっているはずである。"
+        },
+        {
+          "type": "math",
+          "content": "\\begin{array}{cl}\n\\vdots & \\\\\n(n) & A \\to B\n\\end{array}"
+        },
+        {
+          "type": "text",
+          "content": "これに、左辺で使える仮定 $A$ を付け加えると、次のように $B$ を導出できる。"
+        },
+        {
+          "type": "math",
+          "content": "\\begin{array}{cl}\n\\vdots & \\\\\n(n) & A \\to B \\\\\n(n+1) & A & (\\text{仮定}) \\\\\n(n+2) & B & (n, n+1, \\text{MP})\n\\end{array}"
+        },
+        {
+          "type": "text",
+          "content": "よって $\\Gamma, A \\vdash B$ が示された。"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "次に左から右 （$\\Rightarrow$） を、証明の長さ $n$ に関する帰納法を用いて示す。"
+        },
+        {
+          "type": "text",
+          "content": "証明列の最後が $C$ であるとき、$\\Gamma \\vdash A \\to C$ を示したい（ここでは $B$ の代わりに $C$ とおく）。"
+        },
+        {
+          "type": "text",
+          "content": "<b>ケース1 （$n=1$）:</b> $C$ は公理であるか、仮定 $\\Gamma$ の要素であるか、もしくは $A$ 自身である。"
+        },
+        {
+          "type": "text",
+          "content": "<br>"
+        },
+        {
+          "type": "text",
+          "content": "（i） 公理または $\\Gamma$ の要素であるとき:"
+        },
+        {
+          "type": "math",
+          "content": "\\begin{array}{cl}\n(1) & C & (\\text{公理 or 仮定}) \\\\\n(2) & C \\to (A \\to C) & (\\text{ax.1}) \\\\\n(3) & A \\to C & (1, 2, \\text{MP})\n\\end{array}"
+        },
+        {
+          "type": "text",
+          "content": "（ii） $C$ が $A$ 自身であるとき:示したいのは $\\Gamma \\vdash A \\to A$ である。これは前回示した定理により成立する。"
+        },
+        {
+          "type": "text",
+          "content": "<b>ケース2 （$n < k$ で成立すると仮定）:</b> $n=k$ のとき、$C$ が MP によって導かれたとする（それ以外はケース1と同じ）。"
+        },
+        {
+          "type": "text",
+          "content": "つまり、ある $D$ が存在して、$D$ と $D \\to C$ がこれより前のステップで証明されている。"
+        },
+        {
+          "type": "text",
+          "content": "帰納法の仮定より、以下が成立している。"
+        },
+        {
+          "type": "math",
+          "content": "$$\n\\Gamma \\vdash A \\to D,~~\n\\Gamma \\vdash A \\to (D \\to C)\n$$"
+        },
+        {
+          "type": "text",
+          "content": "ここから $A \\to C$ を導く手順は、<b>宿題とする</b>。よって $n=k$ のときも成立し、帰納法により証明完了。"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "とまぁ、やたらこまっちいのが嫌いな人もいるわね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "すぅ...すぅ...<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "（幸せそうに寝ている）<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "💢<br>"
+    },
+    {
+      "type": "box",
+      "title": "まとめ",
+      "children": [
+        {
+          "type": "text",
+          "content": "・（寝ている）"
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "title": "宿題",
+      "children": [
+        {
+          "type": "text",
+          "content": "１．演繹定理の証明にある「演習問題」を解け。"
+        },
+        {
+          "type": "text",
+          "content": "２．演繹定理を用いて $\\vdash_{H_a}A\\lor\\neg A$ を示せ。"
+        },
+        {
+          "type": "text",
+          "content": "３．今回は推論規則の拡張として演繹定理を示したが、他にも様々な「それっぽい」規則を追加できる（もちろん、示せたならだが）。そこで、次の規則を追加したい。"
+        },
+        {
+          "type": "box",
+          "title": "定理：同値変形規則",
+          "children": [
+            {
+              "type": "text",
+              "content": "$\\vdash_{H_a} A$ かつ $\\vdash_{H_a}(A\\to B)\\land(B\\to A)$ ならば $\\vdash_{H_a}B$"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "content": "これは正しいか？正しいなら証明し、正しくないと思うならば意味論においてその反例となる論理式 $A,B$ の存在を示せ（意味論においてというのは、$\\vdash$ の代わりに $\\models$ で考えよということである）。"
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "content": "ほそく"
+    },
+    {
+      "type": "text",
+      "content": "<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "*1 についてよ。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "普通 extention by definiton と言えば記号の導入を指すわ。公理的集合論において $=$ を固定記号に入れてしまうか、または $(A\\subseteq B)\\land(B\\subseteq A)$ の略記として定義するかみたいなこと。だから今回の呼び方はあんまりしないものだって覚えておいて頂戴ね。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "right",
+      "content": "じゃあどうしてエクステンションなんて言ったの？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "......かっこいいから...<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "right",
+      "content": "え？<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "right",
+      "content": "えぇぇ......？ｗ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ニヤニヤしてんじゃないわよ！"
     }
   ]
 }

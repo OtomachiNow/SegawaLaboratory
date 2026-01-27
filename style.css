@@ -201,6 +201,70 @@ code {
 .box-summary { border-color: #2196f3; } .box-summary .box-title { background-color: #2196f3; color: #fff; text-align: center; }
 .box-hw { border-color: #ff9800; } .box-hw .box-title { background-color: #ff9800; color: #fff; }
 
+/* Nested Box Style */
+.article-box .article-box {
+    margin: 5px 2px; /* 余白をさらに削減（1/3程度） */
+    border: 1px dashed #bbb !important; /* 点線を細く、少し薄く */
+    border-radius: 4px; /* 曲率を小さく（かくかくさせる） */
+    background-color: #fff !important;
+    width: auto;
+    box-shadow: none !important;
+}
+.article-box .article-box .box-title {
+    background-color: #f9f9f9;
+    border-bottom: 1px dashed #bbb;
+    font-size: 0.85em; /* 少し小さめに */
+    padding: 3px 10px; /* パディングも削減 */
+    color: #333 !important; /* 文字色を黒に固定 */
+}
+.article-box .article-box .box-body {
+    padding: 5px 10px; /* ボディの余白も削減 */
+}
+
+/* Fold (Details/Summary) Style */
+details {
+    margin: 15px auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0;
+    background-color: #fff;
+    max-width: 95%;
+}
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid transparent; /* 閉じているときは線なし */
+    transition: background-color 0.2s;
+    list-style: none; /* デフォルトのマーカーを消す（一部ブラウザ用） */
+}
+/* summaryのマーカーカスタマイズ */
+summary::-webkit-details-marker {
+    display: none;
+}
+summary::before {
+    content: "▶";
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.2s;
+    font-size: 0.8em;
+    color: #555;
+}
+details[open] summary {
+    border-bottom: 1px solid #ddd; /* 開いているときは線を表示 */
+}
+details[open] summary::before {
+    transform: rotate(90deg);
+}
+summary:hover {
+    background-color: #e0e0e0;
+}
+.fold-body {
+    padding: 15px;
+    border-top: none;
+}
+
 /* 真理値表 */
 .truth-table {
     margin: 20px auto;
