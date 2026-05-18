@@ -1,9 +1,0 @@
-Title: フーリエ変換-1
-Date: 2026/01/22
-Type: math
-Status: draft
-
-# イントロダクション
-
-瀬川　左
-    仕切り直しね。
