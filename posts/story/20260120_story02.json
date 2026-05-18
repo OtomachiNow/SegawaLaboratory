@@ -1,0 +1,267 @@
+{
+  "title": "第2話：塩昆布と指パッチン",
+  "date": "2026/01/20",
+  "type": "novel",
+  "order": 2.0,
+  "published": true,
+  "data": [
+    {
+      "type": "dialogue",
+      "speaker": "「ここは瀬川研究室。素人が来る場所じゃないのよ」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "この状況は、どう見ても「サークルの見学」ではない。どちらかと言えば「ボスの尋問」に近い。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「で？",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "すると、背後で鍵をかけた張本人が、どこからともなく取り出したお盆を持って近づいてきた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「初対面の人に『誰』とか言っちゃだめですよ、華ちゃん」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女は少女の態度を気にする様子もなく、栃村の座らされた机の上にコトンとお盆を置いた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「まあまあ。せっかく来てくれたんだし、ここに足を踏み入れた時点で、もう部員みたいなものですから」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "その言葉の響きに、栃村は慌てて手を振った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「えぇ～！",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "女性は心底残念そうに眉を下げ、お盆の上を指差した。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「ほら、お菓子もあるから。ね？",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "小皿の中身は、黒くて、細長くて、どう見ても乾物だった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「お菓子って塩昆布じゃないですか！」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村は冷や汗をかいた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "もしかして、ハメられたか？",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "逃げるなら今だ。そう思って腰を浮かせかけた時、女性がポンと手を打った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「あ、そういえば、自己紹介がまだでしたね」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女は改めて居住まいを正し、にこやかに言った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「うん。華ちゃんの身の回りのお世話係」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山は奥にいる少女を指差した。少女は我関せずといった様子で、黒板に数式を書き続けている。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……チッ」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "少女は露骨に舌打ちをすると、チョークを持ったまま気怠げにこちらを振り返った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……瀬川華。この研究室の主」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "逃げ場はない。栃村は観念して名乗った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「工学部」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "その瞳は、先ほどまでの無関心とは違い、獲物を見定める猛禽類のような鋭さを帯びている。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「なら、勉強について不満に思っていることが、少しはあるはずよ」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女は白衣のポケットに手を突っ込み、カツ、カツと足音を立てて近づいてきた。その小さな体が放つ威圧感に、栃村は再び椅子に縫い付けられる。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「あんたは何が分からなくて、ここに来たの？」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "口をついて出たのは、最近一番頭を悩ませていた単語だった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「え、えっと、そうですね……フーリエ変換、とか」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川が目を見開き、信じられないものを見るような顔をした。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「フーリエ変換！」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女は芝居がかった仕草で両手を広げ、天井を仰いだ。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「驚くべきよ！",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川はバッと柿山の方を振り向いた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「それじゃあ、早速活動を見せてあげようかしら。秋葉！」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "パチン、と乾いた音が、薄暗い部室に響き渡った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「はいはい～」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川は白衣を翻し、チョークを構えて黒板の前に立った。その背中は、小学生のような小ささを感じさせないほど、大きく、堂々としていた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「こ、これは……っ！？」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村が状況の変化についていけず、呆然としていると、瀬川はニヤリと笑った。それは、獲物を前にした肉食獣の笑みであり、同時に、大好きな玩具を見つけた子供の笑みでもあった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「歓迎してあげるわ、新入部員。これが瀬川研究室の『ゼミ』よ」",
+      "side": "left",
+      "content": ""
+    }
+  ]
+}

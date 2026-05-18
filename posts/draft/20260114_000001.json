@@ -1,0 +1,79 @@
+{
+  "title": "Segawa Editor ユーザーマニュアル",
+  "date": "2026/01/14",
+  "type": "math",
+  "order": 0,
+  "published": true,
+  "data": [
+    {
+      "type": "heading",
+      "content": "Segawa Editor へようこそ"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ここは Segawa Editor の使い方を解説するマニュアルよ。<br>新機能が追加されたから、しっかり覚えなさい。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "新しいブロック記法"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "これまでの <code>!box:</code> のようにインデントで囲む記法も使えるけど、もっと複雑なことをしたいときは、新しい <code>!begin</code> 記法を使いなさい。<br>これなら箱の中に数式を入れたり、箱の中に箱を入れたりできるわ。<br>"
+    },
+    {
+      "type": "box",
+      "title": "新記法 (推奨)",
+      "content": "<code></code>`text\n<div class=\"article-box \"><div class=\"box-title\">タイトル</div><div class=\"box-body\">中身のテキスト\n$$\n数式など\n$$</div></div>\n<code></code>`\n\n・<code>Ctrl + B</code> などのショートカットも、この新記法に対応したわ。"
+    },
+    {
+      "type": "heading",
+      "content": "特殊な機能"
+    },
+    {
+      "type": "box",
+      "title": "真理値表 (!truth:)",
+      "content": "カンマ区切りで簡単に表が作れるわ。\n\n<code></code>`text\n!truth:\n    P, Q, P -> Q\n    T, T, T\n    T, F, F\n<code></code>`\n\n!truth:\n    P, Q, P -> Q\n    T, T, T\n    T, F, F"
+    },
+    {
+      "type": "box",
+      "title": "証明図 (prooftree)",
+      "content": "<code>bussproofs</code> パッケージに対応したわ。\n<code>!box</code> の中でも使えるようになったの。\n\n$$\n\\begin{prooftree}\n\\AxiomC{$A$}\n\\AxiomC{$A \\to B$}\n\\BinaryInfC{$B$}\n\\end{prooftree}\n$$"
+    },
+    {
+      "type": "box",
+      "title": "数式の空白",
+      "content": "数式内で <code>~</code> (チルダ) を使うと、空白として表示されるようになったわ。\n\n$$ a = b \\quad \\text{if}~ x > 0 $$"
+    },
+    {
+      "type": "heading",
+      "content": "小説モード"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "right",
+      "content": "小説を書くときは、新規作成で「小説記事」を選んでね。<br>そうすると、自動的に「なろう」風の縦書き……じゃなくて、読みやすい横書きスタイルになるよ！<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "<code>Type: novel</code> をヘッダーに書くだけよ。<br>小説モードでは、会話文もカギカッコでそのまま書けばいいわ。<br>インデントや行間も、エディタの見た目通りに反映されるようになったから、ストレスなく書けるはずよ。<br>"
+    },
+    {
+      "type": "heading",
+      "content": "ストーリーとゼミの融合"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "記事に <code>StoryOrder: 1</code> みたいな番号を振ると、「ストーリー一覧」ページに時系列順に並ぶわ。<br>数学の記事も小説の記事も、この番号順に繋がって読めるようになるの。<br>これで、「物語」としてこの研究室の日々を綴ることができるわね。"
+    }
+  ]
+}

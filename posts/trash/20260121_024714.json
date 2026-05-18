@@ -1,0 +1,423 @@
+{
+  "title": "第3話：慈悲と生成AI",
+  "date": "2026/01/21",
+  "type": "novel",
+  "order": 3.0,
+  "published": true,
+  "data": [
+    {
+      "type": "dialogue",
+      "speaker": "「どうしよう……」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "工学部の講義で微分積分はやった。極限も習った。だが、この記号の羅列は、栃村の知っている数学とは決定的に何かが違っていた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……とりあえず、図書館に行くか」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "なのに、足は自然と図書館へ向かっていた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "◇",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "1ページ目から、見慣れない記号が踊っていた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "このとき、対",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "今の自分の知識でどうにかできるレベルではない。断崖絶壁を素手で登ろうとするような絶望感に、視界が滲む。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "パタン、と本を閉じたその時だった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「探したよ～！」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "振り返ると、ふわふわとした栗色の髪が揺れるのが見えた。柔和な目元に、少し困ったような笑みを浮かべた女性。柿山秋葉が、小走りで近づいてくるところだった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「ごめんね、ちょっと謝りたくて。あの子、数学の話になると止まらなくなるの。悪気はないから……って言っても、ひどいよね」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女は申し訳なさそうに眉を下げた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「えっとね、率直に言うね。私は君に入ってほしいの」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "その瞳は、蜂蜜を溶かしたような透き通った琥珀色をしていた。先ほどの飄々とした雰囲気とは違う、奥底を見透かすような静かな光が宿っている。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「とにかく、君には今後も来て欲しいの。華ちゃんも喜ぶよ、絶対。部室でかなり悲しそうな顔してたもん」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "沈黙が流れる。気まずい空気が二人の間を漂った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……ごめんね、変な話して。……あれ？」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "そこには、先ほど閉じたばかりの『ルベーグ積分入門』があった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「あれあれあれあれ！」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女は嬉しそうに目を細め、栃村の顔を覗き込んだ。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「やっぱり悔しかったんじゃん！",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "ここで素直になるべきだろう。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「でも、さっぱりわからなくて……」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "正直に打ち明けると、柿山は優しく微笑んだ。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「ちゃちゃっとって……」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "画面には、チャット形式のインターフェースが表示されている。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「そう。今どき、こういうのはAIに任せるのが一番だよ」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村が何時間かけても入口にすら立てなかった答えが、ほんの一瞬で完成してしまった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「そんなの華ちゃんも分かるに決まってるでしょ。『私は知っている、あなたが知っていることを",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山は悪戯っぽく笑った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「ふふ、とにかく明日行こ？」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "だが、心の中には、割り切れない何かが重く沈殿していた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "◇",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "本当に、これでいいのだろうか。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「ガチャ。華ちゃ～ん！」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "昨日のように薄暗い部室。奥の黒板の前には、やはり瀬川華がいた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……来たわね。今日もダメットについ……て……」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "部屋の空気が、昨日よりもさらに重く、険悪なものに変わった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「…………ここにいるってことは、宿題はしてきたのよね」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……はい」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "だが、読み進めるにつれて、その眉間に深いしわが刻まれていく。不機嫌そうな表情が、さらに険しいものへと変わる。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "パサッ。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "時計の秒針の音だけが、部屋に響き渡る。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……柿山の指示？」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村と柿山は、びくりと背筋を伸ばした。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……くだらない」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "期待を裏切られたことへの、深い失望の色を帯びていた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「あのね、華ちゃん」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "それが、何よりも悔しかった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……すみませんでした」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "絞り出すような声だった。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「図書館で本を見ても、記号の意味すら分からなくて。手も足も出なくて。……でも」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川の冷ややかな視線を、真っ直ぐに見返す。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「この答えを見ても、何一つ理解できない自分が、悔しかったんです。ただの記号の羅列にしか見えないこれが、本当はどういう意味を持っているのか。それを知りたいと、思ったんです」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "その瞳の奥にある色が、わずかに揺らいだように見えた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……悔しい、ね」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川は小さく呟くと、机の上のプリントを再び手に取った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「フン。AIごときに頼るようなやつに、教えることなんて何もないと思っていたけど」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女はプリントをパラパラとめくり、フッと鼻を鳴らした。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「その『悔しさ』だけは、本物みたいね」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "そこへ、柿山がここぞとばかりに口を挟んだ。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「でもさ、いきなりルベーグ積分からっていうのは、やっぱりスパルタすぎない？",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川は不満そうに口を尖らせたが、栃村の方を一瞥し、そして柿山の方を見て、大きくため息をついた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「……チッ。仕方ないわね」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "彼女はチョークを手に取り、黒板に書かれた複雑な記号の一部を消し始めた。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「その代わり」",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川は黒板に、力強く『内積』と書き殴った。",
+      "side": "left",
+      "content": ""
+    },
+    {
+      "type": "dialogue",
+      "speaker": "「覚悟しなさい、新入部員。スパルタコースから、ほんの少し手加減してあげるだけなんだから」",
+      "side": "left",
+      "content": ""
+    }
+  ]
+}

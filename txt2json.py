@@ -13,6 +13,8 @@ def parse_segawa_script(filepath):
     article = {
         "title": "無題",
         "date": "----/--/--",
+        "type": "math",
+        "order": 0,
         "published": True, # デフォルト公開
         "data": []
     }
@@ -30,6 +32,14 @@ def parse_segawa_script(filepath):
             article["title"] = line[6:].strip()
         elif line.lower().startswith("date:"):
             article["date"] = line[5:].strip()
+        elif line.lower().startswith("type:"):
+            article["type"] = line[5:].strip().lower() or "math"
+        elif line.lower().startswith("storyorder:"):
+            raw_order = line[11:].strip()
+            try:
+                article["order"] = float(raw_order)
+            except ValueError:
+                article["order"] = 0
         elif line.lower().startswith("status:"):
             status = line[7:].strip().lower()
             if status in ["draft", "private", "非公開"]:
@@ -48,6 +58,106 @@ def parse_segawa_script(filepath):
         if text.startswith("* "):
             text = "・" + text[2:]
         return text
+
+    def box_class(title):
+        if "定義" in title:
+            return "box-def"
+        if "定理" in title:
+            return "box-thm"
+        if "証明" in title:
+            return "box-proof"
+        if "まとめ" in title:
+            return "box-summary"
+        if "宿題" in title:
+            return "box-hw"
+        return ""
+
+    def strip_block_indent(text):
+        if text.startswith("    "):
+            return text[4:]
+        if text.startswith("\t"):
+            return text[1:]
+        return text
+
+    def read_begin_block(start_idx, begin_prefix, end_marker):
+        header = lines[start_idx].strip()
+        title = header[len(begin_prefix):].strip()
+        content_lines = []
+        depth = 1
+        idx = start_idx + 1
+        while idx < len(lines):
+            current = lines[idx].strip()
+            if current.startswith(begin_prefix):
+                depth += 1
+                content_lines.append(lines[idx])
+            elif current == end_marker:
+                depth -= 1
+                if depth == 0:
+                    return title, content_lines, idx + 1
+                content_lines.append(lines[idx])
+            else:
+                content_lines.append(lines[idx])
+            idx += 1
+        return title, content_lines, idx
+
+    def format_block_content(block_lines):
+        result = []
+        idx = 0
+        while idx < len(block_lines):
+            stripped = block_lines[idx].strip()
+
+            if stripped.startswith("!begin:math"):
+                math_lines = []
+                idx += 1
+                while idx < len(block_lines) and block_lines[idx].strip() != "!end:math":
+                    math_lines.append(strip_block_indent(block_lines[idx].rstrip()))
+                    idx += 1
+                if idx < len(block_lines):
+                    idx += 1
+                math_content = "\n".join(line.strip() for line in math_lines).strip()
+                if math_content.startswith("$$") and math_content.endswith("$$"):
+                    result.append(math_content)
+                else:
+                    result.append("$$\n" + math_content + "\n$$")
+                continue
+
+            if stripped.startswith("!begin:box:"):
+                nested_title = stripped[len("!begin:box:"):].strip()
+                nested_lines = []
+                depth = 1
+                idx += 1
+                while idx < len(block_lines):
+                    current = block_lines[idx].strip()
+                    if current.startswith("!begin:box:"):
+                        depth += 1
+                        nested_lines.append(block_lines[idx])
+                    elif current == "!end:box":
+                        depth -= 1
+                        if depth == 0:
+                            idx += 1
+                            break
+                        nested_lines.append(block_lines[idx])
+                    else:
+                        nested_lines.append(block_lines[idx])
+                    idx += 1
+                nested_body = format_block_content(nested_lines)
+                css_class = box_class(nested_title)
+                result.append(
+                    f'<div class="article-box {css_class}">'
+                    f'<div class="box-title">{format_line(nested_title)}</div>'
+                    f'<div class="box-body">{nested_body}</div>'
+                    f'</div>'
+                )
+                continue
+
+            if stripped in {"!end:box", "!end:math"}:
+                idx += 1
+                continue
+
+            result.append(format_line(strip_block_indent(block_lines[idx].rstrip())))
+            idx += 1
+
+        return "\n".join(result).strip()
 
     # --- 本文解析 ---
     while line_idx < len(lines):
@@ -102,9 +212,29 @@ def parse_segawa_script(filepath):
                 line_idx += 1
             
             article["data"].append({
-                "type": "details",
+                "type": "fold",
                 "summary": summary,
-                "content": "<br>".join(content_lines)
+                "content": "\n".join(content_lines)
+            })
+            continue
+
+        # 4.5. 真理値表 (!truth:)
+        if stripped.startswith("!truth:"):
+            rows = []
+            line_idx += 1
+            while line_idx < len(lines):
+                next_raw = lines[line_idx]
+                if next_raw.strip() and not (next_raw.startswith(" ") or next_raw.startswith("\t")):
+                    break
+                row_text = next_raw.strip()
+                if row_text:
+                    separator = "|" if "|" in row_text else ","
+                    rows.append([format_line(cell.strip()) for cell in row_text.split(separator)])
+                line_idx += 1
+            
+            article["data"].append({
+                "type": "truth",
+                "rows": rows
             })
             continue
 
@@ -122,6 +252,24 @@ def parse_segawa_script(filepath):
             article["data"].append({
                 "type": "math",
                 "content": "\n".join(content_lines)
+            })
+            continue
+
+        # 4.1. 旧記法の独立数式 (!begin:math ... !end:math)
+        if stripped.startswith("!begin:math"):
+            content_lines = []
+            line_idx += 1
+            while line_idx < len(lines) and lines[line_idx].strip() != "!end:math":
+                content_lines.append(strip_block_indent(lines[line_idx].rstrip()))
+                line_idx += 1
+            if line_idx < len(lines):
+                line_idx += 1
+            content = "\n".join(line.strip() for line in content_lines).strip()
+            if not (content.startswith("$$") and content.endswith("$$")):
+                content = "$$\n" + content + "\n$$"
+            article["data"].append({
+                "type": "math",
+                "content": content
             })
             continue
 
@@ -160,12 +308,31 @@ def parse_segawa_script(filepath):
             article["data"].append({
                 "type": "box",
                 "title": title,
-                "content": "<br>".join(content_lines)
+                "content": "\n".join(content_lines)
             })
             continue
 
+        # 6.1. 旧記法の囲み枠 (!begin:box: ... !end:box)
+        if stripped.startswith("!begin:box:"):
+            title, block_lines, line_idx = read_begin_block(line_idx, "!begin:box:", "!end:box")
+            title = format_line(title)
+            article["data"].append({
+                "type": "box",
+                "title": title,
+                "content": format_block_content(block_lines)
+            })
+            continue
+
+        if stripped in {"!end:box", "!end:math"}:
+            line_idx += 1
+            continue
+
         # 7. 通常の会話 (話者名)
-        speaker = stripped
+        speaker_parts = stripped.split()
+        speaker = speaker_parts[0]
+        side = "left"
+        if len(speaker_parts) > 1 and speaker_parts[-1] in ["左", "右", "left", "right"]:
+            side = "right" if speaker_parts[-1] in ["右", "right"] else "left"
         content_lines = []
         line_idx += 1
         while line_idx < len(lines):
@@ -180,6 +347,7 @@ def parse_segawa_script(filepath):
             article["data"].append({
                 "type": "dialogue",
                 "speaker": speaker,
+                "side": side,
                 "content": content_html
             })
 

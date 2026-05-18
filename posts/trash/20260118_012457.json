@@ -1,0 +1,19 @@
+{
+  "title": "未定",
+  "date": "2026/01/18",
+  "type": "math",
+  "order": 0,
+  "published": false,
+  "data": [
+    {
+      "type": "heading",
+      "content": "はじめに"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "学生A",
+      "side": "left",
+      "content": "本文"
+    }
+  ]
+}
