@@ -654,7 +654,7 @@ class SegawaWriter(tk.Tk):
             self.log("Git に公開する変更はありません。")
 
         self.run_git(["status", "--short", "--branch"])
-        self.run_git(["push", "--force-with-lease", "origin", "main"])
+        self.run_git(["push", "--force", "origin", "main"])
 
     def preview_current(self):
         if self.save_current():
