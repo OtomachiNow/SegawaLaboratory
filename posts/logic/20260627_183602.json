@@ -7,13 +7,29 @@
   "data": [
     {
       "type": "heading",
-      "content": "導入"
+      "content": "aaa"
     },
     {
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "ここに栃村の発言を書く。<br>"
+      "content": "ああ<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "あああ<br>"
+    },
+    {
+      "type": "heading",
+      "content": "真理と証明"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "p<br>"
     },
     {
       "type": "dialogue",
