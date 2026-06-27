@@ -3,7 +3,7 @@
   "date": "2026/01/20",
   "type": "math",
   "order": 3.0,
-  "published": true,
+  "published": false,
   "data": [
     {
       "type": "dialogue",

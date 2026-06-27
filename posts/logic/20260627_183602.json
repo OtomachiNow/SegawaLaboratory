@@ -1,0 +1,25 @@
+{
+  "title": "命題論理-5",
+  "date": "2026/06/27",
+  "type": "math",
+  "order": 0,
+  "published": false,
+  "data": [
+    {
+      "type": "heading",
+      "content": "導入"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ここに栃村の発言を書く。<br>"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ここに瀬川の説明を書く。"
+    }
+  ]
+}
