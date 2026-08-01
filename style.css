@@ -339,6 +339,11 @@ summary:hover {
     padding-bottom: 5px;
 }
 .mokuzi p { margin: 10px 0; }
+.mokuzi .archive-link {
+    margin-top: 32px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.14);
+}
 .mokuzi a {
     display: block;
     padding: 10px;
@@ -362,6 +367,7 @@ summary:hover {
     padding-bottom: 50px;
     border-radius: 5px;
 }
+
 .setumei { width: 90%; margin: auto; padding-top: 20px; }
 .katudou { width: 90%; margin: auto; text-align: left; }
 .post {

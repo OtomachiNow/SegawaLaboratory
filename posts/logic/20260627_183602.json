@@ -37,5 +37,7 @@
       "side": "left",
       "content": "ここに瀬川の説明を書く。"
     }
-  ]
+  ],
+  "source": "Title: 命題論理-5\nDate: 2026/06/27\nOrder: 0\nStatus: draft\nType: math\n\n# aaa\n\n栃村 右\n    ああ\n\n瀬川 左\n    あああ\n\n# 真理と証明\n\n栃村 右\n    p\n\n瀬川 左\n    ここに瀬川の説明を書く。\n",
+  "status": "draft"
 }

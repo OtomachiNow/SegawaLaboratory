@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>関係者アーカイブ - 瀬川研究室</title>
+</head>
+<body>
+<main>
+    <h1>関係者アーカイブ</h1>
+    <p>この先は研究室関係者向けの保管記録です。</p>
+    <form id="archive-login">
+        <p>
+            <label for="username">ユーザー名</label><br>
+            <input id="username" name="username" type="text" autocomplete="username" required>
+        </p>
+        <p>
+            <label for="password">パスワード</label><br>
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+        </p>
+        <p><button type="submit">ログイン</button></p>
+        <p id="login-message" aria-live="polite"></p>
+    </form>
+</main>
+
+<hr>
+<footer>
+    &copy; Segawa Laboratory<br>
+    <a href="index.html">トップへ戻る</a>
+</footer>
+
+<script>
+    const archiveAccounts = {
+        HanaSegawa: { password: "1111", page: "archive_hana_segawa.html" },
+        Totimura: { password: "2222", page: "archive_totimura.html" },
+        Kakiyama: { password: "3333", page: "archive_kakiyama.html" }
+    };
+
+    document.getElementById("archive-login").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value;
+        const account = archiveAccounts[username];
+
+        if (account && account.password === password) {
+            window.location.href = account.page;
+            return;
+        }
+
+        document.getElementById("login-message").textContent =
+            "ユーザー名またはパスワードが一致しません。";
+    });
+</script>
+</body>
+</html>

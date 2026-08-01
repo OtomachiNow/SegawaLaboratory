@@ -28,28 +28,5 @@
       "order": 0,
       "type": "math"
     }
-  ],
-  "story": [
-    {
-      "id": "story/20260120_story01",
-      "title": "第1話：罠とドアノブ",
-      "date": "2026/01/20",
-      "order": 1.0,
-      "type": "novel"
-    },
-    {
-      "id": "story/20260120_story02",
-      "title": "第2話：塩昆布と指パッチン",
-      "date": "2026/01/20",
-      "order": 2.0,
-      "type": "novel"
-    },
-    {
-      "id": "story/20260121_story03_1",
-      "title": "第3話：慈悲と生成AI",
-      "date": "2026/01/21",
-      "order": 4.0,
-      "type": "novel"
-    }
   ]
 }

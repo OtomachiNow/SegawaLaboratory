@@ -16,9 +16,9 @@
     <div class="mokuzi">
         <h2>もくじ</h2>
         <p><a href="index.html">トップ</a></p>
-        <p><a href="story.html">ストーリー</a></p>
         <p><a href="seminars.html">ゼミ一覧</a></p>
         <p><a href="about.html">研究室紹介</a></p>
+        <p class="archive-link"><a href="archive_login.html">アーカイブ</a></p>
     </div>
     <div class="main">
         <div class="setumei">
@@ -42,7 +42,7 @@
 <script type="module">
     async function loadPageData() {
         const configPromise = fetch('config.json').then(res => res.json());
-        const postsPromise = fetch('nisi.txt').then(res => res.text());
+        const postsPromise = fetch('nisi.json').then(res => res.json());
 
         configPromise.then(config => {
             document.title = config.site_title || "瀬川研究室";
@@ -58,27 +58,13 @@
             if (nisiTitle) nisiTitle.textContent = config.nisi_title || "日誌";
         }).catch(error => console.error('Failed to load config:', error));
 
-        postsPromise.then(text => {
+        postsPromise.then(posts => {
             const container = document.getElementById('blog-posts');
-            if (!text || text.trim() === "") {
+            if (!Array.isArray(posts) || posts.length === 0) {
                 container.innerHTML = '<p>まだ記事がありません。</p>';
                 return;
             }
             container.innerHTML = '';
-            const lines = text.split(/\r\n|\n/);
-            const posts = [];
-            let currentPost = null;
-            const dateRegex = /^\d{4}\/\d{1,2}\/\d{1,2}\s*$/;
-
-            for (let line of lines) {
-                if (dateRegex.test(line.trim())) {
-                    if (currentPost) posts.push(currentPost);
-                    currentPost = { date: line.trim(), content: [] };
-                } else if (currentPost) {
-                    currentPost.content.push(line);
-                }
-            }
-            if (currentPost) posts.push(currentPost);
 
             posts.forEach(post => {
                 const postDiv = document.createElement('div');
@@ -88,7 +74,7 @@
                 dateDiv.textContent = post.date;
                 const contentDiv = document.createElement('div');
                 contentDiv.className = 'post-content';
-                contentDiv.innerHTML = post.content.join('\n'); 
+                contentDiv.innerHTML = post.body || '';
                 postDiv.appendChild(dateDiv);
                 postDiv.appendChild(contentDiv);
                 container.appendChild(postDiv);

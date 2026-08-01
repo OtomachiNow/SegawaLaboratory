@@ -1,0 +1,7 @@
+2020-06-27 18:40 start
+2020-06-27 18:52 input accepted
+2020-06-27 18:53 unexpected response
+2020-06-27 19:01 retry
+2020-06-27 19:05 stopped
+
+備考：同じ条件で再現せず。
