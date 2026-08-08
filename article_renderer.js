@@ -1,12 +1,25 @@
 (function (global) {
     "use strict";
 
+    function normalizeDisplayMath(text) {
+        return String(text || "").replace(/\$\$([\s\S]*?)\$\$/g, function (_, tex) {
+            return "$$" + tex.replace(/<br\s*\/?\s*>/gi, "\n").replace(/&nbsp;/gi, " ") + "$$";
+        });
+    }
+
     function renderRichText(text) {
         if (!text) return "";
-        return String(text).split(/(\$\$[\s\S]*?\$\$)/g).map(function (part) {
+        return normalizeDisplayMath(text).split(/(\$\$[\s\S]*?\$\$)/g).map(function (part) {
             if (part.startsWith("$$") && part.endsWith("$$")) return part;
             return part.replace(/\n/g, "<br>");
         }).join("");
+    }
+
+    function renderMathContent(text) {
+        var value = normalizeDisplayMath(text).trim();
+        if (!value) return "";
+        if ((value.startsWith("$$") && value.endsWith("$$")) || (value.startsWith("\\[") && value.endsWith("\\]"))) return value;
+        return "$$" + value + "$$";
     }
 
     function render(article, container, speakers) {
@@ -22,7 +35,7 @@
                     if (isNovel) {
                         var novel = document.createElement("p");
                         novel.className = "novel-text";
-                        novel.innerHTML = item.content || "";
+                        novel.innerHTML = renderRichText(item.content);
                         target.appendChild(novel);
                         return;
                     }
@@ -40,7 +53,7 @@
                     icon.style.backgroundColor = profile.color || "#f0f0f0";
                     var bubble = document.createElement("div");
                     bubble.className = "bubble";
-                    bubble.innerHTML = item.content || "";
+                    bubble.innerHTML = renderRichText(item.content);
                     if (profile.color) bubble.style.backgroundColor = profile.color;
                     row.appendChild(icon);
                     row.appendChild(bubble);
@@ -53,12 +66,12 @@
                 } else if (item.type === "text") {
                     var paragraph = document.createElement("p");
                     paragraph.className = isNovel ? "novel-text" : "narrative-text";
-                    paragraph.innerHTML = item.content || "";
+                    paragraph.innerHTML = renderRichText(item.content);
                     target.appendChild(paragraph);
                 } else if (item.type === "math") {
                     var math = document.createElement("div");
                     math.className = "article-math";
-                    math.innerHTML = item.content || "";
+                    math.innerHTML = renderMathContent(item.content);
                     target.appendChild(math);
                 } else if (item.type === "code") {
                     var pre = document.createElement("pre");
@@ -119,7 +132,7 @@
                         var tr = document.createElement("tr");
                         cells.forEach(function (cellText) {
                             var cell = document.createElement(rowIndex === 0 ? "th" : "td");
-                            cell.innerHTML = cellText;
+                            cell.innerHTML = renderRichText(cellText);
                             tr.appendChild(cell);
                         });
                         table.appendChild(tr);
@@ -133,6 +146,6 @@
         return container;
     }
 
-    global.SegawaArticleRenderer = { render: render, renderRichText: renderRichText };
+    global.SegawaArticleRenderer = { render: render, renderRichText: renderRichText, renderMathContent: renderMathContent };
 })(window);
 

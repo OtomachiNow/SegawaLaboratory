@@ -67,6 +67,7 @@
             container.innerHTML = '';
 
             posts.forEach(post => {
+                if (post.published === false) return;
                 const postDiv = document.createElement('div');
                 postDiv.className = 'post';
                 const dateDiv = document.createElement('div');

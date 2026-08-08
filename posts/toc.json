@@ -4,28 +4,35 @@
       "id": "logic/20260112_000003",
       "title": "命題論理-1",
       "date": "2026/01/12",
-      "order": 0,
+      "order": 1.0,
       "type": "math"
     },
     {
       "id": "logic/20260114_000004",
       "title": "命題論理-2",
       "date": "2026/01/14",
-      "order": 0,
+      "order": 2.0,
       "type": "math"
     },
     {
       "id": "logic/20260115_000005",
       "title": "命題論理-3",
       "date": "2026/01/15",
-      "order": 0,
+      "order": 3.0,
       "type": "math"
     },
     {
       "id": "logic/20260121_024106",
       "title": "命題論理-4",
       "date": "2026/01/21",
-      "order": 0,
+      "order": 4.0,
+      "type": "math"
+    },
+    {
+      "id": "logic/20260627_183602",
+      "title": "命題論理-5",
+      "date": "2026/06/27",
+      "order": 5.0,
       "type": "math"
     }
   ]
