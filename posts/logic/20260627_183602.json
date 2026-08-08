@@ -307,7 +307,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "そうね！私がアンタを助けてあげる......体系 $L_a$ を思い出しなさい。<br>"
+      "content": "そうね！私がアンタを助けてあげる......体系 $H_a$ を思い出しなさい。<br>"
     },
     {
       "type": "dialogue",
@@ -331,7 +331,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "そう。少なくとも命題論理においては、MPは体系に含まれていない。$L_a$の定理ではない。私たちが考える必要はない！<br>"
+      "content": "そう。少なくとも命題論理においては、MPは体系に含まれていない。$H_a$の定理ではない。私たちが考える必要はない！<br>"
     },
     {
       "type": "dialogue",
@@ -343,7 +343,7 @@
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "$L_a$で論理を分析するなら、私たちはキャロルのパラドックスから解き放たれるわ！<br>"
+      "content": "$H_a$で論理を分析するなら、私たちはキャロルのパラドックスから解き放たれるわ！<br>"
     },
     {
       "type": "dialogue",
@@ -385,6 +385,11 @@
         }
       ],
       "content": ""
+    },
+    {
+      "type": "box",
+      "title": "",
+      "children": []
     }
   ],
   "status": "public"
