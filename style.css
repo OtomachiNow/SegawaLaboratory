@@ -427,7 +427,7 @@ summary:hover {
 }
 
 /* --- レスポンシブデザイン (スマホ対応) --- */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 640px) {
     body {
         font-size: 14px; /* 文字サイズを小さく */
     }

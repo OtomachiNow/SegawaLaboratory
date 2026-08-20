@@ -1,0 +1,26 @@
+{
+  "title": "命題論理-1.5",
+  "date": "2026/08/19",
+  "order": 1.5,
+  "status": "draft",
+  "type": "math",
+  "published": false,
+  "data": [
+    {
+      "type": "heading",
+      "content": "文章を文字にする"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ところで、前回の定義に出てきた「命題」や「論理」、「論理結合子」って何なんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "「何なんですか？」とかいう質問自体が曖昧ね。"
+    }
+  ]
+}

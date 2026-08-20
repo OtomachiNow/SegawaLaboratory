@@ -355,7 +355,7 @@
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "と言ってもそれは$L_a$であって、僕は閉じ込められたままでは......？？？<br>"
+      "content": "と言ってもそれは$H_a$であって、僕は閉じ込められたままでは......？？？<br>"
     },
     {
       "type": "dialogue",
@@ -381,15 +381,20 @@
       "children": [
         {
           "type": "text",
-          "content": "・ルイスキャロルのパラドックスというものがある<br>・メタと被メタの話がある"
+          "content": "・推論規則と論理式が分けられているのには理由がある<br>・メタと被メタを区別する理由がある"
         }
       ],
       "content": ""
     },
     {
       "type": "box",
-      "title": "",
-      "children": []
+      "title": "宿題",
+      "children": [
+        {
+          "type": "text",
+          "content": "あああ"
+        }
+      ]
     }
   ],
   "status": "public"
