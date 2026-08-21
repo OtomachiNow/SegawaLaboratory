@@ -18,6 +18,28 @@
     },
     {
       "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "はろー！"
+    },
+    {
+      "type": "box",
+      "title": "あ",
+      "children": [
+        {
+          "type": "box",
+          "title": "あ",
+          "children": [
+            {
+              "type": "text",
+              "content": "わははあ"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
       "content": "「何なんですか？」とかいう質問自体が曖昧ね。"
