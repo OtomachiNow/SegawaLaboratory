@@ -66,6 +66,9 @@
                 } else if (item.type === "text") {
                     var paragraph = document.createElement("p");
                     paragraph.className = isNovel ? "novel-text" : "narrative-text";
+                    if (["left", "center", "right"].indexOf(item.align) !== -1) {
+                        paragraph.style.textAlign = item.align;
+                    }
                     paragraph.innerHTML = renderRichText(item.content);
                     target.appendChild(paragraph);
                 } else if (item.type === "math") {

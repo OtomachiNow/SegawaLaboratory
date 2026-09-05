@@ -1,14 +1,14 @@
 {
-  "title": "命題論理-6",
-  "date": "2026/08/13",
-  "order": 6.0,
-  "status": "draft",
-  "type": "math",
-  "published": false,
-  "data": [
-    {
-      "type": "heading",
-      "content": "あああ"
-    }
-  ]
+    "title":  "命題論理-6",
+    "date":  "2026/08/13",
+    "order":  6,
+    "status":  "draft",
+    "type":  "math",
+    "published":  false,
+    "data":  [
+                 {
+                     "type":  "heading",
+                     "content":  "あああ"
+                 }
+             ]
 }

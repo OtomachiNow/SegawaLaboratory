@@ -2,47 +2,716 @@
   "title": "命題論理-1.5",
   "date": "2026/08/19",
   "order": 1.5,
-  "status": "draft",
+  "status": "public",
   "type": "math",
-  "published": false,
+  "published": true,
   "data": [
     {
-      "type": "heading",
-      "content": "文章を文字にする"
-    },
-    {
       "type": "dialogue",
       "speaker": "栃村",
       "side": "right",
-      "content": "ところで、前回の定義に出てきた「命題」や「論理」、「論理結合子」って何なんですか？"
-    },
-    {
-      "type": "dialogue",
-      "speaker": "栃村",
-      "side": "right",
-      "content": "はろー！"
-    },
-    {
-      "type": "box",
-      "title": "あ",
-      "children": [
-        {
-          "type": "box",
-          "title": "あ",
-          "children": [
-            {
-              "type": "text",
-              "content": "わははあ"
-            }
-          ]
-        }
-      ]
+      "content": "瀬川さん．前回の命題論理，まだ引っかかってるところがあるんですけど．"
     },
     {
       "type": "dialogue",
       "speaker": "瀬川",
       "side": "left",
-      "content": "「何なんですか？」とかいう質問自体が曖昧ね。"
+      "content": "宿題ならまだ見ないわよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "宿題より前です．「栃村は頭が悪い」を $p$ 一文字にしたじゃないですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "気に入らないなら「栃村は頭がいい」に替えればいいでしょう．式は作れるわよ，偽でも．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "二回刺さないでください．そうじゃなくて，一文字にしたら僕も頭もどこかに行っちゃうでしょう？何が残ってるんですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "命題よ．細かいところを捨象して……"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "その細かいところを聞いてるんです！"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "……柿山！いる？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "いるよー．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "あとは頼むわ．ちょっと本を取ってくるから．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "えっ，何のあと？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "説明が始まる前のあとです．"
+    },
+    {
+      "type": "heading",
+      "content": "文の中に文がある"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "じゃあ，いったん日本語に戻ろうか．「栃村は20才である」．これが正しいのは，どんなとき？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "栃村が20才のときです．……なぞなぞですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "普通の質問だよ．あ，でも来年の君と今の君じゃ答えが変わっちゃうね．ここでは今の年齢ってことにしておこうか．"
+    },
+    {
+      "type": "text",
+      "content": "栃村は20才である．",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "これを少し長くするね．"
+    },
+    {
+      "type": "text",
+      "content": "栃村は20才であり，柿山は17才である．",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "柿山さん17才なんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "さて，この文が正しいのは？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "僕が20才で，柿山さんが17才のときです．……17才なんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "二つのことを一緒に言っているんだね．区切ってみよう．"
+    },
+    {
+      "type": "text",
+      "content": "［栃村は20才である］かつ［柿山は17才である］",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "さっきの文が，そのまま左にありますね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "うん．「であり」をちょっと言い換えてみたんだ．左だけ読んでも，右だけ読んでも，それぞれ本当かどうか聞けるでしょう？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "大きな文章が，小さな文章二個でできているわけですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "じゃあ，左には $p$，右には $q$ って名前をつけてみようか．"
+    },
+    {
+      "type": "text",
+      "content": "$p$：栃村は20才である．<br>$q$：柿山は17才である．",
+      "align": "center"
+    },
+    {
+      "type": "math",
+      "content": "$$\n(p\\land q)\n$$"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "今度は分かります．名前とか年齢とかを畳んで，「かつ」だけ出しておいたんですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "そうそう．年齢を調べたいなら，これじゃ困るけどね．今は二つを「かつ」でつないだところを見たいから，中身はしまっておこう．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "じゃあ，長い文を丸ごと $r$ としてもいいんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "いいよ．でも，その書き方で「二つとも正しければ，左も正しい」って言おうとすると，ちょっと困らない？"
+    },
+    {
+      "type": "math",
+      "content": "$$\n((p\\land q)\\to p)\n$$"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "ほら，こっちなら左の中にも右にも $p$ があるでしょう．$r$ と $p$ だけだと，初めて見た人には別々の話に見えちゃうよね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "一文字にする範囲で，残る情報が違うんですね．"
+    },
+    {
+      "type": "heading",
+      "content": "もう一段中を見る"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "じゃあ，「かつ」じゃないつなぎ方も見てみようか．これは？"
+    },
+    {
+      "type": "text",
+      "content": "瀬川は，栃村が20才であると思っている．",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "また僕の年齢ですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "今度はどこに，さっきの文が入っているかな．"
+    },
+    {
+      "type": "text",
+      "content": "瀬川は［栃村が20才である］と思っている．",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「は」が「が」になってますけど，括弧の中ですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "そうだね．中を $p$ に替えると，「瀬川は $p$ と思っている」．じゃあ，それをもう一つ包んでみようかな．"
+    },
+    {
+      "type": "text",
+      "content": "柿山は［瀬川が［栃村は20才だ］と思っている］と信じている．",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "僕の年齢について，ずいぶん伝言ゲームをしてますね．本人がここにいるんですけど．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "いちばん内側は君の年齢の話．その外側は華ちゃんが何を思っているかの話．もう一つ外側は，私が何を信じているかの話だね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "同じ文章の中でも，括弧を一つ出ると話題が変わるんですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "うん．ただ横に並んでいるんじゃなくて，中と外があるんだね．こういうのを階層的な構造って呼ぶんだけど，括弧にすると見やすいでしょう？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "まだ外側に足せますよね．「栃村は，柿山が……と信じていると思った」とか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "できるね．一度使った組み立て方を，できあがった文にもう一度使ってる．こういう繰り返しが再帰的な構造だよ．まだ続けてみる？私はそろそろ誰の話か分からなくなりそうだけど．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "僕は既に柿山さんのところで諦めかけました．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "記号にすれば何でも簡単になる，とまでは言わないでおこうね．"
+    },
+    {
+      "type": "heading",
+      "content": "「かつ」で信じてみる"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "でも，これも命題論理っぽくできませんか．「思っている」にも文字をつけて．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "どう書く？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「瀬川さんが信じている」を $q$ として，中身を $p$ として……"
+    },
+    {
+      "type": "math",
+      "content": "$$\nq\\land p\n$$"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "それ，あんたが20才じゃなかったら偽になるじゃない．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "あんまりいい本なかったわ．で，その式は？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「かつ」ですから，片方が偽なら偽ですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "私は年齢を間違えることも許されないの？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "ずいぶん信用されてるね，華ちゃん．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "あっ．僕が19才でも，瀬川さんは20才だと思っていられるわけですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "その場合，「栃村は20才だ」は偽．「瀬川は栃村を20才だと思っている」は真．あんたの式では，それが書けないわ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "それに，「瀬川さんが信じている」って，何を？君の年齢の話は信じても，私の年齢の話には首をかしげるかもしれないよ？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "17才？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "例文だよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "じゃあ，この記号は「かつ」じゃなくて，別のつなぎ方ということで．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "いいよ．どういうつなぎ方？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "……信じている感じの．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "説明するはずの日本語に帰ってきたわね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "まだ名前を決めただけでした．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "でも，別のつなぎ方を考えるのはいいと思うよ．「かつ」なら，両方とも真かどうか聞けば済んだよね．普通の命題論理では，他の結合子もそんなふうに，中の真偽だけで答えを出せるようにしておくんだ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "ところが，あんたの本当の年齢だけ渡されても，私が何を信じてるかは分からないでしょう．知ってるかもしれないし，勘違いしてるかもしれないんだから．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "「中に文が入る」という形は似ていても，同じ計算はできないんですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "うん．新しい記号を書いたあとにも，考えることは残ってるね．誰が何を信じていて，そこから何を言ってよいのか．記号だけ先に決めても，そこは答えてくれないから．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そこまで始めたら今日が終わるわよ．今の命題論理でやるなら，「瀬川がそう信じている」まで丸ごと一文字にしておきましょう．その中の括弧は，ひとまず閉じておくの．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "せっかく見つけた括弧なのに，しまっちゃうんですか．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "惜しくなってきた？でも，今度は何をしまったか分かってるでしょう．最初の $p$ より，少し見通しがよくなったと思わない？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "さて，もっと手前にも括弧はあるわよ．最初の文を見なさい．"
+    },
+    {
+      "type": "text",
+      "content": "栃村は20才である．",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "もう中に文は入ってないですよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "文はね．でも「栃村」と「20才である」には分けられるでしょう．"
+    },
+    {
+      "type": "text",
+      "content": "［栃村］は［20才である］",
+      "align": "center"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "前回の栃村ブレインの話に戻ってきましたね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "プログラムの関数みたいに書くなら，こんな感じかな．"
+    },
+    {
+      "type": "code",
+      "language": "text",
+      "content": "Is20(Tochimura)"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "ここに栃村くんを入れたら，20才かどうかが返ってくる，ってつもりで読んでみて．まだ本物のプログラムじゃないけどね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "さっきの一文字が，また展開されましたね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "そう．開けないんじゃなくて，開けずに使ってたんだよね．誰のことか，その人について何を言うか，と分けていくと，述語論理の方へ進めるよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "じゃあ，今度は僕が変数ということで．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "何の変数よ．あんたの名前だけに，真とか偽とか言うの？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "偽の栃村……？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "出さなくていいわよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "今は人の名前が変わるの．さっき $p$ にしたのは，「栃村は20才だ」まで全部だったでしょう？名前だけ柿山にすれば，柿山の年齢の話になるわね．でも $p$ まるごとは「今は晴れている」とか全然関係ない命題に置き換えられる．そこは一緒にしないでよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "でも，20才だというのも，誕生日とか暦とかに分けられますよね．どこまで開けるんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "誕生日の話をしたくなったら，そこまで開けてもいいんじゃないかな．でも「二つとも正しければ片方も正しい」って話に，誕生日は要りそう？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "言葉の意味を全部説明し尽くしてから記号にするんじゃないわ．今回はここを部品として使う，と決めるの．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "じゃあ「いちばん小さい」は，世界でいちばん小さいわけじゃないんですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "そうだね．命題論理では $p$ を開けずに部品として使ってる．もっと中を見たければ，そのための別の道具を用意するわけだね．"
+    },
+    {
+      "type": "heading",
+      "content": "まとめ"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "最初は，一文字にしたら何も残らないと思ってました．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "今は？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "何を残すかで違いますね．「かつ」を出しておけば二つの文の関係が見えますけど，全部を1文字にしたら，誰が何を信じているのかも見えなくなります．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そうよ．調べたかったところまで見えなくしちゃったら困るでしょう．どこでも好きに切っていい，という話じゃないのよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "その代わり，年齢を捨てれば，天気とか窓の話でも同じ形が使えるんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "そうそう．違う内容から，同じ形を取り出せるんだ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "でも前回の定義だと，日本語がなくても式を作れてましたよね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "日本語に使おうとしたから，今日はこんなに寄り道したのよ．式を作るだけなら，記号と組み立て方があれば始められるわ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "あと，$p$ も論理式って呼んでいいんだよ．$(p\\land q)$ みたいに組み立てたものだけじゃなくて，部品一個だけでもね．ただ，長い方を命題変数とは呼ばないけど．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "ああ．一文字のやつと長いやつを同じ名前で呼ばれるのも，ずっと引っかかってました．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "そこは最初に聞きなさいよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "最初から聞いてましたよ！"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "じゃあ次は，できた式が本当かどうか考えようか．まず $p$ や $q$ が真だったら，偽だったら，って渡してみて，つないだ先がどうなるか確かめるんだ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "その割り当ては，実際の年齢を調べて決めるんですか？"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "瀬川",
+      "side": "left",
+      "content": "年齢の話に使いたければね．でも，本当の年齢を知らなくても「もし真だったら？」とは聞けるでしょう．そうやって，どんな割り当てなら式が真になるか調べていくのよ．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "栃村",
+      "side": "right",
+      "content": "つまり柿山さんが17才かどうかは，まだ分からないんですね．"
+    },
+    {
+      "type": "dialogue",
+      "speaker": "柿山",
+      "side": "left",
+      "content": "今日いちばん熱心に追ってたの，そこだね？"
+    },
+    {
+      "type": "box",
+      "title": "まとめ",
+      "content": "",
+      "children": [
+        {
+          "type": "text",
+          "content": "・文には，文をつないだり，文の中へ別の文を入れたりする構造がある（再帰性）．<br>・形式化するときは，何を一つの部品にまとめ，何の構造を残すかを選ぶ．<br>・「信じている」のような文は，普通の結合子で表せるとは限らない．<br>・命題論理では，命題変数の内部を分析せず，結合子による組み立て方を扱う．"
+        }
+      ]
     }
   ]
 }
