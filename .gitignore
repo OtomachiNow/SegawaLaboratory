@@ -1,0 +1,7 @@
+# Local-only archive gimmick and records.
+# These files are served from this PC, but must not be committed or pushed.
+/archive_login.html
+/archive_hana_segawa.html
+/archive_totimura.html
+/archive_kakiyama.html
+/archive_data/
